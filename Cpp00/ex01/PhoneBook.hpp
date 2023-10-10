@@ -19,10 +19,9 @@
 class PhoneBook
 {
 private:
-	/* data */
-public:
-
 	Contact contacts[8];
+
+public:
 	PhoneBook(void);
 	~PhoneBook(void);
 };
