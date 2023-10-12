@@ -6,7 +6,7 @@
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 13:17:45 by tgellon           #+#    #+#             */
-/*   Updated: 2023/10/10 15:17:43 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2023/10/12 14:44:53 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,14 @@ private:
 	std::string	_darkestSecret;
 
 public:
-	Contact	informations
-	Contact(void);
+	Contact(std::string infos[5]);
 	~Contact(void);
+
+	void	setFirstName(std::string str);
+	void	setLastName(std::string str);
+	void	setNickname(std::string str);
+	void	setPhoneNumber(std::string str);
+	void	setDarkestSecret(std::string str);
 
 	std::string	getFirstName(void) const;
 	std::string	getLastName(void) const;
