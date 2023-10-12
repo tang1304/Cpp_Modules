@@ -6,7 +6,7 @@
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 13:30:57 by tgellon           #+#    #+#             */
-/*   Updated: 2023/10/12 14:29:43 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2023/10/12 18:51:31 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ public:
 	~PhoneBook(void);
 
 	void	addContact();
+	void	searchContact();
 };
 
 #endif

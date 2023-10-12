@@ -6,7 +6,7 @@
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 13:17:45 by tgellon           #+#    #+#             */
-/*   Updated: 2023/10/12 14:44:53 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2023/10/12 17:09:01 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ private:
 	std::string	_darkestSecret;
 
 public:
+	Contact(void);
 	Contact(std::string infos[5]);
 	~Contact(void);
 
