@@ -3,11 +3,12 @@
 CC = g++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 SRCS_DIR = ./
-SRCS = megaphone.cpp
+SRCS = Contact.cpp PhoneBook.cpp main.cpp
 OBJ_DIR = objs/
 OBJ = ${SRCS:%.cpp=${OBJ_DIR}%.o}
-NAME = megaphone
+NAME = phonebook
 RM = rm -f
+HEADERS = Contact.hpp PhoneBook.hpp
 
 # --- COLORS --- #
 
@@ -21,7 +22,7 @@ ${NAME} :	${OBJ}
 		${CC} ${CFLAGS} ${OBJ} -o ${NAME}
 		@echo "${_GREEN}### ${NAME} created ###${_NOC}\n"
 
-${OBJ}: ${OBJ_DIR}%.o :	${SRCS_DIR}%.cpp ${HEADER} 
+${OBJ}: ${OBJ_DIR}%.o :	${SRCS_DIR}%.cpp ${HEADERS} 
 		@mkdir -p objs
 		${CC} ${CFLAGS} -I/usr/include -c $< -o $@
 
