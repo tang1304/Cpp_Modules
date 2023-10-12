@@ -6,11 +6,14 @@
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 13:18:03 by tgellon           #+#    #+#             */
-/*   Updated: 2023/10/12 14:48:28 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2023/10/12 17:08:46 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Contact.hpp"
+
+Contact::Contact(void){
+}
 
 Contact::Contact(std::string infos[5])
 	: _firstName(infos[0]), _lastName(infos[1]), _nickname(infos[2]),
