@@ -6,7 +6,7 @@
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 09:10:31 by tgellon           #+#    #+#             */
-/*   Updated: 2023/10/13 13:02:14 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2023/10/13 15:13:56 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,17 @@ int	main(void){
 			return (1);
 		if (prompt == "ADD")
 			phonebook.addContact();
-		if (prompt == "SEARCH")
+		else if (prompt == "SEARCH")
 			phonebook.searchContact();
-		if (prompt == "EXIT")
+		else if (prompt == "EXIT")
 			return (0);
+		else{
+			std::cout << "You can only enter one of these command :" << std::endl;
+			std::cout << " -ADD" << std::endl;
+			std::cout << " -SEARCH" << std::endl;
+			std::cout << " -EXIT" << std::endl;
+			std::cout << std::endl;
+		}
 	}
 	return (0);
 }
