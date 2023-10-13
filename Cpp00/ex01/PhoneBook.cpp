@@ -6,14 +6,15 @@
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 13:33:05 by tgellon           #+#    #+#             */
-/*   Updated: 2023/10/12 18:52:10 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2023/10/13 14:09:55 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
 
 PhoneBook::PhoneBook(void){
-	return;
+	this->_index = 0;
+	return ;
 }
 
 PhoneBook::~PhoneBook(void){
@@ -58,6 +59,28 @@ void	PhoneBook::addContact(){
 	this->_index++;
 }
 
+Contact	PhoneBook::getContact(int index){
+	return (this->_contacts[index]);
+}
+
+void	PhoneBook::printHeader(void){
+	std::cout << std::right << std::setw(10) << std::setfill  (' ') << "INDEX" << "|";
+	std::cout << std::right << std::setw(10) << std::setfill  (' ') << "FIRST NAME" << "|";
+	std::cout << std::right << std::setw(10) << std::setfill  (' ') << "LAST NAME" << "|";
+	std::cout << std::right << std::setw(10) << std::setfill  (' ') << "NICKNAME" << "|";
+	std::cout << std::endl;
+	return ;
+}
+
 void	PhoneBook::searchContact(void){
-	;
+	if (this->_index == 0){
+		std::cout << "Phonebook empty, add a contact first" << std::endl;
+		return ;
+	}
+	this->printHeader();
+	for (int i = 0; i < this->_index; i++){
+		std::cout << std::right << std::setw(10) << std::setfill  (' ') << i << "|";
+		this->getContact(i).printInfos();
+	}
+	return ;
 }

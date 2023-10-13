@@ -6,7 +6,7 @@
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 13:17:45 by tgellon           #+#    #+#             */
-/*   Updated: 2023/10/12 17:09:01 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2023/10/13 14:00:04 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define CONTACT_HPP
 
 # include <iostream>
+# include <iomanip>
 # include <string>
 
 class Contact{
@@ -28,6 +29,9 @@ public:
 	Contact(void);
 	Contact(std::string infos[5]);
 	~Contact(void);
+
+	void	printInfos();
+	std::string	truncateInfo(std::string info);
 
 	void	setFirstName(std::string str);
 	void	setLastName(std::string str);

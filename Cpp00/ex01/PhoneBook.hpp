@@ -6,7 +6,7 @@
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 13:30:57 by tgellon           #+#    #+#             */
-/*   Updated: 2023/10/12 18:51:31 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2023/10/13 14:12:10 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define PHONEBOOK_HPP
 
 # include <iostream>
+# include <iomanip>
 # include "Contact.hpp"
 
 class PhoneBook
@@ -26,6 +27,8 @@ public:
 	~PhoneBook(void);
 
 	void	addContact();
+	Contact	getContact(int index);
+	void	printHeader();
 	void	searchContact();
 };
 

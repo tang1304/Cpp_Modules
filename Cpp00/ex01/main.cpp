@@ -6,7 +6,7 @@
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 09:10:31 by tgellon           #+#    #+#             */
-/*   Updated: 2023/10/12 18:51:40 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2023/10/13 13:02:14 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,12 @@ int	main(void){
 	while (1){
 		std::cout << "Type your command : ";
 		std::getline(std::cin, prompt);
+		if (std::cin.eof())
+			return (1);
 		if (prompt == "ADD")
 			phonebook.addContact();
 		if (prompt == "SEARCH")
-			phonebook.searchContact;
+			phonebook.searchContact();
 		if (prompt == "EXIT")
 			return (0);
 	}
