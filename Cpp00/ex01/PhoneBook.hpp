@@ -6,7 +6,7 @@
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 13:30:57 by tgellon           #+#    #+#             */
-/*   Updated: 2023/10/13 14:12:10 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2023/10/13 15:22:41 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <iostream>
 # include <iomanip>
+# include <sstream>
 # include "Contact.hpp"
 
 class PhoneBook
