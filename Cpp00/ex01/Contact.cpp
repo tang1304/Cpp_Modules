@@ -6,7 +6,7 @@
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 13:18:03 by tgellon           #+#    #+#             */
-/*   Updated: 2023/10/12 17:08:46 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2023/10/13 13:59:48 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,19 @@ Contact::Contact(std::string infos[5])
 	_phoneNumber(infos[3]), _darkestSecret(infos[4]) {}
 
 Contact::~Contact(void){
+}
+
+std::string	Contact::truncateInfo(std::string info){
+	if (info.size() > 9)
+		return (info.substr(0, 9) + '.');
+	return (info);
+}
+
+void	Contact::printInfos(){
+	std::cout <<  std::right << std::setw(10) << this->truncateInfo(this->_firstName) << "|";
+	std::cout <<  std::right << std::setw(10) << this->truncateInfo(this->_lastName) << "|";
+	std::cout <<  std::right << std::setw(10) << this->truncateInfo(this->_nickname) << "|";
+	std::cout << std::endl;
 }
 
 void	Contact::setFirstName(std::string str){
