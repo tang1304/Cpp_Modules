@@ -6,7 +6,7 @@
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 13:33:05 by tgellon           #+#    #+#             */
-/*   Updated: 2023/10/13 16:20:40 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2023/10/14 14:35:40 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,7 @@ void	PhoneBook::searchContact(void){
 		sIndex >> index;
 		if (index > this->_index || index <= 0){
 			std::cout << "You must enter an index between 1 and " << this->_index << std::endl;
-			// prompt.clear();
+			prompt.clear();
 			continue ;
 		}
 		break ;
