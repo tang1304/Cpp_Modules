@@ -6,7 +6,7 @@
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 13:30:57 by tgellon           #+#    #+#             */
-/*   Updated: 2023/10/13 15:22:41 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2023/10/16 10:03:55 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ class PhoneBook
 private:
 	Contact _contacts[8];
 	int		_index;
+	int		_nbrOfContacts;
 public:
 	PhoneBook(void);
 	~PhoneBook(void);

@@ -1,7 +1,7 @@
 # --- VARIABLES --- #
 
 CC = g++
-CFLAGS = -Wall -Wextra -Werror -std=c++98 -fsanitize=address
+CFLAGS = -Wall -Wextra -Werror -std=c++98 #-fsanitize=address
 SRCS_DIR = ./
 SRCS = Contact.cpp PhoneBook.cpp main.cpp
 OBJ_DIR = objs/

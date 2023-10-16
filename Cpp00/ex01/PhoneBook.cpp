@@ -6,7 +6,7 @@
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 13:33:05 by tgellon           #+#    #+#             */
-/*   Updated: 2023/10/14 14:35:40 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2023/10/16 10:05:27 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 PhoneBook::PhoneBook(void){
 	this->_index = 0;
+	this->_nbrOfContacts = 0;
 	return ;
 }
 
@@ -56,6 +57,8 @@ void	PhoneBook::addContact(){
 		std::getline(std::cin, input);
 		this->_contacts[this->_index % 8].setDarkestSecret(input);
 	}
+	if (this->_nbrOfContacts < 8)
+		this->_nbrOfContacts++;
 	this->_index++;
 }
 
@@ -83,7 +86,7 @@ void	PhoneBook::searchContact(void){
 		return ;
 	}
 	this->printHeader();
-	for (int i = 0; i < this->_index; i++){
+	for (int i = 0; i < this->_nbrOfContacts; i++){
 		std::cout << std::right << std::setw(10) << std::setfill  (' ') << i + 1 << "|";
 		this->getContact(i).printInfos();
 	}
