@@ -6,7 +6,7 @@
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 13:33:05 by tgellon           #+#    #+#             */
-/*   Updated: 2023/10/16 10:05:27 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2023/10/27 15:31:58 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,5 +107,6 @@ void	PhoneBook::searchContact(void){
 	std::cout << "Nickname : " << this->getContact(index - 1).getNickname() << std::endl;
 	std::cout << "Phone number : " << this->getContact(index - 1).getPhoneNumber() << std::endl;
 	std::cout << "Darkest secret : " << this->getContact(index - 1).getDarkestSecret() << std::endl;
+	std::cout << std::endl;
 	return ;
 }
