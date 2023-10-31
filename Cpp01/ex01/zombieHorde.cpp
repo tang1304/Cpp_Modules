@@ -1,26 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   zombieHorde.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/30 09:43:22 by tgellon           #+#    #+#             */
-/*   Updated: 2023/10/31 10:25:26 by tgellon          ###   ########lyon.fr   */
+/*   Created: 2023/10/30 11:27:53 by tgellon           #+#    #+#             */
+/*   Updated: 2023/10/31 10:15:25 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
-Zombie::Zombie(std::string &name){
-	_name = name;
-	std::cout << GREEN << name << " created" << DEFAULT_COLOR <<std::endl;
-}
+Zombie	*zombieHorde(int n, std::string name){
+	Zombie	*horde;
 
-Zombie::~Zombie(){
-	std::cout << RED << this->_name << " destroyed" << DEFAULT_COLOR << std::endl;
-}
-
-void	Zombie::announce(void){
-	std::cout << this->_name << ": BraiiiiiiinnnzzzZ..." << std::endl;
+	horde = new Zombie[n];
+	for (int i = 0; i < n; i++)
+		horde[i].setName(name);
+	return (horde);
 }
