@@ -1,26 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   Zombie.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/30 09:43:22 by tgellon           #+#    #+#             */
-/*   Updated: 2023/10/31 10:25:26 by tgellon          ###   ########lyon.fr   */
+/*   Created: 2023/10/30 09:43:20 by tgellon           #+#    #+#             */
+/*   Updated: 2023/10/31 10:12:21 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#ifndef ZOMBIE_HPP
+# define ZOMBIE_HPP
 
-Zombie::Zombie(std::string &name){
-	_name = name;
-	std::cout << GREEN << name << " created" << DEFAULT_COLOR <<std::endl;
-}
+# include <iostream>
+# include <string>
 
-Zombie::~Zombie(){
-	std::cout << RED << this->_name << " destroyed" << DEFAULT_COLOR << std::endl;
-}
+# define RED "\033[31m"
+# define GREEN "\033[32m"
+# define DEFAULT_COLOR "\033[0m"
 
-void	Zombie::announce(void){
-	std::cout << this->_name << ": BraiiiiiiinnnzzzZ..." << std::endl;
-}
+class Zombie
+{
+private:
+	std::string	_name;
+
+public:
+	Zombie();
+	~Zombie();
+
+	void	announce(void);
+	void	setName(std::string name);
+};
+
+Zombie	*zombieHorde(int n, std::string name);
+
+#endif
