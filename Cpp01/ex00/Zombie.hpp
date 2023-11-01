@@ -6,7 +6,7 @@
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 09:43:20 by tgellon           #+#    #+#             */
-/*   Updated: 2023/10/30 17:20:25 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2023/11/01 11:19:44 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,7 @@
 # define GREEN "\033[32m"
 # define DEFAULT_COLOR "\033[0m"
 
-class Zombie
-{
+class Zombie{
 private:
 	std::string	_name;
 

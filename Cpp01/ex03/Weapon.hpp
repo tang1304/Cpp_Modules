@@ -1,24 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Weapon.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/30 17:07:54 by tgellon           #+#    #+#             */
-/*   Updated: 2023/11/01 10:33:19 by tgellon          ###   ########lyon.fr   */
+/*   Created: 2023/11/01 11:18:24 by tgellon           #+#    #+#             */
+/*   Updated: 2023/11/01 11:47:39 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#ifndef WEAPON_HPP
+# define WEAPON_HPP
 
-int	main()
-{
-	int	nb = 5;
+# include <iostream>
 
-	Zombie	*horde = zombieHorde(nb, "dummy");
-	for (int i = 0; i < nb; i++)
-		horde[i].announce();
-	delete[] horde;
-	return (0);
-}
+class Weapon{
+private:
+	std::string	_type;
+
+public:
+	Weapon(std::string type);
+	~Weapon();
+
+	void		setType(std::string type);
+	std::string	getType() const;
+};
+
+#endif

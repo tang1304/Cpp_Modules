@@ -6,7 +6,7 @@
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 13:33:05 by tgellon           #+#    #+#             */
-/*   Updated: 2023/10/27 15:31:58 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2023/11/01 10:18:54 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,8 +72,6 @@ void	PhoneBook::printHeader(void){
 	std::cout << std::right << std::setw(10) << std::setfill (' ') << "LAST NAME" << "|";
 	std::cout << std::right << std::setw(10) << std::setfill (' ') << "NICKNAME" << "|";
 	std::cout << std::endl;
-	std::cout << std::setw(44) << std::setfill ('-');
-	std::cout << std::endl;
 	return ;
 }
 
@@ -97,6 +95,11 @@ void	PhoneBook::searchContact(void){
 		sIndex >> index;
 		if (index > this->_index || index <= 0){
 			std::cout << "You must enter an index between 1 and " << this->_index << std::endl;
+			prompt.clear();
+			continue ;
+		}
+		else if (prompt.size() != 1){
+			std::cout << "You must enter a number" << std::endl;
 			prompt.clear();
 			continue ;
 		}
