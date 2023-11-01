@@ -5,20 +5,23 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/30 17:07:54 by tgellon           #+#    #+#             */
-/*   Updated: 2023/11/01 10:33:19 by tgellon          ###   ########lyon.fr   */
+/*   Created: 2023/11/01 10:43:11 by tgellon           #+#    #+#             */
+/*   Updated: 2023/11/01 12:22:41 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include <iostream>
 
-int	main()
-{
-	int	nb = 5;
+int main(){
+	std::string brain = "HI THIS IS BRAIN";
+	std::string	*stringPTR = &brain;
+	std::string	&stringREF = brain;
 
-	Zombie	*horde = zombieHorde(nb, "dummy");
-	for (int i = 0; i < nb; i++)
-		horde[i].announce();
-	delete[] horde;
-	return (0);
+	std::cout << &brain << std::endl;
+	std::cout << stringPTR << std::endl;
+	std::cout << &stringREF << std::endl;
+
+	std::cout << brain << std::endl;
+	std::cout << *stringPTR << std::endl;
+	std::cout << stringREF << std::endl;
 }
