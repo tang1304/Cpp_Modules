@@ -3,12 +3,12 @@
 CC = g++
 CFLAGS = -Wall -Wextra -Werror -std=c++98 -g3 #-fsanitize=address
 SRCS_DIR = ./
-SRCS = Zombie.cpp newZombie.cpp randomChump.cpp main.cpp
+SRCS = Harl.cpp main.cpp
 OBJ_DIR = objs/
 OBJ = ${SRCS:%.cpp=${OBJ_DIR}%.o}
-NAME = brainz
+NAME = harl
 RM = rm -f
-HEADERS = Zombie.hpp
+HEADERS = Harl.hpp
 
 # --- COLORS --- #
 

@@ -6,7 +6,7 @@
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 14:28:09 by tgellon           #+#    #+#             */
-/*   Updated: 2023/11/02 12:44:55 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2023/11/02 15:18:39 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <fstream>
 
 int	main(int argc, char **argv){
-	std::string	infile;
+	std::string	fileName;
 	std::string	outfilePath;
 	std::string	content;
 	std::string	s1;
@@ -24,25 +24,25 @@ int	main(int argc, char **argv){
 		std::cerr << "Error, the program must take 3 arguments, a filename and 2 strings" << std::endl;
 		return (0);
 	}
-	std::ifstream inputFile(argv[1]);
-	if (!inputFile.is_open()){
+	std::ifstream infile(argv[1]);
+	if (!infile.is_open()){
 		std::cerr << "Error while trying to open " << argv[1] << std::endl;
 		return (1);
 	}
-	infile = std::string(argv[1]);
-	outfilePath = infile + ".replace";
+	fileName = std::string(argv[1]);
+	outfilePath = fileName + ".replace";
 	std::ofstream outfile(outfilePath.c_str());
 	if (!outfile.is_open()){
 		std::cerr << "Error while trying to open " << outfilePath << std::endl;
-		inputFile.close();
+		infile.close();
 		return (1);
 	}
 	s1 = std::string(argv[2]);
 	s2 = std::string(argv[3]);
 	while (1){
-		if (inputFile.eof())
+		if (infile.eof())
 			break ;
-		std::getline(inputFile, content);
+		std::getline(infile, content);
 		while (1){
 			size_t	found;
 			found = content.find(s1);
@@ -56,7 +56,7 @@ int	main(int argc, char **argv){
 			}
 		}
 	}
-	inputFile.close();
+	infile.close();
 	outfile.close();
 	return (0);
 }
