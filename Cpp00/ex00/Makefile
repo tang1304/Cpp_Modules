@@ -1,7 +1,7 @@
 # --- VARIABLES --- #
 
 CC = g++
-CFLAGS = -Wall -Wextra -Werror -std=c++98
+CFLAGS = -Wall -Wextra -Werror -std=c++98 -g3
 SRCS_DIR = ./
 SRCS = megaphone.cpp
 OBJ_DIR = objs/

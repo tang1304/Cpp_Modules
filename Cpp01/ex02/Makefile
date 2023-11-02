@@ -1,7 +1,7 @@
 # --- VARIABLES --- #
 
 CC = g++
-CFLAGS = -Wall -Wextra -Werror -std=c++98 #-fsanitize=address
+CFLAGS = -Wall -Wextra -Werror -std=c++98 -g3 #-fsanitize=address
 SRCS_DIR = ./
 SRCS = main.cpp
 OBJ_DIR = objs/
