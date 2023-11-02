@@ -6,7 +6,7 @@
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 14:28:09 by tgellon           #+#    #+#             */
-/*   Updated: 2023/11/01 16:39:49 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2023/11/02 12:44:55 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,12 +40,21 @@ int	main(int argc, char **argv){
 	s1 = std::string(argv[2]);
 	s2 = std::string(argv[3]);
 	while (1){
-		std::getline(inputFile, content);
-		
-		outfile << content << '\n';
-		while (1)
 		if (inputFile.eof())
 			break ;
+		std::getline(inputFile, content);
+		while (1){
+			size_t	found;
+			found = content.find(s1);
+			if (found != std::string::npos){
+				outfile << content.substr(0, found) << s2;
+				content = content.substr(found + s1.size());
+			}
+			else{
+				outfile << content;
+				break ;
+			}
+		}
 	}
 	inputFile.close();
 	outfile.close();
