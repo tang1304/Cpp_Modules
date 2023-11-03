@@ -6,7 +6,7 @@
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 12:59:58 by tgellon           #+#    #+#             */
-/*   Updated: 2023/11/02 16:53:35 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2023/11/02 17:03:46 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ int main(void){
     harl.complain("INFO");
     harl.complain("WARNING");
     harl.complain("ERROR");
-    harl.complain("TRY");
+    harl.complain("debug");
+    harl.complain("FALSE");
     return (0);
 }
