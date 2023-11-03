@@ -6,7 +6,7 @@
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 11:18:24 by tgellon           #+#    #+#             */
-/*   Updated: 2023/11/01 11:47:39 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2023/11/03 13:43:52 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ public:
 	~Weapon();
 
 	void		setType(std::string type);
-	std::string	getType() const;
+	const std::string	&getType();
 };
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 14:28:09 by tgellon           #+#    #+#             */
-/*   Updated: 2023/11/02 15:18:39 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2023/11/03 10:46:30 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,19 +21,19 @@ int	main(int argc, char **argv){
 	std::string	s2;
 
 	if (argc != 4){
-		std::cerr << "Error, the program must take 3 arguments, a filename and 2 strings" << std::endl;
+		std::cout << "Error, the program must take 3 arguments, a filename and 2 strings" << std::endl;
 		return (0);
 	}
 	std::ifstream infile(argv[1]);
 	if (!infile.is_open()){
-		std::cerr << "Error while trying to open " << argv[1] << std::endl;
+		std::cout << "Error while trying to open " << argv[1] << std::endl;
 		return (1);
 	}
 	fileName = std::string(argv[1]);
 	outfilePath = fileName + ".replace";
 	std::ofstream outfile(outfilePath.c_str());
 	if (!outfile.is_open()){
-		std::cerr << "Error while trying to open " << outfilePath << std::endl;
+		std::cout << "Error while trying to open " << outfilePath << std::endl;
 		infile.close();
 		return (1);
 	}
