@@ -6,7 +6,7 @@
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 13:33:05 by tgellon           #+#    #+#             */
-/*   Updated: 2023/11/01 10:18:54 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2023/11/06 15:41:08 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,30 +29,40 @@ void	PhoneBook::addContact(){
 	if (this->_index == 8)
 		std::cout << "Writting over " << this->_contacts[this->_index % 8].getFirstName() << std::endl;
 	while (input == ""){
+		if (std::cin.eof())
+				return ;
 		std::cout << "Enter contact's first name : ";
 		std::getline(std::cin, input);
 		this->_contacts[this->_index % 8].setFirstName(input);
 	}
 	input = "";
 	while (input == ""){
+		if (std::cin.eof())
+				return ;
 		std::cout << "Enter contact's last name : ";
 		std::getline(std::cin, input);
 		this->_contacts[this->_index % 8].setLastName(input);
 	}
 	input = "";
 	while (input == ""){
+		if (std::cin.eof())
+				return ;
 		std::cout << "Enter contact's nickname : ";
 		std::getline(std::cin, input);
 		this->_contacts[this->_index % 8].setNickname(input);
 	}
 	input = "";
 	while (input == ""){
+		if (std::cin.eof())
+				return ;
 		std::cout << "Enter contact's phone number : ";
 		std::getline(std::cin, input);
 		this->_contacts[this->_index % 8].setPhoneNumber(input);
 	}
 	input = "";
 	while (input == ""){
+		if (std::cin.eof())
+				return ;
 		std::cout << "Enter contact's darkest secret : ";
 		std::getline(std::cin, input);
 		this->_contacts[this->_index % 8].setDarkestSecret(input);
@@ -89,6 +99,8 @@ void	PhoneBook::searchContact(void){
 		this->getContact(i).printInfos();
 	}
 	while (1){
+		if (std::cin.eof())
+				return ;
 		std::cout << "Select contact's index : ";
 		std::getline(std::cin, prompt);
 		std::istringstream	sIndex(prompt);
