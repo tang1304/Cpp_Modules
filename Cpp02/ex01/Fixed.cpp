@@ -6,7 +6,7 @@
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 08:44:49 by tgellon           #+#    #+#             */
-/*   Updated: 2023/11/06 11:40:22 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2023/11/06 15:00:15 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ FixedPointNbr::FixedPointNbr(){
 
 FixedPointNbr::FixedPointNbr(const int wholeNbr){
 	std::cout << "Int value constructor called" << std::endl;
-	;
+	this->_whole = ;
 }
 
 FixedPointNbr::FixedPointNbr(const int floatNbr){
@@ -51,7 +51,7 @@ int	FixedPointNbr::getRawBits() const{
 }
 
 float	FixedPointNbr::toFloat() const{
-	;
+	this->;
 }
 
 int	FixedPointNbr::toInt() const{
@@ -59,6 +59,6 @@ int	FixedPointNbr::toInt() const{
 }
 
 std::ostream &operator<<(std::ostream &out, FixedPointNbr const &nbr){
-	;
+	out << nbr.toFloat();
 	return (out);
 }

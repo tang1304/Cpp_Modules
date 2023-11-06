@@ -6,7 +6,7 @@
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 13:17:45 by tgellon           #+#    #+#             */
-/*   Updated: 2023/10/14 15:17:10 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2023/11/06 15:42:41 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ private:
 
 public:
 	Contact(void);
-	Contact(std::string infos[5]);
 	~Contact(void);
 
 	void	printInfos();

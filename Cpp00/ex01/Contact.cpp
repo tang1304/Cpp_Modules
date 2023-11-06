@@ -6,7 +6,7 @@
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 13:18:03 by tgellon           #+#    #+#             */
-/*   Updated: 2023/10/14 15:17:12 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2023/11/06 15:42:34 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,6 @@
 
 Contact::Contact(void){
 }
-
-Contact::Contact(std::string infos[5])
-	: _firstName(infos[0]), _lastName(infos[1]), _nickname(infos[2]),
-	_phoneNumber(infos[3]), _darkestSecret(infos[4]) {}
 
 Contact::~Contact(void){
 }
