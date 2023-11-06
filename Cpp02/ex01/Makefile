@@ -6,7 +6,7 @@ SRCS_DIR = ./
 SRCS = Fixed.cpp main.cpp
 OBJ_DIR = objs/
 OBJ = ${SRCS:%.cpp=${OBJ_DIR}%.o}
-NAME = fixed00
+NAME = fixed01
 RM = rm -f
 HEADERS = Fixed.hpp
 
