@@ -6,7 +6,7 @@
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 08:44:49 by tgellon           #+#    #+#             */
-/*   Updated: 2023/11/07 15:29:56 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2023/11/07 16:23:23 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,12 +36,6 @@ Fixed::~Fixed(){
 	std::cout << "Destructor called" << std::endl;
 }
 
-Fixed	&Fixed::operator=(const Fixed &newNbr){
-	std::cout << "Operator overload called" << std::endl;
-	this->setRawBits(newNbr.getRawBits());
-	return (*this);
-}
-
 void	Fixed::setRawBits(int const raw){
 	this->_whole = raw;
 }
@@ -56,6 +50,62 @@ float	Fixed::toFloat() const{
 
 int	Fixed::toInt() const{
 	return (this->getRawBits() >> this->_bits);
+}
+
+
+Fixed	&Fixed::min(Fixed &n1, Fixed &n2){
+	if (n1.toFloat() < n2.toFloat())
+		return (n1);
+	return (n2);
+}
+
+Fixed	&Fixed::max(Fixed &n1, Fixed &n2){
+	if (n1.toFloat() > n2.toFloat())
+		return (n1);
+	return (n2);
+}
+
+const Fixed	&Fixed::min(const Fixed &n1, const Fixed &n2){
+	if (n1.toFloat() < n2.toFloat())
+		return (n1);
+	return (n2);
+}
+
+const Fixed	&Fixed::max(const Fixed &n1, const Fixed &n2){
+	if (n1.toFloat() > n2.toFloat())
+		return (n1);
+	return (n2);
+}
+
+
+Fixed	&Fixed::operator=(const Fixed &newNbr){
+	std::cout << "Operator overload called" << std::endl;
+	this->setRawBits(newNbr.getRawBits());
+	return (*this);
+}
+
+bool	Fixed::operator==(const Fixed &newNbr){
+	return (this->toFloat() == newNbr.toFloat());
+}
+
+bool	Fixed::operator!=(const Fixed &newNbr){
+	return (this->toFloat() != newNbr.toFloat());
+}
+
+bool	Fixed::operator>(const Fixed &newNbr){
+	return (this->toFloat() > newNbr.toFloat());
+}
+
+bool	Fixed::operator<(const Fixed &newNbr){
+	return (this->toFloat() < newNbr.toFloat());
+}
+
+bool	Fixed::operator>=(const Fixed &newNbr){
+	return (this->toFloat() >= newNbr.toFloat());
+}
+
+bool	Fixed::operator<=(const Fixed &newNbr){
+	return (this->toFloat() <= newNbr.toFloat());
 }
 
 std::ostream &operator<<(std::ostream &out, Fixed const &nbr){
