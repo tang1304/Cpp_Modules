@@ -6,7 +6,7 @@
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 08:44:49 by tgellon           #+#    #+#             */
-/*   Updated: 2023/11/06 15:00:15 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2023/11/07 14:23:52 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,12 @@ FixedPointNbr::FixedPointNbr(){
 
 FixedPointNbr::FixedPointNbr(const int wholeNbr){
 	std::cout << "Int value constructor called" << std::endl;
-	this->_whole = ;
+	this->_whole = wholeNbr << this->_bits;
 }
 
-FixedPointNbr::FixedPointNbr(const int floatNbr){
+FixedPointNbr::FixedPointNbr(const float floatNbr){
 	std::cout << "Float value constructor called" << std::endl;
-	;
+	this->_whole = roundf(floatNbr * (1 << this->_bits));
 }
 
 FixedPointNbr::FixedPointNbr(const FixedPointNbr &newNbr){
@@ -51,11 +51,11 @@ int	FixedPointNbr::getRawBits() const{
 }
 
 float	FixedPointNbr::toFloat() const{
-	this->;
+	return (static_cast<float>(this->getRawBits()) / (1 << this->_bits));
 }
 
 int	FixedPointNbr::toInt() const{
-	;
+	return (this->getRawBits() >> this->_bits);
 }
 
 std::ostream &operator<<(std::ostream &out, FixedPointNbr const &nbr){

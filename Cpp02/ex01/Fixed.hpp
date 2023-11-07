@@ -6,7 +6,7 @@
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 08:44:45 by tgellon           #+#    #+#             */
-/*   Updated: 2023/11/06 11:34:45 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2023/11/07 14:10:09 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 # define BITS 8
 
 # include <iostream>
+# include <cmath>
 
 class	FixedPointNbr{
 private:
@@ -34,7 +35,7 @@ public:
 
 	FixedPointNbr();
 	FixedPointNbr(const int wholeNbr);
-	FixedPointNbr(const int floatNbr);
+	FixedPointNbr(const float floatNbr);
 	FixedPointNbr(const FixedPointNbr &newNbr);
 	~FixedPointNbr();
 	FixedPointNbr &operator=(const FixedPointNbr &newNbr);
