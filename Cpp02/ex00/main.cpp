@@ -6,16 +6,16 @@
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 08:43:59 by tgellon           #+#    #+#             */
-/*   Updated: 2023/11/06 10:25:33 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2023/11/07 15:42:01 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
 int main(){
-	FixedPointNbr	a;
-	FixedPointNbr	b(a);
-	FixedPointNbr	c;
+	Fixed	a;
+	Fixed	b(a);
+	Fixed	c;
 
 	c = b;
 	

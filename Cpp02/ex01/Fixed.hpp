@@ -6,7 +6,7 @@
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 08:44:45 by tgellon           #+#    #+#             */
-/*   Updated: 2023/11/07 14:10:09 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2023/11/07 15:39:09 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@
 # include <iostream>
 # include <cmath>
 
-class	FixedPointNbr{
+class	Fixed{
 private:
 
 	int					_whole;
@@ -33,19 +33,21 @@ private:
 
 public:
 
-	FixedPointNbr();
-	FixedPointNbr(const int wholeNbr);
-	FixedPointNbr(const float floatNbr);
-	FixedPointNbr(const FixedPointNbr &newNbr);
-	~FixedPointNbr();
-	FixedPointNbr &operator=(const FixedPointNbr &newNbr);
+	Fixed();
+	Fixed(const int wholeNbr);
+	Fixed(const float floatNbr);
+	Fixed(const Fixed &newNbr);
+	~Fixed();
 
-	void	setRawBits(int const raw);
-	int		getRawBits() const;
-	float	toFloat() const;
-	int		toInt() const;
+	void			setRawBits(int const raw);
+	int				getRawBits() const;
+	float			toFloat() const;
+	int				toInt() const;
+
+	Fixed &operator=(const Fixed &nbr);
+
 };
 
-std::ostream &operator<<(std::ostream &out, FixedPointNbr const &nbr);
+std::ostream &operator<<(std::ostream &out, Fixed const &nbr);
 
 #endif
