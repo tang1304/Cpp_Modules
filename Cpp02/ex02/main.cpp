@@ -6,27 +6,36 @@
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 08:43:59 by tgellon           #+#    #+#             */
-/*   Updated: 2023/11/07 15:43:06 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2023/11/08 10:50:25 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
 int main(){
-	Fixed	a;
-	Fixed	const b(10);
-	Fixed	const c(42.42f);
-	Fixed	const d(b);
-
-	a = Fixed (1234.4321f);
+	Fixed			a;
+	Fixed const		b(Fixed(5.05f) * Fixed(2));
 	
-	std::cout << BLUE << "a nbr is : " << a << DEFAULT_COLOR << std::endl;
-	std::cout << GREEN << "b nbr is : " << b << DEFAULT_COLOR << std::endl;
-	std::cout << YELLOW << "c nbr is : " << c << DEFAULT_COLOR << std::endl;
-	std::cout << RED << "d nbr is : " << d << DEFAULT_COLOR << std::endl;
-
-	std::cout << BLUE << "a nbr is : " << a.toInt() << " as integer" DEFAULT_COLOR << std::endl;
-	std::cout << GREEN << "b nbr is : " << b.toInt() << " as integer" << DEFAULT_COLOR << std::endl;
-	std::cout << YELLOW << "c nbr is : " << c.toInt() << " as integer" << DEFAULT_COLOR << std::endl;
-	std::cout << RED << "d nbr is : " << d.toInt() << " as integer" << DEFAULT_COLOR << std::endl;
+	std::cout << "a: " << a << std::endl;
+    std::cout << "++a: " << ++a << std::endl;
+    std::cout << "--a: " << --a << std::endl;
+    std::cout << "a * b: " << a * b << std::endl;
+    std::cout << "b * a: " << b * a << std::endl;
+    std::cout << "a / b: " << a / b << std::endl;
+    std::cout << "b / a: " << b / a << std::endl;
+    std::cout << "++a: " << ++a << std::endl;
+    std::cout << "a--: " << a-- << std::endl;
+    std::cout << "a: " << a << std::endl;
+    std::cout << "a++: " << a++ << std::endl;
+    std::cout << "a: " << a << std::endl;
+    std::cout << "b: " << b << std::endl;
+    Fixed c = a + b;
+    std::cout << "c: " << c << std::endl;
+    std::cout << "c - a: " << c - a << std::endl;
+	
+	std::cout << "max: " << Fixed::max(a, b) << std::endl;
+	std::cout << "min: " << Fixed::min(a, b) << std::endl;
+	
+	return (0);
+	
 }
