@@ -6,7 +6,7 @@
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 14:28:09 by tgellon           #+#    #+#             */
-/*   Updated: 2023/11/08 11:46:28 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2023/11/08 14:24:13 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ int	main(int argc, char **argv){
 				break ;
 			}
 		}
+		outfile << std::endl;
 	}
 	infile.close();
 	outfile.close();
