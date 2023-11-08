@@ -6,13 +6,13 @@
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 09:43:22 by tgellon           #+#    #+#             */
-/*   Updated: 2023/10/31 10:25:26 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2023/11/08 11:01:02 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
-Zombie::Zombie(std::string &name){
+Zombie::Zombie(std::string name){
 	_name = name;
 	std::cout << GREEN << name << " created" << DEFAULT_COLOR <<std::endl;
 }

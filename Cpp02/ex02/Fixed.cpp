@@ -6,34 +6,29 @@
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 08:44:49 by tgellon           #+#    #+#             */
-/*   Updated: 2023/11/08 10:45:44 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2023/11/08 10:56:26 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
 Fixed::Fixed(){
-	// std::cout << "Default constructor called" << std::endl;
 	this->_whole = 0;
 }
 
 Fixed::Fixed(const int wholeNbr){
-	// std::cout << "Int value constructor called" << std::endl;
 	this->_whole = wholeNbr << this->_bits;
 }
 
 Fixed::Fixed(const float floatNbr){
-	// std::cout << "Float value constructor called" << std::endl;
 	this->_whole = roundf(floatNbr * (1 << this->_bits));
 }
 
 Fixed::Fixed(const Fixed &newNbr){
-	// std::cout << "Copy assignment operator called" << std::endl;
 	*this = newNbr;
 }
 
 Fixed::~Fixed(){
-	// std::cout << "Destructor called" << std::endl;
 }
 
 void	Fixed::setRawBits(int const raw){
