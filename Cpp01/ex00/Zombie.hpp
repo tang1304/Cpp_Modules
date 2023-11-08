@@ -6,7 +6,7 @@
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 09:43:20 by tgellon           #+#    #+#             */
-/*   Updated: 2023/11/01 11:19:44 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2023/11/08 11:01:03 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ private:
 	std::string	_name;
 
 public:
-	Zombie(std::string &name);
+	Zombie(std::string name);
 	~Zombie();
 
 	void announce(void);
