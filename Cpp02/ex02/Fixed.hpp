@@ -6,7 +6,7 @@
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 08:44:45 by tgellon           #+#    #+#             */
-/*   Updated: 2023/11/07 16:22:50 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2023/11/08 10:33:59 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,24 +43,26 @@ public:
 	int					getRawBits() const;
 	float				toFloat() const;
 	int					toInt() const;
-	static Fixed		&min(Fixed &n1, Fixed &n2);//
-	static Fixed		&max(Fixed &n1, Fixed &n2);//
-	const static Fixed	&min(const Fixed &n1, const Fixed &n2);//
-	const static Fixed	&max(const Fixed &n1, const Fixed &n2);//
+	static Fixed		&min(Fixed &n1, Fixed &n2);
+	static Fixed		&max(Fixed &n1, Fixed &n2);
+	const static Fixed	&min(const Fixed &n1, const Fixed &n2);
+	const static Fixed	&max(const Fixed &n1, const Fixed &n2);
 
-	Fixed &operator=(const Fixed &nbr);//
-	bool operator==(const Fixed &nbr);//
-	bool operator!=(const Fixed &nbr);//
-	bool operator>(const Fixed &nbr);//
-	bool operator<(const Fixed &nbr);//
-	bool operator>=(const Fixed &nbr);//
-	bool operator<=(const Fixed &nbr);//
+	Fixed &operator=(const Fixed &nbr);
+	bool operator==(const Fixed &nbr);
+	bool operator!=(const Fixed &nbr);
+	bool operator>(const Fixed &nbr);
+	bool operator<(const Fixed &nbr);
+	bool operator>=(const Fixed &nbr);
+	bool operator<=(const Fixed &nbr);
 
-	Fixed operator+(const Fixed &nbr);
-	Fixed operator-(const Fixed &nbr);
-	Fixed operator*(const Fixed &nbr);
-	Fixed operator/(const Fixed &nbr);
+	Fixed operator+(const Fixed &nbr) const;
+	Fixed operator-(const Fixed &nbr) const;
+	Fixed operator*(const Fixed &nbr) const;
+	Fixed operator/(const Fixed &nbr) const;
 
+	Fixed &operator++();
+	Fixed &operator--();
 	Fixed operator++(int nbr);
 	Fixed operator--(int nbr);
 
