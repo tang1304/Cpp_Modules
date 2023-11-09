@@ -6,7 +6,7 @@
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 08:44:49 by tgellon           #+#    #+#             */
-/*   Updated: 2023/11/07 15:29:56 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2023/11/09 15:02:48 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,18 +27,18 @@ Fixed::Fixed(const float floatNbr){
 	this->_whole = roundf(floatNbr * (1 << this->_bits));
 }
 
-Fixed::Fixed(const Fixed &newNbr){
+Fixed::Fixed(const Fixed &oldNbr){
 	std::cout << "Copy assignment operator called" << std::endl;
-	*this = newNbr;
+	*this = oldNbr;
 }
 
 Fixed::~Fixed(){
 	std::cout << "Destructor called" << std::endl;
 }
 
-Fixed	&Fixed::operator=(const Fixed &newNbr){
+Fixed	&Fixed::operator=(const Fixed &nbr){
 	std::cout << "Operator overload called" << std::endl;
-	this->setRawBits(newNbr.getRawBits());
+	this->setRawBits(nbr.getRawBits());
 	return (*this);
 }
 

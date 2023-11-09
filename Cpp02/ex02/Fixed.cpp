@@ -6,7 +6,7 @@
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 08:44:49 by tgellon           #+#    #+#             */
-/*   Updated: 2023/11/08 10:56:26 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2023/11/09 15:04:07 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ Fixed::Fixed(const float floatNbr){
 	this->_whole = roundf(floatNbr * (1 << this->_bits));
 }
 
-Fixed::Fixed(const Fixed &newNbr){
-	*this = newNbr;
+Fixed::Fixed(const Fixed &oldNbr){
+	*this = oldNbr;
 }
 
 Fixed::~Fixed(){
