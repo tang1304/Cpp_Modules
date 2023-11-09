@@ -6,7 +6,7 @@
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 08:44:45 by tgellon           #+#    #+#             */
-/*   Updated: 2023/11/07 15:41:51 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2023/11/09 15:00:56 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,9 @@ private:
 public:
 
 	Fixed();
-	Fixed(const Fixed &newNbr);
+	Fixed(const Fixed &oldNbr);
 	~Fixed();
-	Fixed &operator=(const Fixed &newNbr);
+	Fixed &operator=(const Fixed &nbr);
 
 	void	setRawBits(int const raw);
 	int		getRawBits() const;
