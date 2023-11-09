@@ -6,7 +6,7 @@
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 13:21:57 by tgellon           #+#    #+#             */
-/*   Updated: 2023/11/09 10:35:16 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2023/11/09 15:50:43 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 
 class ClapTrap{
 	
-private:
+protected:
 
 	std::string		_name;
 	int				_hitPoints;

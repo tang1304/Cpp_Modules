@@ -6,7 +6,9 @@
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 14:34:38 by tgellon           #+#    #+#             */
-/*   Updated: 2023/11/09 14:34:40 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2023/11/09 15:19:18 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "ScavTrap.hpp"
 
