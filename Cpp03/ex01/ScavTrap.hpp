@@ -6,7 +6,7 @@
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 14:34:49 by tgellon           #+#    #+#             */
-/*   Updated: 2023/11/09 16:00:40 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2023/11/10 09:28:19 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,11 @@ public:
 
 	ScavTrap();
 	ScavTrap(std::string name);
-	ScavTrap(conts ScavTrap &cpy);
+	ScavTrap(const ScavTrap &cpy);
 	~ScavTrap();
 	ScavTrap &operator=(const ScavTrap &cpy);
 
+	void	attack(const std::string &target);
 	void	guardGate();
 };
 

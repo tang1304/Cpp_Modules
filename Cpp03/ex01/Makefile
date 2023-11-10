@@ -3,12 +3,12 @@
 CC = g++
 CFLAGS = -Wall -Wextra -Werror -std=c++98 -g3 #-fsanitize=address
 SRCS_DIR = ./
-SRCS = ClapTrap.cpp main.cpp
+SRCS = ClapTrap.cpp ScavTrap.cpp main.cpp
 OBJ_DIR = objs/
 OBJ = ${SRCS:%.cpp=${OBJ_DIR}%.o}
-NAME = claptrap
+NAME = scavtrap
 RM = rm -f
-HEADERS = ClapTrap.hpp
+HEADERS = ClapTrap.hpp ScavTrap.hpp
 
 # --- COLORS --- #
 

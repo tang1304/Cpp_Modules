@@ -6,31 +6,27 @@
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 13:21:23 by tgellon           #+#    #+#             */
-/*   Updated: 2023/11/09 14:24:55 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2023/11/10 10:12:29 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap(){
-	_name = "...";
-	_hitPoints = 10;
-	_energyPoints = 10;
-	_attackDamage = 0;
+ClapTrap::ClapTrap() : _name("..."), _hitPoints(10), _energyPoints(10), _attackDamage(0){
+	std::cout << "Default ClapTrap constructor called" << std::endl;
 }
 
-ClapTrap::ClapTrap(std::string name){
-	_name = name;
-	_hitPoints = 10;
-	_energyPoints = 10;
-	_attackDamage = 0;
+ClapTrap::ClapTrap(std::string name) : _name(name), _hitPoints(10), _energyPoints(10), _attackDamage(0){
+	std::cout << "ClapTrap constructor called" << std::endl;
 }
 
 ClapTrap::ClapTrap(const ClapTrap &cpy){
+	std::cout << "ClapTrap copy constructor called" << std::endl;
 	*this = cpy;
 }
 
 ClapTrap::~ClapTrap(){
+	std::cout << "ClapTrap destructor called" << std::endl;
 }
 
 ClapTrap &ClapTrap::operator=(const ClapTrap &oldClap){
@@ -43,17 +39,18 @@ ClapTrap &ClapTrap::operator=(const ClapTrap &oldClap){
 
 void	ClapTrap::attack(const std::string &target){
 	if (this->_hitPoints <= 0){
-		std::cout << RED << this->_name << " is unable to attack : out of life points." << DEFAULT_COLOR << std::endl;
-		std::cout << std::endl;
+		std::cout << RED << "Claptrap " << this->_name << " is unable to attack : out of life points." << std::endl;
+		std::cout << DEFAULT_COLOR << std::endl;
 		return ;
 	}
 	if (this->_energyPoints <= 0){
-		std::cout << RED << this->_name << " is unable to attack : out of energy points." << DEFAULT_COLOR << std::endl;
-		std::cout << std::endl;
+		std::cout << RED << "Claptrap " << this->_name << " is unable to attack : out of energy points." << std::endl;
+		std::cout << DEFAULT_COLOR << std::endl;
 		return ;
 	}
 	this->_energyPoints--;
-	std::cout << PINK << this->_name << " attacks " << target << ", causing " << this->_attackDamage << " damage point(s)." << std::endl;
+	std::cout << PINK << "Claptrap " << this->_name << " attacks " << target << ", causing ";
+	std::cout << this->_attackDamage << " damage point(s)." << std::endl;
 	std::cout << this->_energyPoints << " energy points left." << DEFAULT_COLOR << std::endl;
 	std::cout << std::endl;
 }
@@ -69,13 +66,13 @@ void	ClapTrap::takeDamage(unsigned int amount){
 
 void	ClapTrap::beRepaired(unsigned int amount){
 	if (this->_hitPoints <= 0){
-		std::cout << RED << this->_name << " is unable to repaire itself : out of life points." << DEFAULT_COLOR << std::endl;
-		std::cout << std::endl;
+		std::cout << RED << this->_name << " is unable to repaire itself : out of life points." << std::endl;
+		std::cout << DEFAULT_COLOR << std::endl;
 		return ;
 	}
 	if (this->_energyPoints <= 0){
-		std::cout << RED << this->_name << " is unable to repaire itself : out of energy points." << DEFAULT_COLOR << std::endl;
-		std::cout << std::endl;
+		std::cout << RED << this->_name << " is unable to repaire itself : out of energy points." << std::endl;
+		std::cout << DEFAULT_COLOR << std::endl;
 		return ;
 	}
 	this->_hitPoints += amount;

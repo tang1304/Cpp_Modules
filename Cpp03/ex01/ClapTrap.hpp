@@ -6,7 +6,7 @@
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 13:21:57 by tgellon           #+#    #+#             */
-/*   Updated: 2023/11/09 15:50:43 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2023/11/10 09:14:21 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 # define DEFAULT_COLOR "\033[0m"
 
 class ClapTrap{
-	
+
 protected:
 
 	std::string		_name;
