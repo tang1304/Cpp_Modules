@@ -6,7 +6,7 @@
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 14:34:38 by tgellon           #+#    #+#             */
-/*   Updated: 2023/11/10 11:01:18 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2023/11/10 11:02:09 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ void	ScavTrap::guardGate(){
 		return ;
 	}
 	this->_energyPoints--;
-	std::cout << BLUE << this->_name << " now guards : YOU SHALL NOT PASS !" <<std::endl;
+	std::cout << BLUE << this->_name << " now guards : 'YOU SHALL NOT PASS !'" <<std::endl;
 	std::cout << this->_energyPoints << " energy points left." << DEFAULT_COLOR << std::endl;
 	std::cout << std::endl;
 }

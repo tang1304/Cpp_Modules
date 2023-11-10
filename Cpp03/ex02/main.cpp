@@ -6,40 +6,39 @@
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 13:20:49 by tgellon           #+#    #+#             */
-/*   Updated: 2023/11/10 11:21:45 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2023/11/10 11:30:13 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
 int main (){
 	std::string	nameA = "CL4P-TP";
 	std::string	nameB = "R2D2";
 	std::string nameC = "W1Z4RD-TP";
+	std::string nameD = "FR4G-TP";
 
 	ClapTrap	alpha(nameA);
 	ClapTrap	beta(nameB);
 	ScavTrap	gamma(nameC);
-	ScavTrap	omega(gamma);
+	FragTrap	omega(nameD);
+	FragTrap	delta(omega);
 
 	alpha.setAttackDamage(3);
 	beta.setAttackDamage(6);
 
-	alpha.attack(gamma.getName());
-	gamma.takeDamage(alpha.getAttackDamage());
+	alpha.attack(omega.getName());
+	omega.takeDamage(alpha.getAttackDamage());
 	beta.attack(alpha.getName());
 	alpha.takeDamage(beta.getAttackDamage());
-	gamma.beRepaired(3);
-	gamma.attack(beta.getName());
-	beta.takeDamage(gamma.getAttackDamage());
-	beta.setAttackDamage(beta.getAttackDamage() * 2);
-	beta.attack(alpha.getName());
-	alpha.attack(omega.getName());
-	alpha.beRepaired(3);
+	omega.beRepaired(3);
+	omega.attack(gamma.getName());
+	gamma.takeDamage(omega.getAttackDamage());
 	gamma.guardGate();
+	omega.highFiveGuys();
 	beta.attack(gamma.getName());
-	omega.setName("SC4V-TP");
-	omega.setEnergyPoints(0);
-	omega.guardGate();
+	delta.setName("B00T-STR4P");
+	delta.setEnergyPoints(0);
+	delta.highFiveGuys();
 }
