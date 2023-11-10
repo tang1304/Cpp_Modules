@@ -6,7 +6,7 @@
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 13:20:49 by tgellon           #+#    #+#             */
-/*   Updated: 2023/11/09 14:26:39 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2023/11/10 09:43:43 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ int main (){
 	ClapTrap	alpha(nameA);
 	ClapTrap	beta(nameB);
 	ClapTrap	gamma;
+	ClapTrap	omega(beta);
 
 	alpha.setAttackDamage(3);
 	beta.setAttackDamage(6);
