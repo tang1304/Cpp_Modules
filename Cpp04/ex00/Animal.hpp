@@ -6,7 +6,7 @@
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 11:35:24 by tgellon           #+#    #+#             */
-/*   Updated: 2023/11/13 13:14:52 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2023/11/13 16:00:49 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,11 @@ public:
 
 	Animal();
 	Animal(const Animal &old);
-	~Animal();
+	virtual ~Animal();
 	Animal &operator=(const Animal &old);
 
 	std::string	getType() const;
-	void		makeSound();
+	virtual void		makeSound();
 };
 
 #endif

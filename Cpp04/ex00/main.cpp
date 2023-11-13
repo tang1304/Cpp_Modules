@@ -6,7 +6,7 @@
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 15:28:06 by tgellon           #+#    #+#             */
-/*   Updated: 2023/11/13 15:39:17 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2023/11/13 15:43:47 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,4 +24,10 @@ std::cout << i->getType() << " " << std::endl;
 i->makeSound();
 j->makeSound();
 meta->makeSound();
+
+delete (meta);
+delete (i);
+delete (j);
+
+return (0);
 }

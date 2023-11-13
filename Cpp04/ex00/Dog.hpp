@@ -6,7 +6,7 @@
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 15:19:16 by tgellon           #+#    #+#             */
-/*   Updated: 2023/11/13 15:20:13 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2023/11/13 16:01:18 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ public:
 	Dog();
 	Dog(std::string type);
 	Dog(const Dog &old);
-	~Dog();
+	virtual ~Dog();
 	Dog &operator=(const Dog &old);
 
 	void	makeSound();
