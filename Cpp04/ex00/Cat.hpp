@@ -6,7 +6,7 @@
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 13:04:56 by tgellon           #+#    #+#             */
-/*   Updated: 2023/11/13 15:31:21 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2023/11/13 16:04:12 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ public:
 	Cat();
 	Cat(std::string type);
 	Cat(const Cat &old);
-	~Cat();
+	virtual ~Cat();
 	Cat &operator=(const Cat &old);
 
 	void	makeSound() const;
