@@ -6,7 +6,7 @@
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 13:21:57 by tgellon           #+#    #+#             */
-/*   Updated: 2023/11/10 15:36:55 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2023/11/13 11:18:39 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 # define BLUE "\033[34m"
 # define PINK "\033[35m"
 # define DARK_GREY "\033[30m"
-# define OTHER "\033[37m"
+# define WHITE "\033[37m"
 # define DEFAULT_COLOR "\033[0m"
 
 class ClapTrap{

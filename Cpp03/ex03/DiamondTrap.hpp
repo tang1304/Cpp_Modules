@@ -6,7 +6,7 @@
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 12:55:57 by tgellon           #+#    #+#             */
-/*   Updated: 2023/11/10 15:17:40 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2023/11/13 11:07:58 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ public:
 	~DiamondTrap();
 	DiamondTrap &operator=(const DiamondTrap &cpy);
 
-	void	attack(const std::string &target);
+	using ScavTrap::attack;
 	void	whoAmI();
 };
 
