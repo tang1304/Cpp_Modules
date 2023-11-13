@@ -6,7 +6,7 @@
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 12:56:01 by tgellon           #+#    #+#             */
-/*   Updated: 2023/11/10 15:34:28 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2023/11/13 11:20:27 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,18 @@ DiamondTrap &DiamondTrap::operator=(const DiamondTrap &oldDiamond){
 }
 
 void	DiamondTrap::whoAmI(){
-	std::cout << OTHER << "Diamondtrap name is: " << this->_name << ", Claptrap name is: " << ClapTrap::_name << std::endl;
+	if (this->_hitPoints <= 0){
+		std::cout << RED << this->_name << " is unable to tell who it is : out of life points." << std::endl;
+		std::cout << DEFAULT_COLOR << std::endl;
+		return ;
+	}
+	if (this->_energyPoints <= 0){
+		std::cout << RED << this->_name << " is unable to tell who it is : out of energy points." << std::endl;
+		std::cout << DEFAULT_COLOR << std::endl;
+		return ;
+	}
+	this->_energyPoints--;
+	std::cout << WHITE << "Diamondtrap name is: " << this->_name << ", Claptrap name is: " << ClapTrap::_name << std::endl;
+	std::cout << this->_energyPoints << " energy points left." << std::endl;
 	std::cout << DEFAULT_COLOR << std::endl;
 }
