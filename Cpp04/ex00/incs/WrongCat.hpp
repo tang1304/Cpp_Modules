@@ -1,30 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   WrongCat.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/13 15:19:16 by tgellon           #+#    #+#             */
-/*   Updated: 2023/11/13 16:01:18 by tgellon          ###   ########lyon.fr   */
+/*   Created: 2023/11/14 10:01:35 by tgellon           #+#    #+#             */
+/*   Updated: 2023/11/14 11:36:45 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef Dog_HPP
-# define Dog_HPP
+#ifndef WRONGCAT_HPP
+# define WRONGCAT_HPP
 
-# include "Animal.hpp"
+# include "../incs/WrongAnimal.hpp"
 
-class Dog : public Animal{
+class WrongCat : public WrongAnimal{
 
 public:
-	Dog();
-	Dog(std::string type);
-	Dog(const Dog &old);
-	virtual ~Dog();
-	Dog &operator=(const Dog &old);
+	WrongCat();
+	WrongCat(std::string type);
+	WrongCat(const WrongCat &old);
+	virtual ~WrongCat();
+	WrongCat &operator=(const WrongCat &old);
 
-	void	makeSound();
+	void	makeSound() const;
 };
 
 #endif

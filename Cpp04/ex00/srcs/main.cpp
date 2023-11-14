@@ -6,13 +6,13 @@
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 15:28:06 by tgellon           #+#    #+#             */
-/*   Updated: 2023/11/13 15:43:47 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2023/11/14 10:46:42 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
-#include "Cat.hpp"
-#include "Dog.hpp"
+#include "../incs/Cat.hpp"
+#include "../incs/Dog.hpp"
+#include "../incs/WrongCat.hpp"
 
 int	main(){
 const Animal* meta = new Animal();
@@ -28,6 +28,17 @@ meta->makeSound();
 delete (meta);
 delete (i);
 delete (j);
+std::cout << std::endl;
+
+const WrongAnimal* wrongMeta = new WrongAnimal();
+const WrongAnimal* k = new WrongCat();
+
+std::cout << k->getType() << " " << std::endl;
+k->makeSound();
+wrongMeta->makeSound();
+
+delete (wrongMeta);
+delete (k);
 
 return (0);
 }

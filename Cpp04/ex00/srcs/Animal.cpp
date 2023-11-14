@@ -6,11 +6,11 @@
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 11:34:54 by tgellon           #+#    #+#             */
-/*   Updated: 2023/11/13 13:14:51 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2023/11/14 10:46:23 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
+#include "../incs/Animal.hpp"
 
 Animal::Animal(){
 	std::cout << GREEN << "Animal default constructor called" << DEFAULT_COLOR << std::endl;
@@ -35,6 +35,6 @@ std::string	Animal::getType() const{
 	return (this->_type);
 }
 
-void	Animal::makeSound(){
+void	Animal::makeSound() const{
 	std::cout << BLUE << "Animal makes unrecognizable sound" << DEFAULT_COLOR << std::endl;
 }
