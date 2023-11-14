@@ -5,25 +5,37 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/14 10:01:35 by tgellon           #+#    #+#             */
-/*   Updated: 2023/11/14 11:44:24 by tgellon          ###   ########lyon.fr   */
+/*   Created: 2023/11/14 09:54:21 by tgellon           #+#    #+#             */
+/*   Updated: 2023/11/14 09:59:19 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WRONGCAT_HPP
-# define WRONGCAT_HPP
+#ifndef WRONGANIMAL_HPP
+# define WRONGANIMAL_HPP
 
-# include "../incs/WrongAnimal.hpp"
+# include <iostream>
 
-class WrongCat : public WrongAnimal{
+# define RED "\033[31m"
+# define GREEN "\033[32m"
+# define YELLOW "\033[33m"
+# define BLUE "\033[34m"
+# define PINK "\033[35m"
+# define DARK_GREY "\033[30m"
+# define DEFAULT_COLOR "\033[0m"
+
+class WrongAnimal{
+protected:
+
+	std::string	_type;
 
 public:
-	WrongCat();
-	WrongCat(std::string type);
-	WrongCat(const WrongCat &old);
-	virtual ~WrongCat();
-	WrongCat &operator=(const WrongCat &old);
 
+	WrongAnimal();
+	WrongAnimal(const WrongAnimal &old);
+	virtual ~WrongAnimal();
+	WrongAnimal &operator=(const WrongAnimal &old);
+
+	std::string		getType() const;
 	void	makeSound() const;
 };
 

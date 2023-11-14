@@ -6,7 +6,7 @@
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 13:04:56 by tgellon           #+#    #+#             */
-/*   Updated: 2023/11/14 11:36:35 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2023/11/14 13:25:11 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ class Cat : public Animal{
 
 public:
 	Cat();
-	Cat(std::string type);
 	Cat(const Cat &old);
 	virtual ~Cat();
 	Cat &operator=(const Cat &old);
