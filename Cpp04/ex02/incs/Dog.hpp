@@ -1,0 +1,35 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/13 15:19:16 by tgellon           #+#    #+#             */
+/*   Updated: 2023/11/14 15:11:47 by tgellon          ###   ########lyon.fr   */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef Dog_HPP
+# define Dog_HPP
+
+# include "../incs/AAnimal.hpp"
+# include "../incs/Brain.hpp"
+
+class Dog : public AAnimal{
+private:
+
+	Brain *_brain;
+
+public:
+
+	Dog();
+	Dog(const Dog &old);
+	virtual ~Dog();
+	Dog &operator=(const Dog &old);
+
+	void	makeSound() const;
+	Brain	*getBrain() const;
+};
+
+#endif
