@@ -1,14 +1,16 @@
 # --- VARIABLES --- #
 
 CC = g++
-CFLAGS = -Wall -Wextra -Werror -std=c++98 -g3 #-fsanitize=address
-SRCS_DIR = ./
-SRCS = Animal.cpp Cat.cpp Dog.cpp main.cpp
+CFLAGS = -Wall -Wextra -Werror -std=c++98 -g3# -fsanitize=address
+SRCS_DIR = ./srcs/
+SRCS = Animal.cpp Cat.cpp Dog.cpp WrongAnimal.cpp WrongCat.cpp main.cpp
 OBJ_DIR = objs/
 OBJ = ${SRCS:%.cpp=${OBJ_DIR}%.o}
 NAME = animal
 RM = rm -f
-HEADERS = Animal.hpp Cat.hpp Dog.hpp
+HEADERS_DIR = ./incs/
+HEADERS_FILES = Animal.hpp Cat.hpp Dog.hpp WrongAnimal.hpp WrongCat.hpp
+HEADERS = $(addprefix ${HEADERS_DIR}/, ${HEADERS_FILES})
 
 # --- COLORS --- #
 

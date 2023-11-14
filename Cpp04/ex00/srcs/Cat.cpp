@@ -6,15 +6,15 @@
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 13:04:07 by tgellon           #+#    #+#             */
-/*   Updated: 2023/11/13 15:38:39 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2023/11/14 10:46:36 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cat.hpp"
+#include "../incs/Cat.hpp"
 
 Cat::Cat(){
 	std::cout << GREEN << "Cat default constructor called" << DEFAULT_COLOR << std::endl;
-	this->_type = "cat";
+	this->_type = "Cat";
 }
 
 Cat::Cat(std::string type){

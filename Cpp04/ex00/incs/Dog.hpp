@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/13 13:04:56 by tgellon           #+#    #+#             */
-/*   Updated: 2023/11/13 16:04:12 by tgellon          ###   ########lyon.fr   */
+/*   Created: 2023/11/13 15:19:16 by tgellon           #+#    #+#             */
+/*   Updated: 2023/11/14 11:36:38 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CAT_HPP
-# define CAT_HPP
+#ifndef Dog_HPP
+# define Dog_HPP
 
-# include "Animal.hpp"
+# include "../incs/Animal.hpp"
 
-class Cat : public Animal{
+class Dog : public Animal{
 
 public:
-	Cat();
-	Cat(std::string type);
-	Cat(const Cat &old);
-	virtual ~Cat();
-	Cat &operator=(const Cat &old);
+	Dog();
+	Dog(std::string type);
+	Dog(const Dog &old);
+	virtual ~Dog();
+	Dog &operator=(const Dog &old);
 
 	void	makeSound() const;
 };
