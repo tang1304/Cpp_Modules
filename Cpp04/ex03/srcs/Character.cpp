@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Charater.cpp                                       :+:      :+:    :+:   */
+/*   Character.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 09:46:23 by tgellon           #+#    #+#             */
-/*   Updated: 2023/11/15 13:25:52 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2023/11/16 15:56:22 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,17 @@ Character &Character::operator=(const Character &old){
 	return (*this);
 }
 
+std::string const & Character::getName() const{
+	return (this->_name);
+}
+
 void	Character::equip(AMateria* m){
 	int	i = 0;
 
+	if (m->getEquiped() == true){
+		std::cout << "Materia already equiped" << std::endl;
+		return ;
+	}
 	while (i < SLOTS){
 		if (this->_inventory[i] == NULL)
 			break ;
@@ -57,7 +65,9 @@ void	Character::equip(AMateria* m){
 		// delete (m) ?
 		return ;
 	}
+	m->setEquiped(1);
 	this->_inventory[i] = m;
+	
 }
 
 void	Character::unequip(int idx){
@@ -67,6 +77,7 @@ void	Character::unequip(int idx){
 	}
 	if (this->_inventory[idx] == NULL)
 		return ;
+	this->_inventory[idx]->setEquiped(0);
 	this->_inventory[idx] = NULL;
 }
 
@@ -78,7 +89,7 @@ void	Character::use(int idx, ICharacter& target){
 	// if (!&target){
 	// 	sts::cout << "";
 	// }
-	if (this->_inventory[idx] = NULL)
+	if (this->_inventory[idx] == NULL)
 		return ;
 	this->_inventory[idx]->use(target);
 }

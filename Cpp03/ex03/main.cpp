@@ -6,7 +6,7 @@
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 13:20:49 by tgellon           #+#    #+#             */
-/*   Updated: 2023/11/13 11:21:51 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2023/11/16 10:29:49 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,9 @@ int main (){
 	// delta.setEnergyPoints(0);
 	// delta.highFiveGuys();
 
+	std::cout << "attaque " << teta.getAttackDamage() <<std::endl;
+	std::cout << "energy "<< teta.getEnergyPoints() <<std::endl;
+	std::cout << "hp "<< teta.getHitPoints() <<std::endl;
 	teta.guardGate();
 	teta.highFiveGuys();
 	teta.attack(alpha.getName());

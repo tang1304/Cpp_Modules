@@ -6,7 +6,7 @@
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 15:55:46 by tgellon           #+#    #+#             */
-/*   Updated: 2023/11/15 15:34:29 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2023/11/16 15:57:11 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,13 @@
 # include <iostream>
 # include "../incs/ICharacter.hpp"
 
+class ICharacter;
+
 class AMateria{
 protected:
 
 	std::string	_type;
+	bool		_equiped;
 
 public:
 
@@ -37,7 +40,9 @@ public:
 	virtual ~AMateria();
 	AMateria &operator=(const AMateria &old);
 
-	std::string const	&getType() const; //Returns the materia type
+	void				setEquiped(bool b);
+	bool				getEquiped() const;
+	std::string const	&getType() const;
 	virtual AMateria*	clone() const = 0;
 	virtual void		use(ICharacter& target);
 
