@@ -3,13 +3,13 @@
 CC = g++
 CFLAGS = -Wall -Wextra -Werror -std=c++98 -g3# -fsanitize=address
 SRCS_DIR = ./srcs/
-SRCS = AMateria.cpp main.cpp
+SRCS = AMateria.cpp Character.cpp Cure.cpp Ice.cpp MateriaSource.cpp main.cpp
 OBJ_DIR = objs/
 OBJ = ${SRCS:%.cpp=${OBJ_DIR}%.o}
 NAME = materia
 RM = rm -f
 HEADERS_DIR = ./incs/
-HEADERS_FILES = AMateria.hpp 
+HEADERS_FILES = AMateria.hpp Character.hpp Cure.hpp Ice.hpp ICharacter.hpp IMateriaSource.hpp MateriaSource.hpp
 HEADERS = $(addprefix ${HEADERS_DIR}/, ${HEADERS_FILES})
 
 # --- COLORS --- #
