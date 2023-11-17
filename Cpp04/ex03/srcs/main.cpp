@@ -6,7 +6,7 @@
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 12:59:23 by tgellon           #+#    #+#             */
-/*   Updated: 2023/11/16 16:00:36 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2023/11/17 13:15:29 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,21 +21,40 @@ int main (){
 	src->learnMateria(new Ice());
 	src->learnMateria(new Cure());
 	src->learnMateria(new Cure());
-	src->learnMateria(new Cure());
+	src->learnMateria(new Cure()); // test you can't store more than 4 MateriaSources
 
 	ICharacter* me = new Character("me");
 	AMateria* tmp;
-	tmp = src->createMateria("ice");
-	me->equip(tmp);
+	AMateria *meGarbage[5];
+
+	tmp = src->createMateria("fire"); // test a non existing MateriaSource
+	for (int i = 0; i < 4; i++){
+		tmp = src->createMateria("ice");
+		me->equip(tmp);
+		meGarbage[i] = tmp;
+	}
 	tmp = src->createMateria("cure");
-	me->equip(tmp);
+	me->equip(tmp); // test trying to equip a 5th materia;
 
 	ICharacter* bob = new Character("bob");
 	bob->equip(tmp);
-	me->use(1, *bob);
-	me->unequip(1);
+	me->use(1, *bob);// test you can use a materia while it's equiped
+	me->use(1, *bob);// test you can use a materia while it's equiped
+	me->use(6, *bob);// test with a wrong inventory slot
+	me->unequip(0);
+	delete (meGarbage[0]);
+	me->use(1, *bob);// trying to use an empty slot
+	bob->use(0, *me);
+
+	//test that an unequiped materia, returns can be equiped again if the AMateria tmp is not replaced
+	tmp = src->createMateria("ice");
+	bob->equip(tmp);
+	me->equip(tmp); // test trying to equip a materia to several Characters
 	bob->use(1, *me);
-	me->use(1, *bob);
+	bob->unequip(1);
+	bob->equip(tmp);
+	bob->use(1, *me);
+	
 	delete bob;
 	delete me;
 	delete src;
