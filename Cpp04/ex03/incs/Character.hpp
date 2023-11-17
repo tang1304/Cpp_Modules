@@ -6,7 +6,7 @@
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 09:46:07 by tgellon           #+#    #+#             */
-/*   Updated: 2023/11/16 14:20:03 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2023/11/17 11:37:07 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,9 @@ public:
 	Character &operator=(const Character &old);
 
 	std::string const & getName() const;
-
-	void	equip(AMateria* m);
-	void	unequip(int idx);
-	void	use(int idx, ICharacter& target);
+	void		equip(AMateria* m);
+	void		unequip(int idx);
+	void		use(int idx, ICharacter& target);
 };
 
 #endif

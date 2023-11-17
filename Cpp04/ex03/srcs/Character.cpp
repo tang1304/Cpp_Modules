@@ -6,7 +6,7 @@
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 09:46:23 by tgellon           #+#    #+#             */
-/*   Updated: 2023/11/16 15:56:22 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2023/11/17 11:37:04 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,9 +86,6 @@ void	Character::use(int idx, ICharacter& target){
 		std::cout << idx << " is not a valid slot index" << std::endl;
 		return ;
 	}
-	// if (!&target){
-	// 	sts::cout << "";
-	// }
 	if (this->_inventory[idx] == NULL)
 		return ;
 	this->_inventory[idx]->use(target);
