@@ -6,7 +6,7 @@
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 15:28:06 by tgellon           #+#    #+#             */
-/*   Updated: 2023/11/14 15:00:32 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2023/11/17 13:29:10 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,16 @@
 
 int	main(){
 
-	Animal	*animals[10];
+	Animal	*animals[4];
 
-	for (int i = 0; i < 10; i++){
-		if (i < 5)
+	for (int i = 0; i < 4; i++){
+		if (i < 2)
 			animals[i] = new Cat;
 		else
 			animals[i] = new Dog;
 	}
-	for (int i = 0; i < 10; i++){
+	animals[2]->makeSound();
+	for (int i = 0; i < 4; i++){
 		delete (animals[i]);
 	}
 
