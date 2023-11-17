@@ -6,7 +6,7 @@
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 09:46:23 by tgellon           #+#    #+#             */
-/*   Updated: 2023/11/17 11:37:04 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2023/11/17 16:15:10 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,8 @@ std::string const & Character::getName() const{
 void	Character::equip(AMateria* m){
 	int	i = 0;
 
+	if (!m)
+		return ;
 	if (m->getEquiped() == true){
 		std::cout << "Materia already equiped" << std::endl;
 		return ;
@@ -62,7 +64,6 @@ void	Character::equip(AMateria* m){
 	}
 	if (i == SLOTS){
 		std::cout << this->_name << " can't equip " << m->getType() << ": inventory full" << std::endl;
-		// delete (m) ?
 		return ;
 	}
 	m->setEquiped(1);

@@ -6,7 +6,7 @@
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 15:18:30 by tgellon           #+#    #+#             */
-/*   Updated: 2023/11/14 14:56:27 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2023/11/17 15:41:53 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@ Dog::Dog(){
 
 Dog::Dog(const Dog &old) : Animal(old){
 	std::cout << GREEN << "Dog copy constructor called" << DEFAULT_COLOR << std::endl;
-	*this = old;
+	this->_type = old.getType();
+	this->_brain = new Brain(*old.getBrain());
 }
 
 Dog::~Dog(){
@@ -29,8 +30,12 @@ Dog::~Dog(){
 }
 
 Dog &Dog::operator=(const Dog &old){
-	this->_type = old.getType();
-	this->_brain = new Brain(*old.getBrain());
+	if (this != &old)
+	{
+		delete this->_brain;
+		this->_type = old.getType();
+		this->_brain = new Brain(*old.getBrain());
+	}
 	return (*this);
 }
 

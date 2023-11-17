@@ -6,7 +6,7 @@
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 13:04:07 by tgellon           #+#    #+#             */
-/*   Updated: 2023/11/14 14:56:10 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2023/11/17 15:37:29 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@ Cat::Cat(){
 
 Cat::Cat(const Cat &old) : Animal(old){
 	std::cout << GREEN << "Cat copy constructor called" << DEFAULT_COLOR << std::endl;
-	*this = old;
+	this->_type = old.getType();
+	this->_brain = new Brain(*old.getBrain());
 }
 
 Cat::~Cat(){
@@ -29,8 +30,12 @@ Cat::~Cat(){
 }
 
 Cat &Cat::operator=(const Cat &old){
-	this->_type = old.getType();
-	this->_brain = new Brain(*old.getBrain());
+	if (this != &old)
+	{
+		delete this->_brain;
+		this->_type = old.getType();
+		this->_brain = new Brain(*old.getBrain());
+	}
 	return (*this);
 }
 
