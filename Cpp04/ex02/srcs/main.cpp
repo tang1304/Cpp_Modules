@@ -6,7 +6,7 @@
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 15:28:06 by tgellon           #+#    #+#             */
-/*   Updated: 2023/11/14 15:35:27 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2023/11/17 13:30:45 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 int	main(){
 
-	// AAnimal	test; 
+	// AAnimal	test; // test shows I can't create an AAnimal
 	AAnimal	*animals[10];
 
 	for (int i = 0; i < 10; i++){
