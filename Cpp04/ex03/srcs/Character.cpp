@@ -6,7 +6,7 @@
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 09:46:23 by tgellon           #+#    #+#             */
-/*   Updated: 2023/11/18 19:26:22 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2023/11/20 11:17:29 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,11 @@ Character::Character(std::string name): _name(name){
 Character::Character(const Character &old){
 	this->_name = old._name;
 	for (int i = 0; i  < 4; i++){
-		if (this->_inventory[i])
+		if (old._inventory[i])
 			this->_inventory[i] = old._inventory[i]->clone();
 		else
 			this->_inventory[i] = NULL;
 	}
-	*this = old;
 }
 
 Character::~Character(){
@@ -41,13 +40,15 @@ Character::~Character(){
 }
 
 Character &Character::operator=(const Character &old){
-	for (int i = 0; i < SLOTS; i++){
-		if (this->_inventory[i])
-			delete (this->_inventory[i]);
-		if (old._inventory[i])
-			this->_inventory[i] = old._inventory[i]->clone();
-		else
-			this->_inventory[i] = NULL;
+	if (this != &old){
+		for (int i = 0; i < SLOTS; i++){
+			if (this->_inventory[i])
+				delete (this->_inventory[i]);
+			if (old._inventory[i])
+				this->_inventory[i] = old._inventory[i]->clone();
+			else
+				this->_inventory[i] = NULL;
+		}
 	}
 	return (*this);
 }
@@ -76,7 +77,6 @@ void	Character::equip(AMateria* m){
 	}
 	m->setEquiped(1);
 	this->_inventory[i] = m;
-	
 }
 
 void	Character::unequip(int idx){
