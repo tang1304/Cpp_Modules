@@ -6,7 +6,7 @@
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 12:59:23 by tgellon           #+#    #+#             */
-/*   Updated: 2023/11/20 11:22:16 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2023/11/20 11:28:09 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int main (){
 	AMateria *meGarbage[5];
 
 	tmp = src->createMateria("fire"); // test a non existing MateriaSource
-	me->equip(tmp);
+	me->equip(tmp); // test to equip NULL
 	for (int i = 0; i < 4; i++){
 		tmp = src->createMateria("ice");
 		me->equip(tmp);
