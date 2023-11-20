@@ -6,7 +6,7 @@
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 12:59:23 by tgellon           #+#    #+#             */
-/*   Updated: 2023/11/18 19:58:20 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2023/11/20 11:22:16 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,20 +55,16 @@ int main (){
 	bob->unequip(1);
 	bob->equip(tmp);
 	bob->use(1, *me);
-	
-	Character* bill = new Character("bill");
-	for (int i =0; i < 4; i++){
-		tmp = src->createMateria("cure");
-		bill->equip(tmp);
-	}
-	Character* john = new Character("john");
-	john = bill;
-	(void)john;
 
-	delete john;
-	delete bill;
-	delete bob;
-	delete me;
+	Character jack;
+	{
+		// Character james = jack; // testing copy construtor
+		Character james;
+		james = jack; // testing operator =
+	}
+
 	delete src;
+	delete me;
+	delete bob;
 	return 0;
 }
