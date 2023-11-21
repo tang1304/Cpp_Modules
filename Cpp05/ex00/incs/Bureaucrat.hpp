@@ -6,7 +6,7 @@
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 13:57:46 by tgellon           #+#    #+#             */
-/*   Updated: 2023/11/20 16:39:35 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2023/11/21 11:23:23 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # define BLUE "\033[34m"
 # define PINK "\033[35m"
 # define DARK_GREY "\033[30m"
-# define DEFAULT_COLOR "\033[0m"
+# define WHITE "\033[0m"
 
 # include <iostream>
 
@@ -43,9 +43,11 @@ public:
 	void		decrement();
 
 	class GradeTooHigh: public std::exception{
+		public:
 		const char *what() const throw();
 	};
 	class GradeTooLow: public std::exception{
+		public:
 		const char *what() const throw();
 	};
 };

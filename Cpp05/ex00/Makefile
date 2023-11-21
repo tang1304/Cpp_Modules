@@ -6,7 +6,7 @@ SRCS_DIR = ./srcs/
 SRCS = main.cpp Bureaucrat.cpp
 OBJ_DIR = objs/
 OBJ = ${SRCS:%.cpp=${OBJ_DIR}%.o}
-NAME = materia
+NAME = bureaucrat
 RM = rm -f
 HEADERS_DIR = ./incs/
 HEADERS_FILES = Bureaucrat.hpp
