@@ -6,11 +6,12 @@
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 14:04:13 by tgellon           #+#    #+#             */
-/*   Updated: 2023/11/21 13:51:52 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2023/11/21 15:38:46 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incs/Bureaucrat.hpp"
+#include "../incs/Form.hpp"
 
 Bureaucrat::Bureaucrat(){
 }
@@ -24,7 +25,7 @@ Bureaucrat::Bureaucrat(std::string name, int grade): _name(name){
 	std::cout << GREEN << this->_name << " created with grade " << this->_grade << WHITE << std::endl;
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat &old): _name(old._name){
+Bureaucrat::Bureaucrat(const Bureaucrat &old) : _name(old._name){
 	*this = old;
 	std::cout << GREEN << this->_name << " created by copy with grade " << this->_grade << WHITE << std::endl;
 }
@@ -64,6 +65,21 @@ void	Bureaucrat::decrement(){
 	return ;
 }
 
+void	Bureaucrat::signForm(Form &form){
+	if (form.getSigned()){
+		std::cout << YELLOW << this->_name << " couldn't sign " << form.getName();
+		std::cout << "because the form is already signed" << WHITE << std::endl;
+	}
+	try{
+		form.beSigned(*this);
+		std::cout << this->_name << " signed " << form.getName() << std::endl;
+	}
+	catch (Form::GradeTooLow &e){
+		std::cout << YELLOW << this->_name << " couldn't sign " << form.getName();
+		std::cout << "because the bureaucrat's grade is too low" << WHITE << std::endl;
+	}
+}
+
 const char	*Bureaucrat::GradeTooHigh::what() const throw(){
 	return ("Error, grade is higher than 1");
 }
@@ -73,6 +89,6 @@ const char	*Bureaucrat::GradeTooLow::what() const throw(){
 }
 
 std::ostream	&operator<<(std::ostream &out, const Bureaucrat &rhs){
-	out << rhs.getName() << ", bureaucrat grade " << rhs.getGrade();
+	out << rhs.getName() << ", bureaucrat grade " << rhs.getGrade() << std::endl;
 	return (out);
 }
