@@ -1,21 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.cpp                                           :+:      :+:    :+:   */
+/*   AForm.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 11:49:17 by tgellon           #+#    #+#             */
-/*   Updated: 2023/11/22 17:41:23 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2023/11/22 18:19:46 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../incs/Form.hpp"
+#include "../incs/AForm.hpp"
 
-Form::Form(){
+AForm::AForm(){
 }
 
-Form::Form(std::string name, int signGrade, int execGrade): _name(name), _signed(0){
+AForm::AForm(std::string name, int signGrade, int execGrade): _name(name), _signed(0){
 	if (signGrade < 1 || execGrade < 1)
 		throw (Bureaucrat::GradeTooHigh());
 	if (signGrade > 150 || execGrade > 150)
@@ -26,7 +26,7 @@ Form::Form(std::string name, int signGrade, int execGrade): _name(name), _signed
 	std::cout << " and executing grade " << this->_execGrade << WHITE << std::endl;
 }
 
-Form::Form(const Form &old):
+AForm::AForm(const AForm &old):
 _name(old._name), _signed(old._signed), _execGrade(old._execGrade), _signGrade(old._signGrade)
 {
 	*this = old;
@@ -34,53 +34,60 @@ _name(old._name), _signed(old._signed), _execGrade(old._execGrade), _signGrade(o
 	std::cout << " and executing grade " << this->_execGrade << WHITE << std::endl;
 }
 
-Form::~Form(){
+AForm::~AForm(){
 }
 
-Form &Form::operator=(const Form &old){
+AForm &AForm::operator=(const AForm &old){
 	if (this != &old){
-		this->_signed = old._signed;
 		this->_execGrade = old._execGrade;
 		this->_signGrade = old._signGrade;
 	}
 	return (*this);
 }
 
-std::string	Form::getName() const{
+std::string	AForm::getName() const{
 	return (this->_name);
 }
 
-bool	Form::getSigned() const{
+bool	AForm::getSigned() const{
 	return (this->_signed);
 }
 
-int	Form::getExecGrade() const{
+int	AForm::getExecGrade() const{
 	return (this->_execGrade);
 }
 
-int	Form::getSignGrade() const{
+int	AForm::getSignGrade() const{
 	return (this->_signGrade);
 }
 
-void	Form::beSigned(Bureaucrat &bur){
+void	AForm::setSigned(bool b){
+	this->_signed = b;
+}
+
+void	AForm::beSigned(Bureaucrat &bur){
 	if (bur.getGrade() <= this->_signGrade)
 		this->_signed = 1;
 	else{
 		std::cout << YELLOW << bur.getName() << " couldn't sign " << this->_name;
 		std::cout << " form because " << WHITE << std::endl;
-		throw (Form::GradeTooLow());
+		throw (AForm::GradeTooLow());
 	}
 }
 
-const char	*Form::GradeTooHigh::what() const throw(){
+const char	*AForm::GradeTooHigh::what() const throw(){
 	return ("form's grade is too high");
 }
 
-const char	*Form::GradeTooLow::what() const throw(){
+const char	*AForm::GradeTooLow::what() const throw(){
 	return ("form's grade is too low");
 }
 
-std::ostream	&operator<<(std::ostream &out, const Form &rhs){
+const char	*AForm::FormNotSigned::what() const throw(){
+	return ("Form is not signed");
+}
+
+std::ostream	&operator<<(std::ostream &out, const AForm &rhs){
 	out << rhs.getName() << " form is signed ? " << rhs.getSigned() << std::endl;
 	out << "Signin grade is at least " << rhs.getSignGrade() << ", executing grade is at least " << rhs.getExecGrade();
 	return (out);
