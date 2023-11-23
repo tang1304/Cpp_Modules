@@ -6,7 +6,7 @@
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 13:57:46 by tgellon           #+#    #+#             */
-/*   Updated: 2023/11/21 15:17:40 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2023/11/23 13:28:54 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 
 # include <iostream>
 
-class Form;
+class AForm;
 
 class Bureaucrat{
 private:
@@ -43,7 +43,7 @@ public:
 	int			getGrade() const;
 	void		increment();
 	void		decrement();
-	void		signForm(Form &form);
+	void		signForm(AForm &form);
 
 	class GradeTooHigh: public std::exception{
 		public:
