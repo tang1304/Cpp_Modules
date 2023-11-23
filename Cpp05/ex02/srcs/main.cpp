@@ -6,12 +6,14 @@
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 09:35:52 by tgellon           #+#    #+#             */
-/*   Updated: 2023/11/22 14:57:03 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2023/11/23 14:09:40 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incs/Bureaucrat.hpp"
-#include "../incs/Form.hpp"
+#include "../incs/PresidentialPardonForm.hpp"
+#include "../incs/RobotomyRequestForm.hpp"
+#include "../incs/ShrubberyCreationForm.hpp"
 
 int	main(){
 	// try{
@@ -42,22 +44,21 @@ int	main(){
 		Bureaucrat john = Bureaucrat("John", 1);
 		// Bureaucrat bob = Bureaucrat("bob", 170);
 		Bureaucrat bill = Bureaucrat("Bill", 150);
-		Form johnForm = Form("2B", 20, 20);
+		PresidentialPardonForm johnForm = PresidentialPardonForm("john");
+		RobotomyRequestForm jackForm = RobotomyRequestForm("jack");
+		ShrubberyCreationForm billForm = ShrubberyCreationForm("bill");
 		// johnForm.beSigned(bill);
 		std::cout << johnForm << std::endl;
-		if (johnForm.getSigned())
-			std::cout << "2B form is signed.\n";
-		else
-			std::cout << "2B form not signed.\n";
 		john.signForm(johnForm);
-		if (johnForm.getSigned())
-			std::cout << "2B form is signed.\n";
-		else
-			std::cout << "2B form not signed.\n";
+		johnForm.execute(john);
+		john.signForm(jackForm);
+		jackForm.execute(john);
+		john.signForm(billForm);
+		billForm.execute(john);
 	}
 	catch (std::exception &e){
 		std::cout << YELLOW << e.what() << WHITE << std::endl;
-		// return(1);
+		return(1);
 	}
 	return (0);
 }

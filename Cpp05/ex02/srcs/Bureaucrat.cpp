@@ -6,12 +6,12 @@
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 14:04:13 by tgellon           #+#    #+#             */
-/*   Updated: 2023/11/22 14:54:01 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2023/11/23 13:55:11 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incs/Bureaucrat.hpp"
-#include "../incs/Form.hpp"
+#include "../incs/AForm.hpp"
 
 Bureaucrat::Bureaucrat(){
 }
@@ -65,16 +65,16 @@ void	Bureaucrat::decrement(){
 	return ;
 }
 
-void	Bureaucrat::signForm(Form &form){
+void	Bureaucrat::signForm(AForm &form){
 	if (form.getSigned()){
 		std::cout << YELLOW << this->_name << " couldn't sign " << form.getName();
 		std::cout << " because the form is already signed" << WHITE << std::endl;
 	}
 	try{
 		form.beSigned(*this);
-		std::cout << BLUE << this->_name << " signed " << form.getName() << WHITE << std::endl;
+		std::cout << BLUE << this->_name << " signed form " << form.getName() << WHITE << std::endl;
 	}
-	catch (Form::GradeTooLow &e){
+	catch (AForm::GradeTooLow &e){
 		std::cout << YELLOW << this->_name << " couldn't sign " << form.getName();
 		std::cout << "because the bureaucrat's grade is too low" << WHITE << std::endl;
 	}
