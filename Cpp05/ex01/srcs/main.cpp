@@ -6,7 +6,7 @@
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 09:35:52 by tgellon           #+#    #+#             */
-/*   Updated: 2023/11/22 14:57:03 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2023/11/24 09:58:41 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,6 @@ int	main(){
 	}
 	catch (std::exception &e){
 		std::cout << YELLOW << e.what() << WHITE << std::endl;
-		// return(1);
 	}
 	return (0);
 }
