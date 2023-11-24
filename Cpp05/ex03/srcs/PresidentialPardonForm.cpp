@@ -6,17 +6,17 @@
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 11:17:45 by tgellon           #+#    #+#             */
-/*   Updated: 2023/11/23 13:54:31 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2023/11/24 09:40:08 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "../incs/PresidentialPardonForm.hpp"
 
-PresidentialPardonForm::PresidentialPardonForm(): AForm("PresidentialPardon", 25, 5), 
+PresidentialPardonForm::PresidentialPardonForm(): AForm("presidential pardon", 25, 5), 
 _target("none"){}
 
 PresidentialPardonForm::PresidentialPardonForm(std::string target):
-	AForm("PresidentialPardon", 25, 5), _target(target){}
+	AForm("presidential pardon", 25, 5), _target(target){}
 
 PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &old): AForm(old){
 	*this = old;

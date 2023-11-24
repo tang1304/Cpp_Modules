@@ -6,17 +6,17 @@
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 10:40:49 by tgellon           #+#    #+#             */
-/*   Updated: 2023/11/23 13:38:09 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2023/11/24 09:39:57 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incs/RobotomyRequestForm.hpp"
 
-RobotomyRequestForm::RobotomyRequestForm(): AForm("RobotomyRequest", 72, 45), 
+RobotomyRequestForm::RobotomyRequestForm(): AForm("robotomy request", 72, 45), 
 _target("none"){}
 
 RobotomyRequestForm::RobotomyRequestForm(std::string target):
-	AForm("RobotomyRequest", 72, 45), _target(target){}
+	AForm("robotomy request", 72, 45), _target(target){}
 
 RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &old): AForm(old){
 	*this = old;
