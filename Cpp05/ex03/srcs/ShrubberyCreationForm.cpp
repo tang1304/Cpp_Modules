@@ -6,17 +6,17 @@
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 11:49:17 by tgellon           #+#    #+#             */
-/*   Updated: 2023/11/23 13:30:12 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2023/11/24 09:39:48 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incs/ShrubberyCreationForm.hpp"
 
-ShrubberyCreationForm::ShrubberyCreationForm(): AForm("shrubberyCreationForm", 145, 137), 
+ShrubberyCreationForm::ShrubberyCreationForm(): AForm("shrubbery creation", 145, 137), 
 _target("none"){}
 
 ShrubberyCreationForm::ShrubberyCreationForm(std::string target):
-	AForm("shrubberyCreationForm", 145, 137), _target(target){}
+	AForm("shrubbery creation", 145, 137), _target(target){}
 
 ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &old): AForm(old){
 	*this = old;

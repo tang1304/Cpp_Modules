@@ -6,7 +6,7 @@
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 14:39:01 by tgellon           #+#    #+#             */
-/*   Updated: 2023/11/23 15:42:51 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2023/11/24 09:41:54 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,12 @@ Intern::~Intern(){
 }
 
 Intern	&Intern::operator=(const Intern &old){
+	(void)old;
 	return (*this);
 }
 
 AForm *Intern::makeForm(std::string formName, std::string target){
-	std::string forms[3] = {"PresidentialPardon", "RobotomyRequest", "ShrubberyCreation"};
+	std::string forms[3] = {"presidential pardon", "robotomy request", "shrubbery creation"};
 	int	i;
 	for (i = 0; i < 3; i++){
 		if (forms[i] == formName)
