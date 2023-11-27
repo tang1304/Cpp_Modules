@@ -6,7 +6,7 @@
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 09:59:23 by tgellon           #+#    #+#             */
-/*   Updated: 2023/11/24 15:21:06 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2023/11/27 15:42:42 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <iostream>
 # include <sstream>
+# include <ctype.h>
 
 # define RED "\033[31m"
 # define GREEN "\033[32m"
@@ -23,6 +24,13 @@
 # define PINK "\033[35m"
 # define DARK_GREY "\033[30m"
 # define WHITE "\033[0m"
+# define WRONG 0
+# define CHAR 1
+# define INT 2
+# define FLOAT 3
+# define DOUBLE 4
+# define P_FLOAT 5
+# define P_DOUBLE 6
 
 class ScalarConverter{
 private:
@@ -34,7 +42,21 @@ private:
 public:
 
 	static void	convert(const std::string literal);
+	int			typeCheck(std::string input);
+	bool		isChar(std::string input);
+	bool		isInt(std::string input);
+	bool		isFloat(std::string input);
+	bool		isPseudoFloat(std::string input);
+	bool		isDouble(std::string input);
+	bool		isPseudoDouble(std::string input);
 
+	class InputEmpty: public std::exception{
+		public:
+		const char *what() const throw();
+	};
+	class WrongInput: public std::exception{
+		const char *what() const throw();
+	};
 };
 
 #endif
