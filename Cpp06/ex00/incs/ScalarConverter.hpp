@@ -6,7 +6,7 @@
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 09:59:23 by tgellon           #+#    #+#             */
-/*   Updated: 2023/11/27 15:42:42 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2023/11/28 11:55:26 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 # include <iostream>
 # include <sstream>
 # include <ctype.h>
+# include <cstdlib>
+# include <climits>
 
 # define RED "\033[31m"
 # define GREEN "\033[32m"
@@ -42,7 +44,7 @@ private:
 public:
 
 	static void	convert(const std::string literal);
-	int			typeCheck(std::string input);
+	int			typeCheck(const std::string input);
 	bool		isChar(std::string input);
 	bool		isInt(std::string input);
 	bool		isFloat(std::string input);

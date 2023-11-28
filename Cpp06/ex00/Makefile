@@ -3,13 +3,13 @@
 CC = g++
 CFLAGS = -Wall -Wextra -Werror -std=c++98 -g3# -fsanitize=address
 SRCS_DIR = ./srcs/
-SRCS = main.cpp Bureaucrat.cpp
+SRCS = main.cpp ScalarConverter.cpp
 OBJ_DIR = objs/
 OBJ = ${SRCS:%.cpp=${OBJ_DIR}%.o}
-NAME = bureaucrat
+NAME = convert
 RM = rm -f
 HEADERS_DIR = ./incs/
-HEADERS_FILES = Bureaucrat.hpp
+HEADERS_FILES = ScalarConverter.hpp
 HEADERS = $(addprefix ${HEADERS_DIR}/, ${HEADERS_FILES})
 
 # --- COLORS --- #
