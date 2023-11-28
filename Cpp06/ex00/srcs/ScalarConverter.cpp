@@ -6,23 +6,24 @@
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 09:59:04 by tgellon           #+#    #+#             */
-/*   Updated: 2023/11/27 16:18:55 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2023/11/28 15:54:14 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "ScalarConverter.hpp"
+# include "../incs/ScalarConverter.hpp"
 
 ScalarConverter::ScalarConverter(){
 }
 
 ScalarConverter::ScalarConverter(const ScalarConverter &old){
-	;
+	*this = old;
 }
 
 ScalarConverter::~ScalarConverter(){
 }
 
 ScalarConverter	&ScalarConverter::operator=(const ScalarConverter &old){
+	(void)old;
 	return (*this);
 }
 
@@ -35,13 +36,13 @@ const char	*ScalarConverter::WrongInput::what() const throw(){
 }
 
 bool	ScalarConverter::isChar(std::string input){
-	if (input.length() == 1 && (isprint(input[0]) && !isalnum(input[0])));
+	if (input.length() == 1 && (isprint(input[0]) && !isdigit(input[0])))
 		return (true);
 	return (false);
 }
 
 bool	ScalarConverter::isInt(std::string input){
-	for (int i = 0; i < input.length(); i++){
+	for (size_t i = 0; i < input.length(); i++){
 		if (i == 0 && (input[i] == '-' || input[i] == '+'))
 			continue ;
 		if (input[i] < '0' || input[i] > '9')
@@ -51,18 +52,34 @@ bool	ScalarConverter::isInt(std::string input){
 }
 
 bool	ScalarConverter::isFloat(std::string input){
-	int	dott;
-
-	dott == input.find_first_of('.', 0);
-	if (!dott || !input.find_first_of('f', input.length()))
+	size_t	dott = input.find_first_of('.', 0);
+	if (!dott || input.find_first_of('f', input.length()) <= dott + 1 || !input.find_first_of('f', input.length())) // needs modification
 		return (false);
-	for (int i = 0; i < dott; i++){
+	for (size_t i = 0; i < dott; i++){
 		if (i == 0 && (input[i] == '-' || input[i] == '+'))
 			continue ;
 		if (input[i] < '0' || input[i] > '9')
 			return (false);
 	}
-	for (int i = dott + 1; i < input.length(); i++){
+	for (size_t i = dott + 1; i < input.length() - 1; i++){
+		if (input[i] < '0' || input[i] > '9')
+			return (false);
+	}
+	(void)dott;
+	return (true);
+}
+
+bool	ScalarConverter::isDouble(std::string input){
+	size_t	dott = input.find_first_of('.', 0);
+	if (!dott)
+		return (false);
+	for (size_t i = 0; i < dott; i++){
+		if (i == 0 && (input[i] == '-' || input[i] == '+'))
+			continue ;
+		if (input[i] < '0' || input[i] > '9')
+			return (false);
+	}
+	for (size_t i = dott + 1; i <= input.length() - 1; i++){
 		if (input[i] < '0' || input[i] > '9')
 			return (false);
 	}
@@ -87,26 +104,7 @@ bool	ScalarConverter::isPseudoDouble(std::string input){
 	return (false);
 }
 
-bool	ScalarConverter::isDouble(std::string input){
-	int	dott;
-
-	dott == input.find_first_of('.', 0);
-	if (!dott)
-		return (false);
-	for (int i = 0; i < dott; i++){
-		if (i == 0 && (input[i] == '-' || input[i] == '+'))
-			continue ;
-		if (input[i] < '0' || input[i] > '9')
-			return (false);
-	}
-	for (int i = dott + 1; i <= input.length(); i++){
-		if (input[i] < '0' || input[i] > '9')
-			return (false);
-	}
-	return (true);
-}
-
-int	ScalarConverter::typeCheck(std::string input){
+int	ScalarConverter::typeCheck(const std::string input){
 	if (isChar(input))
 		return (CHAR);
 	else if (isInt(input))
@@ -122,12 +120,13 @@ int	ScalarConverter::typeCheck(std::string input){
 	return (WRONG);
 }
 
-static void	convert(const std::string literal){
-	std::istringstream	checker;
+void	ScalarConverter::convert(const std::string literal){
+	ScalarConverter	converter;
 
 	if (literal.empty())
 		throw ScalarConverter::InputEmpty();
-	int	type = typeCheck(literal);
+	int	type ;
+	type = converter.typeCheck(literal);
 	switch (type){
 		case (WRONG):{
 			throw ScalarConverter::WrongInput();
@@ -136,28 +135,63 @@ static void	convert(const std::string literal){
 		case (CHAR):{
 			std::cout << "char: " << literal[0] << std::endl;
 			std::cout << "int: " << static_cast<int>(literal[0]) << std::endl;
-			std::cout << "float: " << static_cast<float>(literal[0]) << "f" <<std::endl;
-			std::cout << "double: " << static_cast<double>(literal[0]) << std::endl;
+			std::cout << "float: " << static_cast<float>(literal[0]) << ".0f" <<std::endl;
+			std::cout << "double: " << static_cast<double>(literal[0]) << ".0" << std::endl;
 			break ;
 		}
 		case (INT):{
+std::cout<<"int"<<std::endl;
+			long long	longNb = std::strtol(literal.c_str(), NULL, 10);
+			double	doubleNb = std::strtof(literal.c_str(), NULL);
+			if (longNb > 31 && longNb < 127)
+				std::cout << "char: (" << static_cast<char>(longNb) << ")" << std::endl;
+			else
+				std::cout << "char: impossible" << std::endl;
+			if (longNb <= INT_MAX && longNb >= INT_MIN)
+				std::cout << "int: " << static_cast<int>(longNb) << std::endl;
+			else
+				std::cout << "int: impossible" << std::endl;
+			std::cout << "float: " << static_cast<float>(doubleNb) << "f" <<std::endl;
+			std::cout << "double: " << static_cast<double>(doubleNb) << std::endl;
 			break ;
 		}
 		case (FLOAT):{
-			;
+std::cout<<"float"<<std::endl;
+			float	floatNb = std::strtof(literal.c_str(), NULL);
+			if (floatNb > 31 && floatNb < 127)
+				std::cout << "char: (" << static_cast<char>(floatNb) << ")" << std::endl;
+			else
+				std::cout << "char: impossible" << std::endl;
+			if (floatNb <= INT_MAX && floatNb >= INT_MIN)
+				std::cout << "int: " << static_cast<int>(floatNb) << std::endl;
+			else
+				std::cout << "int: impossible" << std::endl;
+			std::cout << "float: " << static_cast<float>(floatNb) << "f" <<std::endl;
+			std::cout << "double: " << static_cast<double>(floatNb) << std::endl;
 			break ;
 		}
 		case (DOUBLE):{
-			;
+std::cout<<"double"<<std::endl;
+			double	doubleNb = std::strtof(literal.c_str(), NULL);
+			if (doubleNb > 31 && doubleNb < 127)
+				std::cout << "char: (" << static_cast<char>(doubleNb) << ")" << std::endl;
+			else
+				std::cout << "char: impossible" << std::endl;
+			if (doubleNb <= INT_MAX && doubleNb >= INT_MIN)
+				std::cout << "int: " << static_cast<int>(doubleNb) << std::endl;
+			else
+				std::cout << "int: impossible" << std::endl;
+			std::cout << "float: " << static_cast<float>(doubleNb) << "f" <<std::endl;
+			std::cout << "double: " << static_cast<double>(doubleNb) << std::endl;
 			break ;
 		}
-		case (P_FLOAT):{
-			;
-			break ;
-		}
-		case (P_DOUBLE):{
-			;
-			break ;
-		}
+		// case (P_FLOAT):{
+		// 	;
+		// 	break ;
+		// }
+		// case (P_DOUBLE):{
+		// 	;
+		// 	break ;
+		// }
 	}
 }

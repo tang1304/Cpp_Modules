@@ -6,17 +6,23 @@
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 13:37:03 by tgellon           #+#    #+#             */
-/*   Updated: 2023/11/27 10:52:35 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2023/11/28 10:41:53 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScalarConverter.hpp"
+#include "../incs/ScalarConverter.hpp"
 
 int	main(int argc, char **argv){
-	if (argc != 2){
+	try {
+		if (argc != 2){
 		std::cout << YELLOW << "Please enter only one argument" << WHITE << std::endl;
 		return (1);
+		}
+		const std::string	literal = argv[1];
+		ScalarConverter::convert(literal);
 	}
-	const std::string	literal = argv[1];
-	ScalarConverter::convert(literal);
+	catch (std::exception &e){
+		std::cout << YELLOW << e.what() << WHITE << std::endl;
+		return(1);
+	}
 }
