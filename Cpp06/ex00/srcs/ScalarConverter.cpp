@@ -6,7 +6,7 @@
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 09:59:04 by tgellon           #+#    #+#             */
-/*   Updated: 2023/11/29 10:33:01 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2023/11/29 14:12:29 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -144,9 +144,11 @@ void	ScalarConverter::convert(const std::string literal){
 		case (INT):{
 			std::cout << BLUE << "int" << WHITE << std::endl;
 			long long	longNb = std::strtol(literal.c_str(), NULL, 10);
-			double	doubleNb = std::strtof(literal.c_str(), NULL);
-			if (longNb > 31 && longNb < 127)
+			double	doubleNb = std::strtod(literal.c_str(), NULL);
+			if (longNb > 32 && longNb < 127)
 				std::cout << "char: (" << static_cast<char>(longNb) << ")" << std::endl;
+			else if ((longNb >= 0 && longNb <= 32) || longNb == 127)
+				std::cout << "char: non displayable" << std::endl;
 			else
 				std::cout << "char: impossible" << std::endl;
 			if (longNb <= INT_MAX && longNb >= INT_MIN)
@@ -160,8 +162,10 @@ void	ScalarConverter::convert(const std::string literal){
 		case (FLOAT):{
 			std::cout << BLUE << "float" << WHITE << std::endl;
 			float	floatNb = std::strtof(literal.c_str(), NULL);
-			if (floatNb > 31 && floatNb < 127)
+			if (floatNb > 32 && floatNb < 127)
 				std::cout << "char: (" << static_cast<char>(floatNb) << ")" << std::endl;
+			else if ((floatNb >= 0 && floatNb <= 32) || floatNb == 127)
+				std::cout << "char: non displayable" << std::endl;
 			else
 				std::cout << "char: impossible" << std::endl;
 			if (floatNb <= INT_MAX && floatNb >= INT_MIN)
@@ -175,8 +179,10 @@ void	ScalarConverter::convert(const std::string literal){
 		case (DOUBLE):{
 			std::cout << BLUE << "double" << WHITE << std::endl;
 			double	doubleNb = std::strtod(literal.c_str(), NULL);
-			if (doubleNb > 31 && doubleNb < 127)
+			if (doubleNb > 32 && doubleNb < 127)
 				std::cout << "char: (" << static_cast<char>(doubleNb) << ")" << std::endl;
+			else if ((doubleNb >= 0 && doubleNb <= 32) || doubleNb == 127)
+				std::cout << "char: non displayable" << std::endl;
 			else
 				std::cout << "char: impossible" << std::endl;
 			if (doubleNb <= INT_MAX && doubleNb >= INT_MIN)
@@ -191,7 +197,7 @@ void	ScalarConverter::convert(const std::string literal){
 			std::cout << BLUE << "pseudo float" << WHITE << std::endl;
 			float	floatNb = std::strtof(literal.c_str(), NULL);
 			std::cout << "char: impossible" << std::endl;
-			// std::cout << "int: impossible" << std::endl;
+			std::cout << "int: impossible" << std::endl;
 			std::cout << "float: " << static_cast<float>(floatNb) << "f" <<std::endl;
 			std::cout << "double: " << static_cast<double>(floatNb) <<std::endl;
 			break;
