@@ -1,22 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   zombieHorde.cpp                                    :+:      :+:    :+:   */
+/*   whatever.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/30 11:27:53 by tgellon           #+#    #+#             */
-/*   Updated: 2023/12/01 12:27:38 by tgellon          ###   ########lyon.fr   */
+/*   Created: 2023/12/01 13:40:43 by tgellon           #+#    #+#             */
+/*   Updated: 2023/12/01 14:18:55 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#ifndef WHATEVER_HPP
+# define WHATEVER_HPP
 
-Zombie	*zombieHorde(int n, std::string name){
-	Zombie	*horde;
+# include <iostream>
 
-	horde = new Zombie[n];
-	for (int i = 0; i < n; i++)
-		horde[i].setName(name);
-	return (horde);
+template <typename T>
+void	swap(T &a, T &b){
+	T temp;
+
+	temp = a;
+	a = b;
+	b = temp;
 }
+
+template <typename T>
+T	min(T &a, T &b){
+	if (a < b)
+		return (a);
+	return (b);
+}
+
+template <typename T>
+T	max(T &a, T &b){
+	if (a < b)
+		return (b);
+	return (a);
+}
+
+#endif
