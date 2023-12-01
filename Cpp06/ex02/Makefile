@@ -9,7 +9,7 @@ OBJ = ${SRCS:%.cpp=${OBJ_DIR}%.o}
 NAME = type
 RM = rm -f
 HEADERS_DIR = ./incs/
-HEADERS_FILES = Base.hpp
+HEADERS_FILES = Base.hpp A.hpp B.hpp C.hpp
 HEADERS = $(addprefix ${HEADERS_DIR}/, ${HEADERS_FILES})
 
 # --- COLORS --- #

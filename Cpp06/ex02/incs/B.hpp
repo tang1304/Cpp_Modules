@@ -1,23 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Base.hpp                                           :+:      :+:    :+:   */
+/*   B.hpp                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/29 15:25:40 by tgellon           #+#    #+#             */
-/*   Updated: 2023/11/29 15:35:27 by tgellon          ###   ########lyon.fr   */
+/*   Created: 2023/12/01 09:21:43 by tgellon           #+#    #+#             */
+/*   Updated: 2023/12/01 10:02:51 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BASE_HPP
-# define BASE_HPP
+#ifndef B_HPP
+# define B_HPP
 
-class Base{
-private:
-	// Base();
-public:
-	virtual ~Base();
+class B: public Base{
 };
 
 #endif
