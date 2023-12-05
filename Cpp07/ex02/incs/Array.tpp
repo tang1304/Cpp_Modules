@@ -6,11 +6,11 @@
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 13:38:37 by tgellon           #+#    #+#             */
-/*   Updated: 2023/12/05 11:09:04 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2023/12/05 13:51:31 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../incs/Array.hpp"
+#include "Array.hpp"
 
 template<typename T>
 Array<T>::Array(){
