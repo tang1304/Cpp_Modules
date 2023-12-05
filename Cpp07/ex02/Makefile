@@ -9,7 +9,7 @@ OBJ = ${SRCS:%.cpp=${OBJ_DIR}%.o}
 NAME = array
 RM = rm -f
 HEADERS_DIR = ./incs/
-HEADERS_FILES = Array.hpp
+HEADERS_FILES = Array.hpp Array.tpp
 HEADERS = $(addprefix ${HEADERS_DIR}/, ${HEADERS_FILES})
 
 # --- COLORS --- #
