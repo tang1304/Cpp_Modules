@@ -6,7 +6,7 @@
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 11:55:34 by tgellon           #+#    #+#             */
-/*   Updated: 2023/12/04 15:02:48 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2023/12/05 10:37:02 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,27 +15,30 @@
 
 # include <iostream>
 
-template<typename T>
+# define YELLOW "\033[33m"
+# define WHITE "\033[0m"
 
+template<typename T>
 class Array{
 private:
 
-	T	*_list;
+	T*	_list;
 	unsigned int	_size;
 
 public:
 
-	Array();
-	Array(unsigned int n);
-	Array(const Array &old);
-	~Array();
-	Aray &operator=(const Array &old);
+	Array<T>();
+	Array<T>(unsigned int n);
+	Array<T>(const Array<T> &old);
+	~Array<T>();
+	Array &operator=(const Array<T> &old);
 
 	unsigned int	size();
+	T	&operator[](unsigned int i);
 
 	class BadAccess: public std::exception{
 		public:
-		const char *what const throw();
+		const char *what() const throw();
 	};
 };
 
