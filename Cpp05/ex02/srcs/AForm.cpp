@@ -6,7 +6,7 @@
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 11:49:17 by tgellon           #+#    #+#             */
-/*   Updated: 2023/12/06 11:14:26 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2023/12/06 15:41:52 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ AForm::AForm(std::string name, const int signGrade, const int execGrade):
 AForm::AForm(const AForm &old):
 _name(old._name), _signed(old._signed), _execGrade(old._execGrade), _signGrade(old._signGrade)
 {
-	*this = old;
 	std::cout << GREEN << this->_name << " form created by copy with signing grade " << this->_signGrade ;
 	std::cout << " and executing grade " << this->_execGrade << WHITE << std::endl;
 }
