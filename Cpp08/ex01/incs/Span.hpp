@@ -6,7 +6,7 @@
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 09:42:49 by tgellon           #+#    #+#             */
-/*   Updated: 2023/12/06 12:57:28 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2023/12/06 15:48:20 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,12 @@
 class Span{
 private:
 
-	unsigned int _N;
+	const unsigned int _N;
+	Span();
 
 public:
 
-	Span();
+	Span(unsigned int N);
 	Span(const Span &old);
 	~Span();
 	Span &operator=(const Span &old);
@@ -35,7 +36,10 @@ public:
 		public:
 		const char *what() const throw();
 	};
-	class 
+	class NotEnoughElements: public std::exception{
+		public:
+		const char *what() const throw();
+	};
 };
 
 #endif
