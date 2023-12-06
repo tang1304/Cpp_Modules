@@ -6,22 +6,22 @@
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 11:49:17 by tgellon           #+#    #+#             */
-/*   Updated: 2023/11/22 18:19:46 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2023/12/06 11:14:26 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incs/AForm.hpp"
 
-AForm::AForm(){
+AForm::AForm(): _name("none"), _signed(false), _execGrade(0), _signGrade(0){
 }
 
-AForm::AForm(std::string name, int signGrade, int execGrade): _name(name), _signed(0){
+AForm::AForm(std::string name, const int signGrade, const int execGrade):
+	_name(name), _signed(0), _execGrade(execGrade), _signGrade(signGrade)
+{
 	if (signGrade < 1 || execGrade < 1)
 		throw (Bureaucrat::GradeTooHigh());
 	if (signGrade > 150 || execGrade > 150)
 		throw (Bureaucrat::GradeTooLow());
-	this->_execGrade = execGrade;
-	this->_signGrade = signGrade;
 	std::cout << GREEN << this->_name << " form created with signing grade " << this->_signGrade ;
 	std::cout << " and executing grade " << this->_execGrade << WHITE << std::endl;
 }
@@ -39,8 +39,7 @@ AForm::~AForm(){
 
 AForm &AForm::operator=(const AForm &old){
 	if (this != &old){
-		this->_execGrade = old._execGrade;
-		this->_signGrade = old._signGrade;
+		this->_signed = old.getSigned();
 	}
 	return (*this);
 }
@@ -71,7 +70,7 @@ void	AForm::beSigned(Bureaucrat &bur){
 	else{
 		std::cout << YELLOW << bur.getName() << " couldn't sign " << this->_name;
 		std::cout << " form because " << WHITE << std::endl;
-		throw (AForm::GradeTooLow());
+		throw (AForm::GradeTooHigh());
 	}
 }
 

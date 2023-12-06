@@ -6,7 +6,7 @@
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 11:49:17 by tgellon           #+#    #+#             */
-/*   Updated: 2023/11/23 13:30:12 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2023/12/06 11:10:48 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	ShrubberyCreationForm::execute(Bureaucrat const &executor) const{
 	if (!this->getSigned())
 		throw FormNotSigned();
 	if (executor.getGrade() > this->getExecGrade())
-		throw GradeTooLow();
+		throw GradeTooHigh();
 	std::ofstream outfile(this->_target.c_str());
 	if (!outfile.is_open()){
 		std::cout << "Error while trying to open the file" << std::endl;

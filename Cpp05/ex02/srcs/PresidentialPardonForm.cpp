@@ -6,7 +6,7 @@
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 11:17:45 by tgellon           #+#    #+#             */
-/*   Updated: 2023/11/29 10:35:39 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2023/12/06 11:09:22 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,6 @@ void	PresidentialPardonForm::execute(Bureaucrat const &executor) const{
 	if (!this->getSigned())
 		throw FormNotSigned();
 	if (executor.getGrade() > this->getExecGrade())
-		throw GradeTooLow();
+		throw GradeTooHigh();
 	std::cout << BLUE << this->_target << " has been pardonned by Zaphod Beeblebrox" << WHITE << std::endl;
 }
