@@ -6,7 +6,7 @@
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 09:35:52 by tgellon           #+#    #+#             */
-/*   Updated: 2023/11/24 09:49:03 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2023/12/06 11:32:43 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,11 @@ int	main(){
 		Intern	someRandomIntern;
 		AForm* rrf;
 		rrf = someRandomIntern.makeForm("robotomy request", "Bender");
+		john.signForm(*rrf);
 		rrf->execute(john);
 	}
 	catch (std::exception &e){
-		std::cout << YELLOW << e.what() << WHITE << std::endl;
+		std::cout << RED << e.what() << WHITE << std::endl;
 		return(1);
 	}
 	return (0);

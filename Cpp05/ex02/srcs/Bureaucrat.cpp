@@ -6,7 +6,7 @@
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 14:04:13 by tgellon           #+#    #+#             */
-/*   Updated: 2023/11/23 13:55:11 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2023/12/06 10:12:10 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,20 +48,24 @@ int	Bureaucrat::getGrade() const{
 }
 
 void	Bureaucrat::increment(){
-	if (this->_grade - 1 < 1)
+	std::cout << BLUE << "Incrementing " << this->_name << WHITE << std::endl;
+	if (this->_grade - 1 < 1){
+		std::cout << YELLOW << "Grade would be " << this->_grade - 1 << WHITE << std::endl;
 		throw (GradeTooHigh());
+	}
 	else
 		this->_grade -= 1;
-	std::cout << "Incrementing" << std::endl;
 	return ;
 }
 
 void	Bureaucrat::decrement(){
-	if (this->_grade + 1 > 150)
+	std::cout << BLUE << "Decrementing " << this->_name << WHITE << std::endl;
+	if (this->_grade + 1 > 150){
+		std::cout << YELLOW << "Grade would be " << this->_grade + 1 << WHITE << std::endl;
 		throw (GradeTooLow());
+	}
 	else
 		this->_grade += 1;
-	std::cout << "Decrementing" << std::endl;
 	return ;
 }
 

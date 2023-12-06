@@ -6,7 +6,7 @@
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 09:35:52 by tgellon           #+#    #+#             */
-/*   Updated: 2023/11/24 09:58:41 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2023/12/06 11:03:31 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,25 +17,26 @@ int	main(){
 	// try{
 	// 	Bureaucrat	bill = Bureaucrat("Bill", 1);
 	// 	Bureaucrat john = Bureaucrat("John", 150);
-	// 	// Bureaucrat jim = Bureaucrat("Jim", -12); test at construction
-	// 	// Bureaucrat jim = Bureaucrat("Jim", 151); test at construction
+	// 	// Bureaucrat jim = Bureaucrat("Jim", -12); //test at construction
+	// 	// Bureaucrat jim = Bureaucrat("Jim", 151); //test at construction
 
 	// 	bill.decrement();
 	// 	std::cout << bill << std::endl;
 	// 	john.increment();
 	// 	std::cout << john << std::endl;
-	// 	// bill.increment();
-	// 	// bill.increment();
-	// 	// std::cout << bill << std::endl;
-	// 	// john.decrement();
-	// 	// john.decrement();
-	// 	// std::cout << john << std::endl;
+	// 	bill.increment();
+	// 	bill.increment();
+	// 	std::cout << bill << std::endl;
+	// 	john.decrement();
+	// 	std::cout << john << std::endl;
+	// 	john.decrement();
+	// 	std::cout << john << std::endl;
 	// }
 	// catch (Bureaucrat::GradeTooHigh &e){
-	// 	std::cout << YELLOW << e.what() << WHITE << std::endl;
+	// 	std::cout << RED << e.what() << WHITE << std::endl;
 	// }
 	// catch (Bureaucrat::GradeTooLow &e){
-	// 	std::cout << YELLOW << e.what() << WHITE << std::endl;
+	// 	std::cout << RED << e.what() << WHITE << std::endl;
 	// }
 
 	try{
@@ -43,7 +44,7 @@ int	main(){
 		// Bureaucrat bob = Bureaucrat("bob", 170);
 		Bureaucrat bill = Bureaucrat("Bill", 150);
 		Form johnForm = Form("2B", 20, 20);
-		// johnForm.beSigned(bill);
+		// johnForm.beSigned(bill); //test error signing grade
 		std::cout << johnForm << std::endl;
 		if (johnForm.getSigned())
 			std::cout << "2B form is signed.\n";
@@ -56,7 +57,7 @@ int	main(){
 			std::cout << "2B form not signed.\n";
 	}
 	catch (std::exception &e){
-		std::cout << YELLOW << e.what() << WHITE << std::endl;
+		std::cout << RED << e.what() << WHITE << std::endl;
 	}
 	return (0);
 }

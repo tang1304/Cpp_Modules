@@ -6,7 +6,7 @@
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 09:35:52 by tgellon           #+#    #+#             */
-/*   Updated: 2023/11/27 15:33:49 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2023/12/06 11:12:16 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ int	main(){
 	// try{
 	// 	Bureaucrat	bill = Bureaucrat("Bill", 1);
 	// 	Bureaucrat john = Bureaucrat("John", 150);
-	// 	// Bureaucrat jim = Bureaucrat("Jim", -12); test at construction
-	// 	// Bureaucrat jim = Bureaucrat("Jim", 151); test at construction
+	// 	// Bureaucrat jim = Bureaucrat("Jim", -12); //test at construction
+	// 	// Bureaucrat jim = Bureaucrat("Jim", 151); //test at construction
 
 	// 	bill.decrement();
 	// 	std::cout << bill << std::endl;
@@ -34,10 +34,10 @@ int	main(){
 	// 	// std::cout << john << std::endl;
 	// }
 	// catch (Bureaucrat::GradeTooHigh &e){
-	// 	std::cout << YELLOW << e.what() << WHITE << std::endl;
+	// 	std::cout << RED << e.what() << WHITE << std::endl;
 	// }
 	// catch (Bureaucrat::GradeTooLow &e){
-	// 	std::cout << YELLOW << e.what() << WHITE << std::endl;
+	// 	std::cout << RED << e.what() << WHITE << std::endl;
 	// }
 
 	try{
@@ -47,8 +47,9 @@ int	main(){
 		PresidentialPardonForm johnForm = PresidentialPardonForm("john");
 		RobotomyRequestForm jackForm = RobotomyRequestForm("jack");
 		ShrubberyCreationForm billForm = ShrubberyCreationForm("bill");
-		// johnForm.beSigned(bill);
+		// johnForm.beSigned(bill); // test error signing grade
 		std::cout << johnForm << std::endl;
+		// johnForm.execute(bill); // test error executing grade
 		john.signForm(johnForm);
 		johnForm.execute(john);
 		john.signForm(jackForm);

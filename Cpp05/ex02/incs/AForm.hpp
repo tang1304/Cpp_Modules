@@ -6,7 +6,7 @@
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 11:50:25 by tgellon           #+#    #+#             */
-/*   Updated: 2023/11/22 18:19:12 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2023/12/06 11:26:07 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,13 @@ private:
 
 	const std::string	_name;
 	bool				_signed;
-	int					_execGrade;
-	int					_signGrade;
+	const int			_execGrade;
+	const int			_signGrade;
 	AForm();
 
 public:
 
-	AForm(std::string name, int signGrade, int execGrade);
+	AForm(std::string name, const int signGrade, const int execGrade);
 	AForm(const AForm &old);
 	virtual ~AForm();
 	AForm &operator=(const AForm &old);

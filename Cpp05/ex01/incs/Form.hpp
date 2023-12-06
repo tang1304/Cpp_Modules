@@ -6,7 +6,7 @@
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 11:50:25 by tgellon           #+#    #+#             */
-/*   Updated: 2023/11/22 11:51:30 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2023/12/06 11:26:13 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,13 @@ private:
 
 	const std::string	_name;
 	bool				_signed;
-	int					_execGrade;
-	int					_signGrade;
+	const int			_execGrade;
+	const int			_signGrade;
 	Form();
 
 public:
 
-	Form(std::string name, int signGrade, int execGrade);
+	Form(std::string name, const int signGrade, const int execGrade);
 	Form(const Form &old);
 	~Form();
 	Form &operator=(const Form &old);

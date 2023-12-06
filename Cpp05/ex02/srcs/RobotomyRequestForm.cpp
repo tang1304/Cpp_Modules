@@ -6,7 +6,7 @@
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 10:40:49 by tgellon           #+#    #+#             */
-/*   Updated: 2023/11/23 13:38:09 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2023/12/06 11:10:39 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	RobotomyRequestForm::execute(Bureaucrat const &executor) const{
 	if (!this->getSigned())
 		throw FormNotSigned();
 	if (executor.getGrade() > this->getExecGrade())
-		throw GradeTooLow();
+		throw GradeTooHigh();
 	std::cout << BLUE << "Makes some drilling noises" << WHITE << std::endl;
 	srand(std::time(NULL));
 	if (rand() % 2 == 0)
