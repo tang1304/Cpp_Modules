@@ -6,7 +6,7 @@
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 14:39:01 by tgellon           #+#    #+#             */
-/*   Updated: 2023/11/24 09:41:54 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2023/12/06 14:03:01 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,11 @@ AForm *Intern::makeForm(std::string formName, std::string target){
 			break;
 		}
 		default:{
-			std::cout << YELLOW << "No form named like this" << WHITE << std::endl;
-			return (NULL);
+			throw (NoForm());
 		}
 	}
+}
+
+const char *Intern::NoForm::what() const throw(){
+	return ("Error, no form named like this");
 }

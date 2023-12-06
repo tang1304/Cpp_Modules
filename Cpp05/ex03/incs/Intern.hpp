@@ -6,7 +6,7 @@
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 14:39:05 by tgellon           #+#    #+#             */
-/*   Updated: 2023/11/23 15:40:24 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2023/12/06 13:56:50 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,10 @@ public:
 	Intern	&operator=(Intern const &old);
 
 	AForm	*makeForm(std::string formName, std::string target);
+	class NoForm: public std::exception{
+		public:
+		const char *what() const throw();
+	};
 };
 
 #endif

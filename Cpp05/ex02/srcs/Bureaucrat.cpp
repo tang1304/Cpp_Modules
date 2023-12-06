@@ -6,7 +6,7 @@
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 14:04:13 by tgellon           #+#    #+#             */
-/*   Updated: 2023/12/06 10:12:10 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2023/12/06 15:13:18 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,19 @@ void	Bureaucrat::signForm(AForm &form){
 	catch (AForm::GradeTooLow &e){
 		std::cout << YELLOW << this->_name << " couldn't sign " << form.getName();
 		std::cout << "because the bureaucrat's grade is too low" << WHITE << std::endl;
+	}
+}
+
+void	Bureaucrat::executeForm(const AForm &form){
+	if (form.getSigned()){
+		try{
+			form.execute(*this);
+			std::cout << this->_name << " executed " << form.getName() << std::endl;
+		}
+		catch(AForm::GradeTooLow &e){
+		std::cout << YELLOW << this->_name << " couldn't execute " << form.getName();
+		std::cout << "because the bureaucrat's grade is too low" << WHITE << std::endl;
+		}
 	}
 }
 
