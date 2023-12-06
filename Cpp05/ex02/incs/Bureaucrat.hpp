@@ -6,7 +6,7 @@
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 13:57:46 by tgellon           #+#    #+#             */
-/*   Updated: 2023/11/23 13:28:54 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2023/12/06 14:56:12 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ public:
 	void		increment();
 	void		decrement();
 	void		signForm(AForm &form);
+	void		executeForm(const AForm &form);
 
 	class GradeTooHigh: public std::exception{
 		public:

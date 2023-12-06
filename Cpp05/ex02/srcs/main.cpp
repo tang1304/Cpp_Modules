@@ -6,7 +6,7 @@
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 09:35:52 by tgellon           #+#    #+#             */
-/*   Updated: 2023/12/06 11:12:16 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2023/12/06 15:22:25 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,8 +52,11 @@ int	main(){
 		// johnForm.execute(bill); // test error executing grade
 		john.signForm(johnForm);
 		johnForm.execute(john);
+
 		john.signForm(jackForm);
 		jackForm.execute(john);
+		john.executeForm(jackForm);
+
 		john.signForm(billForm);
 		billForm.execute(john);
 	}

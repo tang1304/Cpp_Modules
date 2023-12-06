@@ -6,7 +6,7 @@
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 09:35:52 by tgellon           #+#    #+#             */
-/*   Updated: 2023/12/06 11:32:43 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2023/12/06 15:03:59 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 #include "../incs/Intern.hpp"
 
 int	main(){
-
 	try{
 		Bureaucrat john = Bureaucrat("John", 1);
 		// Bureaucrat bob = Bureaucrat("bob", 170);
@@ -32,13 +31,16 @@ int	main(){
 
 		john.signForm(jackForm);
 		jackForm.execute(john);
+		john.executeForm(jackForm);
 
 		john.signForm(billForm);
 		billForm.execute(john);
 
 		Intern	someRandomIntern;
 		AForm* rrf;
-		rrf = someRandomIntern.makeForm("robotomy request", "Bender");
+		rrf = someRandomIntern.makeForm("presidential pardon", "Bender");
+		// rrf = someRandomIntern.makeForm("shrubbery creation", "Bender");
+		// rrf = someRandomIntern.makeForm("robotomy request", "Bender");
 		john.signForm(*rrf);
 		rrf->execute(john);
 	}
