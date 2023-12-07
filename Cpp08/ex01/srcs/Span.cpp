@@ -6,7 +6,7 @@
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 09:46:52 by tgellon           #+#    #+#             */
-/*   Updated: 2023/12/06 16:07:39 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2023/12/07 11:46:20 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,25 +18,35 @@ Span::Span(): _N(0){
 Span::Span(unsigned int N): _N(N){
 }
 
-Span::Span(const Span &old): _N(old._N){
+Span::Span(const Span &old): _N(old._N), _vContainer(old._vContainer){
 }
 
 Span::~Span(){
 }
 
 Span	&Span::operator=(const Span &old){
+	if (this != &old){
+		this->_vContainer = old._vContainer;
+	}
 	return (*this);
 }
 
-void	Span::addNumber(){
-	;
+void	Span::addNumber(int n){
+	if (this->_vContainer.size() >= this->_N)
+		throw (TooMuchElements());
+	this->_vContainer.push_back(n);
 }
 
 unsigned int	Span::shortestSpan(){
-	;
+	if (this->_N <= 1 || this->_vContainer.size() <= 1)
+		throw (NotEnoughElements());
+	std::vector<int>::iterator it;
+	
 }
 
 unsigned int	Span::longestSpan(){
+	if (this->_N <= 1 || this->_vContainer.size() <= 1)
+		throw (NotEnoughElements());
 	;
 }
 

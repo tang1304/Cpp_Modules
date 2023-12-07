@@ -6,7 +6,7 @@
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 09:42:49 by tgellon           #+#    #+#             */
-/*   Updated: 2023/12/06 15:48:20 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2023/12/07 11:11:08 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,14 @@
 # define SPAN_HPP
 
 # include <iostream>
+# include <algorithm>
+# include <vector>
 
 class Span{
 private:
 
-	const unsigned int _N;
+	const unsigned int	_N;
+	std::vector<int>	_vContainer;
 	Span();
 
 public:
@@ -28,10 +31,10 @@ public:
 	~Span();
 	Span &operator=(const Span &old);
 
-	void			addNumber();
+	void			addNumber(int n);
 	unsigned int	shortestSpan();
 	unsigned int	longestSpan();
-	
+
 	class TooMuchElements: public std::exception{
 		public:
 		const char *what() const throw();
