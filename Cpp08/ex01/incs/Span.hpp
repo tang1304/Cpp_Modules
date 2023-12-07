@@ -6,7 +6,7 @@
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 09:42:49 by tgellon           #+#    #+#             */
-/*   Updated: 2023/12/07 11:11:08 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2023/12/07 16:53:40 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,13 @@
 # define SPAN_HPP
 
 # include <iostream>
+# include <climits>
 # include <algorithm>
 # include <vector>
+# include <iterator>
+
+# define RED "\033[31m"
+# define WHITE "\033[0m"
 
 class Span{
 private:
@@ -34,6 +39,7 @@ public:
 	void			addNumber(int n);
 	unsigned int	shortestSpan();
 	unsigned int	longestSpan();
+	void			fillSpan(unsigned int nbrElements, int val);
 
 	class TooMuchElements: public std::exception{
 		public:
