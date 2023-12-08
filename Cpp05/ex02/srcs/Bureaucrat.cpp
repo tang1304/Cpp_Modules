@@ -6,7 +6,7 @@
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 14:04:13 by tgellon           #+#    #+#             */
-/*   Updated: 2023/12/06 15:13:18 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2023/12/08 13:08:45 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,9 @@ void	Bureaucrat::executeForm(const AForm &form){
 		std::cout << YELLOW << this->_name << " couldn't execute " << form.getName();
 		std::cout << "because the bureaucrat's grade is too low" << WHITE << std::endl;
 		}
+	}
+	else{
+		std::cout << YELLOW << "Couldn't execute, the form is not signed" << WHITE << std::endl;
 	}
 }
 

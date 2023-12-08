@@ -6,7 +6,7 @@
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 14:31:15 by tgellon           #+#    #+#             */
-/*   Updated: 2023/12/04 11:17:12 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2023/12/08 10:27:55 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 
 # include <iostream>
 
-template <typename T>
-void	iter(T* array, int len, void (*f)(T&)){
+template <typename T, typename U>
+void	iter(T* array, int len, U f){
 	for (int i = 0; i < len; i++){
 		f(array[i]);
 	}
