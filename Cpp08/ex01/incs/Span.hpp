@@ -6,7 +6,7 @@
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 09:42:49 by tgellon           #+#    #+#             */
-/*   Updated: 2023/12/07 16:53:40 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2023/12/08 14:53:34 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ public:
 	unsigned int	shortestSpan();
 	unsigned int	longestSpan();
 	void			fillSpan(unsigned int nbrElements, int val);
+	std::vector<int>	getVector() const;
 
 	class TooMuchElements: public std::exception{
 		public:
