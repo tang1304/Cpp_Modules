@@ -6,7 +6,7 @@
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 09:59:23 by tgellon           #+#    #+#             */
-/*   Updated: 2023/11/28 11:55:26 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2023/12/08 13:22:45 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,13 +44,6 @@ private:
 public:
 
 	static void	convert(const std::string literal);
-	int			typeCheck(const std::string input);
-	bool		isChar(std::string input);
-	bool		isInt(std::string input);
-	bool		isFloat(std::string input);
-	bool		isPseudoFloat(std::string input);
-	bool		isDouble(std::string input);
-	bool		isPseudoDouble(std::string input);
 
 	class InputEmpty: public std::exception{
 		public:

@@ -6,7 +6,7 @@
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 09:46:52 by tgellon           #+#    #+#             */
-/*   Updated: 2023/12/07 16:55:43 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2023/12/08 16:57:42 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,15 @@ Span::Span(): _N(0){
 }
 
 Span::Span(unsigned int N): _N(N){
+	try{
+		_vContainer.reserve(N);
+		// test with _vContainer.maxsize()
+	}
+	catch (std::bad_alloc &e){
+		std::cout << RED << "Not enough memory" << WHITE << std::endl;
+		// std::vector<int>().swap(_vContainer);
+		throw ;
+	}
 }
 
 Span::Span(const Span &old): _N(old._N), _vContainer(old._vContainer){
@@ -50,7 +59,7 @@ unsigned int	Span::shortestSpan(){
 	while (it != cpy.end() - 1){
 		prev = *it;
 		it += 1;
-		if (abs(*it - prev) < min)
+		if (static_cast<unsigned int>(abs(*it - prev)) < min)
 			min = abs(*it - prev);
 	}
 	return (min);
@@ -69,8 +78,12 @@ unsigned int	Span::longestSpan(){
 
 void	Span::fillSpan(unsigned int nbrElements, int val){
 	if ((this->_vContainer.size() + nbrElements) > this->_N)
-
+		throw (TooMuchElements());
 	this->_vContainer.insert(this->_vContainer.end(), nbrElements, val);
+}
+
+std::vector<int>	Span::getVector() const{
+	return (this->_vContainer);
 }
 
 const char	*Span::TooMuchElements::what() const throw(){
