@@ -6,7 +6,7 @@
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 16:13:51 by tgellon           #+#    #+#             */
-/*   Updated: 2023/12/08 16:32:00 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2023/12/13 16:21:22 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,12 @@
 # define MUTANTSTACK_HPP
 
 # include <iostream>
+# include <queue>
+# include <stack>
 
-class MutantStack: public std::stack{
-private:
 
-	;
+template<typename T>
+class MutantStack: public std::stack<T>{
 
 public:
 
@@ -27,6 +28,9 @@ public:
 	~MutantStack();
 	MutantStack &operator=(const MutantStack &old);
 
+
 };
+
+# include "MutantStack.tpp"
 
 #endif

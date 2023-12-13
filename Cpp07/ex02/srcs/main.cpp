@@ -6,7 +6,7 @@
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 11:52:46 by tgellon           #+#    #+#             */
-/*   Updated: 2023/12/05 11:24:15 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2023/12/13 12:32:44 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,10 @@ int	main(){
 		// Array<int>	cpyArr(intArr); // test cpy constructor
 		Array<int>	cpyArr; // test operator =
 		cpyArr = intArr;
-		std::cout << cpyArr[1] << std::endl;
+		std::cout << "cpyArr[1] = " << cpyArr[1] << std::endl;
 		cpyArr[1] = 42;
-		std::cout << cpyArr[1] << std::endl;
+		std::cout << "cpyArr[1] = " << cpyArr[1] << std::endl;
+		std::cout << "intArr[1] = " << intArr[1] << std::endl;
 
 		std::cout << intArr[5] << std::endl; // test operator [] and exception;
 	}

@@ -1,41 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   whatever.hpp                                       :+:      :+:    :+:   */
+/*   MutantStack.tpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/01 13:40:43 by tgellon           #+#    #+#             */
-/*   Updated: 2023/12/13 11:06:09 by tgellon          ###   ########lyon.fr   */
+/*   Created: 2023/12/13 10:12:04 by tgellon           #+#    #+#             */
+/*   Updated: 2023/12/13 16:18:41 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WHATEVER_HPP
-# define WHATEVER_HPP
-
-# include <iostream>
+#include "MutantStack.hpp"
 
 template <typename T>
-void	swap(T &a, T &b){
-	T temp;
-
-	temp = a;
-	a = b;
-	b = temp;
+MutantStack<T>::MutantStack(){
 }
 
 template <typename T>
-T	min(T &a, T &b){
-	if (a < b)
-		return (a);
-	return (b);
+MutantStack<T>::MutantStack(const MutantStack<T> &old){
+	;
 }
-
-template <typename T>
-T	max(T &a, T &b){
-	if (a <= b)
-		return (b);
-	return (a);
-}
-
-#endif

@@ -6,7 +6,7 @@
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 13:29:45 by tgellon           #+#    #+#             */
-/*   Updated: 2023/12/08 13:13:55 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2023/12/13 12:20:54 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,14 +43,14 @@ int	main( void ){
 	char charArray[5] = {'s', 'a', 'l', 'u', 't'};
 	std::string str[2] = {"hello", "world"};
 
-	iter<int, void (*)(int&)>(intArray, 5, printInt);
+	iter<int, void (int&)>(intArray, 5, printInt);
 	std::cout << std::endl;
-	iter<char, void (*)(char&)>(charArray, 5, printChar);
+	iter<char, void (char&)>(charArray, 5, printChar);
 	std::cout << std::endl;
-	iter<std::string, void (*)(std::string&)>(str, 2, printString);
+	iter<std::string, void (std::string&)>(str, 2, printString);
 	std::cout << std::endl;
-	iter<int, void (*)(int&)>(intArray, 5, increment);
+	iter<int, void (int&)>(intArray, 5, increment);
 	print(intArray, 5);
-	iter<char, void (*)(char&)>(charArray, 5, increment);
+	iter<char, void (char&)>(charArray, 5, increment);
 	print(charArray, 5);
 }
