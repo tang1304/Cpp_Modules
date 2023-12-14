@@ -6,7 +6,7 @@
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 14:12:00 by tgellon           #+#    #+#             */
-/*   Updated: 2023/12/08 09:33:48 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2023/12/14 15:37:34 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,14 +26,16 @@ int	main(){
 		std::cout <<sp.shortestSpan() << std::endl;
 		std::cout <<sp.longestSpan() << std::endl;
 
-		Span	sp2 = Span(4294967295);
-		// sp2.fillSpan(10000, 42);
-		// sp2.fillSpan(10000, 100);
-		// sp2.fillSpan(10000, 237);
-		// sp2.fillSpan(10000, 872);
-		// sp2.fillSpan(10000, -32248579);
+		Span	sp2 = Span(100000);
+		sp2.fillSpan(10000, 42);
+		sp2.fillSpan(10000, 100);
+		sp2.fillSpan(10000, 237);
+		sp2.fillSpan(10000, 872);
+		sp2.fillSpan(10000, -32248579);
 		std::cout << "capacity: " << sp2.getVector().capacity() << std::endl;
-		sp2.fillSpan(429496729, 9);
+		sp2.fillSpan(50000, 9);
+		// Span	sp2 = Span(4294967295); //test with unsigned int max elements
+		// sp2.fillSpan(4294967295, 9);
 
 		std::cout << "capacity: " << sp2.getVector().capacity() << std::endl;
 		std::cout << "size: " << sp2.getVector().size() << std::endl;
