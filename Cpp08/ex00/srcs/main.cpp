@@ -6,7 +6,7 @@
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 13:33:09 by tgellon           #+#    #+#             */
-/*   Updated: 2023/12/05 16:17:02 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2023/12/14 14:27:29 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ int main(){
 	std::cout << easyfind(lst, 2) << std::endl;
 	std::cout << easyfind(lst, 8) << std::endl;
 
+	std::cout << std::endl;
 	for (int i = 0; i < 5; i++){
 		vec.push_back(i * 3);
 	}

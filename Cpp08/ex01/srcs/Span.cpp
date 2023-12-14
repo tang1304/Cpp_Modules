@@ -6,7 +6,7 @@
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 09:46:52 by tgellon           #+#    #+#             */
-/*   Updated: 2023/12/08 16:57:42 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2023/12/14 15:22:13 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,9 @@ Span::Span(): _N(0){
 Span::Span(unsigned int N): _N(N){
 	try{
 		_vContainer.reserve(N);
-		// test with _vContainer.maxsize()
 	}
 	catch (std::bad_alloc &e){
 		std::cout << RED << "Not enough memory" << WHITE << std::endl;
-		// std::vector<int>().swap(_vContainer);
 		throw ;
 	}
 }
