@@ -38,6 +38,7 @@ fclean :	clean
 		${RM} ${NAME}
 		@echo "${_RED}### Removed ${NAME} ###${_NOC}"
 
-re : 	fclean all
+re :	fclean
+	${MAKE} all
 
 .PHONY : all clean fclean re
