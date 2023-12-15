@@ -6,7 +6,7 @@
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 09:46:52 by tgellon           #+#    #+#             */
-/*   Updated: 2023/12/14 15:22:13 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2023/12/15 09:36:41 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,7 @@ Span::Span(): _N(0){
 }
 
 Span::Span(unsigned int N): _N(N){
-	try{
-		_vContainer.reserve(N);
-	}
-	catch (std::bad_alloc &e){
-		std::cout << RED << "Not enough memory" << WHITE << std::endl;
-		throw ;
-	}
+	_vContainer.reserve(N);
 }
 
 Span::Span(const Span &old): _N(old._N), _vContainer(old._vContainer){
@@ -40,7 +34,7 @@ Span	&Span::operator=(const Span &old){
 
 void	Span::addNumber(int n){
 	if (this->_vContainer.size() >= this->_N)
-		throw (TooMuchElements());
+		throw (TooManyElements());
 	this->_vContainer.push_back(n);
 }
 
@@ -71,12 +65,12 @@ unsigned int	Span::longestSpan(){
 		throw (NotEnoughElements());
 	minElem = *std::min_element(this->_vContainer.begin(), this->_vContainer.end());
 	maxElem = *std::max_element(this->_vContainer.begin(), this->_vContainer.end());
-	return (abs(maxElem - minElem));
+	return (maxElem - minElem);
 }
 
 void	Span::fillSpan(unsigned int nbrElements, int val){
 	if ((this->_vContainer.size() + nbrElements) > this->_N)
-		throw (TooMuchElements());
+		throw (TooManyElements());
 	this->_vContainer.insert(this->_vContainer.end(), nbrElements, val);
 }
 
@@ -84,7 +78,7 @@ std::vector<int>	Span::getVector() const{
 	return (this->_vContainer);
 }
 
-const char	*Span::TooMuchElements::what() const throw(){
+const char	*Span::TooManyElements::what() const throw(){
 	return ("Error, there is already the maximum number of elements");
 }
 
