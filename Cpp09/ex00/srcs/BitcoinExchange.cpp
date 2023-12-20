@@ -6,7 +6,7 @@
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 10:28:13 by tgellon           #+#    #+#             */
-/*   Updated: 2023/12/20 11:49:36 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2023/12/20 14:55:34 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,27 +55,25 @@ BitcoinExchange	&BitcoinExchange::operator=(const BitcoinExchange &other){
 	return (*this);
 }
 
-void	BitcoinExchange::readUserFile(std::string userFile){
+void	BitcoinExchange::readUserFile(const std::string &fileName){
 	std::ifstream	file;
 	std::string		content;
 	std::string		date;
-	int				multiplier;
+	float			multiplier;
 
-	file.open(userFile.c_str(), std::fstream::in);
+	file.open(fileName.c_str(), std::fstream::in);
 	if (!file.is_open()){
-		std::cout << "Error while trying to open " << userFile << std::endl;
+		std::cout << "Error while trying to open " << fileName << std::endl;
 		return ;
 	}
 	while (!file.eof()){
 		try{
 			std::getline(file, content);
-			if (content.empty() || content.find("date | value") != content.npos){
-std::cout << "Line OK" << std::endl; // del
+			if (content.empty() || content.find("date | value") != content.npos)
 				continue ;
-			}
 			date = checkDate(content);
 			multiplier = checkMultiplier(content);
-std::cout << "Line OK" << std::endl; // del
+			result(date, multiplier);
 		}
 		catch (std::exception &e){
 			std::cout << RED << e.what() << CLEAR << std::endl;
@@ -83,7 +81,17 @@ std::cout << "Line OK" << std::endl; // del
 	}
 }
 
-int	BitcoinExchange::checkMultiplier(std::string content){
+void	BitcoinExchange::result(const std::string &date, const float &multiplier){
+	std::map<std::string, float>::const_iterator	it;
+	it = this->_btcPrices.lower_bound(date);
+	if (it == this->_btcPrices.end())
+		it--;
+	else if (it->first != date && it != this->_btcPrices.begin())
+		it--;
+	std::cout << GREEN << date << " => " << multiplier << " = " << multiplier * it->second << CLEAR << std::endl;
+}
+
+float	BitcoinExchange::checkMultiplier(const std::string &content){
 	size_t		i = 0;
 	std::string	multiplier;
 	float		multiplierNb;
@@ -105,12 +113,12 @@ int	BitcoinExchange::checkMultiplier(std::string content){
 		throw (std::invalid_argument("Error in multiplier, not a float"));
 	if (multiplierNb < 0 || multiplierNb > 1000)
 		throw (std::invalid_argument("Error, multiplier must be between 0 and 1000"));
-std::cout << "multiplier: " << multiplierNb << std::endl; // del
 	return (multiplierNb);
 }
 
-std::string	BitcoinExchange::checkDate(std::string content){
+std::string	BitcoinExchange::checkDate(std::string &content){
 	size_t		i = 0;
+	size_t		start = 0;
 	std::string	date;
 	std::string	year;
 	std::string	month;
@@ -124,19 +132,20 @@ std::string	BitcoinExchange::checkDate(std::string content){
 	i = content.find_first_of('-');
 	if (i < 4)
 		throw (std::invalid_argument("Wrong date format, must be YYYY-MM-DD"));
+	start = i - 4;
 	year = content.substr(i - 4, 4);
-std::cout << "year:" << year; //del
+// std::cout << "year:" << year; //del
 	int	yearNb = yearCheck(year);
 	i = content.find('-', i + 1);
 	month = content.substr(i - 2, 2);
-std::cout << " month:" << month; //del
+// std::cout << " month:" << month; //del
 	int	monthNb = monthCheck(month);
 	day = content.substr(i + 1, 2);
-std::cout << " day:" << day << std::endl; //del
+// std::cout << " day:" << day << std::endl; //del
 	int	dayNb = dayCheck(day, monthNb, yearNb);
 	(void)dayNb;
 	i = content.find('|');
-	return (content.substr(0, i - 1));
+	return (content.substr(start, i - 1));
 }
 
 int	BitcoinExchange::yearCheck(std::string year){
@@ -151,7 +160,7 @@ int	BitcoinExchange::yearCheck(std::string year){
 	if (ssYear.fail())
 		throw (std::invalid_argument("Error in year, not an int"));
 	if (yearNb < 2009)
-		throw (std::invalid_argument("Error, year is earlier than 2009"));
+		throw (std::invalid_argument("Error, the values start from 2009-01-02"));
 	return (yearNb);
 }
 
@@ -190,5 +199,7 @@ int	BitcoinExchange::dayCheck(std::string day, int month, int year){
 		throw (std::invalid_argument("Error, there are not 30 days in February"));
 	if (dayNb > 28 && month == 2 && year % 4 != 0)
 		throw (std::invalid_argument("Error, there are not 29 days in February this year"));
+	if (year == 2009 && month == 01 && dayNb == 01)
+		throw (std::invalid_argument("Error, the values start from 2009-01-02"));
 	return (dayNb);
 }
