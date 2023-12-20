@@ -6,7 +6,7 @@
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 10:28:54 by tgellon           #+#    #+#             */
-/*   Updated: 2023/12/18 15:57:02 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2023/12/20 10:02:30 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,9 @@
 # include <fstream>
 # include <sstream>
 # include <map>
+
+# define RED "\033[31m"
+# define CLEAR "\033[0m"
 
 class BitcoinExchange{
 private:
@@ -31,6 +34,7 @@ public:
 
 	void		readUserFile(std::string fileName);
 	std::string	checkDate(std::string content);
+	int			checkMultiplier(std::string content);
 	int			yearCheck(std::string year);
 	int			monthCheck(std::string month);
 	int			dayCheck(std::string day, int month, int year);

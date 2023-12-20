@@ -6,7 +6,7 @@
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 10:26:58 by tgellon           #+#    #+#             */
-/*   Updated: 2023/12/18 16:23:08 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2023/12/20 08:59:15 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,5 @@ int	main(int argc, char **argv){
 	}
 	BitcoinExchange btc = BitcoinExchange();
 	file = std::string(argv[1]);
-	// btc.readUserFile(file);
+	btc.readUserFile(file);
 }
