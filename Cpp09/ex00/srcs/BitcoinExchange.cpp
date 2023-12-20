@@ -6,7 +6,7 @@
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 10:28:13 by tgellon           #+#    #+#             */
-/*   Updated: 2023/12/20 10:39:28 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2023/12/20 11:49:36 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,16 +84,28 @@ std::cout << "Line OK" << std::endl; // del
 }
 
 int	BitcoinExchange::checkMultiplier(std::string content){
-	size_t				i = 0;
-	std::string			multiplier;
-	float				multiplierNb;
+	size_t		i = 0;
+	std::string	multiplier;
+	float		multiplierNb;
+	bool		dott = 0;
 
 	i = content.find('|');
 	multiplier = content.substr(i + 2, content.size() - (i + 1));
+	for (size_t j = 0; j < multiplier.size(); j++){
+		if (multiplier.c_str()[j] < '0' || multiplier.c_str()[j] > '9'){
+			if (multiplier.c_str()[j] == '.' && dott == 0)
+				dott = 1;
+			else
+				throw (std::invalid_argument("Error in multiplier, not a float"));
+		}
+	}
 	std::istringstream	ssMultiplier(multiplier);
 	ssMultiplier >> multiplierNb;
 	if (ssMultiplier.fail())
-		throw (std::invalid_argument("Error in multiplier, not an float"));
+		throw (std::invalid_argument("Error in multiplier, not a float"));
+	if (multiplierNb < 0 || multiplierNb > 1000)
+		throw (std::invalid_argument("Error, multiplier must be between 0 and 1000"));
+std::cout << "multiplier: " << multiplierNb << std::endl; // del
 	return (multiplierNb);
 }
 

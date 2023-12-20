@@ -6,7 +6,7 @@
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 10:28:54 by tgellon           #+#    #+#             */
-/*   Updated: 2023/12/20 10:02:30 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2023/12/20 11:34:12 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define BITCOINEXCHANGE_HPP
 
 # include <iostream>
+# include <cstdlib>
 # include <fstream>
 # include <sstream>
 # include <map>
