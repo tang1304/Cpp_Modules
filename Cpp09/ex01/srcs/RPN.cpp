@@ -6,7 +6,7 @@
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 15:54:51 by tgellon           #+#    #+#             */
-/*   Updated: 2023/12/20 17:57:08 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2023/12/22 09:29:51 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,17 @@ RPN::RPN(std::string input){
 	long long			result;
 
 	for (size_t	i = 0; i < input.length(); i++){
+		if ((input[i] >= '0' && input[i] <= '9') && i > 0){
+			if (input[i - 1] >= '0' && input[i] <= '9')
+				throw (std::invalid_argument("Error, number higher than 9"));
+		}
 		if (input[i] == ' ' || input[i] == '\t')
 			continue ;
 		else if (input[i] == '+' || input[i] == '-' || input[i] == '*' || input[i] == '/'){
 			if (_calculator.size() < 2)
 				throw (std::invalid_argument(TOKEN));
+			if (input[i] == '-' && (input[i + 1] >= '0' && input[i + 1] <= '9'))
+				throw (std::invalid_argument("Error, negative number found"));
 			value2 = _calculator.top();
 			_calculator.pop();
 			value1 = _calculator.top();
@@ -49,12 +55,12 @@ RPN::RPN(std::string input){
 			throw (std::invalid_argument("Error, must be a digit or an operation token"));
 		else {
 			long long	digit = (input[i] - 48);
-std::cout << digit << std::endl;
-std::cout << input[i] << std::endl;
 			_calculator.push(digit);
 		}
 	}
-	if (_calculator.size() != 1)
+	if (_calculator.size() == 0)
+		throw (std::invalid_argument("Error, empty argument"));
+	if (_calculator.size() > 1)
 		throw (std::invalid_argument("Too much numbers compared to operation token"));
 	std::cout << "Result is : " << _calculator.top() << std::endl;
 }
