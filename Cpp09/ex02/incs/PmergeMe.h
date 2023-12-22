@@ -1,28 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   PmergeMe.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/20 16:15:04 by tgellon           #+#    #+#             */
-/*   Updated: 2023/12/22 10:33:59 by tgellon          ###   ########lyon.fr   */
+/*   Created: 2023/12/22 09:35:10 by tgellon           #+#    #+#             */
+/*   Updated: 2023/12/22 15:00:51 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "RPN.hpp"
+#ifndef PMERGEME_H
+# define PMERGEME_H
 
-int	main(int argc, char **argv){
-	std::string	input;
-	if (argc != 2){
-		std::cout << "Error, wrong argument entered" << std::endl;
-		return (1);
-	}
-	input = std::string(argv[1]);
-	try{
-		RPN	calculator = RPN(input);
-	}
-	catch (std::exception &e){
-		std::cout << RED << e.what() << CLEAR << std::endl;
-	}
-}
+# include <iostream>
+# include <sstream>
+# include <algorithm>
+# include <vector>
+# include <list>
+# include <iterator>
+
+#endif

@@ -26,7 +26,7 @@ ${NAME} :	${OBJ}
 
 ${OBJ}: ${OBJ_DIR}%.o :	${SRCS_DIR}%.cpp ${HEADERS} 
 		@mkdir -p objs
-		${CC} ${CFLAGS} -I/usr/include -c $< -o $@
+		${CC} ${CFLAGS} -I/usr/include -I ${HEADERS_DIR} -c $< -o $@
 
 all :	${NAME}
 

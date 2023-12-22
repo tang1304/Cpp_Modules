@@ -6,11 +6,11 @@
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 10:28:13 by tgellon           #+#    #+#             */
-/*   Updated: 2023/12/20 14:55:34 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2023/12/22 10:35:10 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../incs/BitcoinExchange.hpp"
+# include "BitcoinExchange.hpp"
 
 BitcoinExchange::BitcoinExchange(){
 	std::ifstream	file;

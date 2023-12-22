@@ -6,22 +6,14 @@
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 10:28:54 by tgellon           #+#    #+#             */
-/*   Updated: 2023/12/20 14:06:35 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2023/12/22 10:38:45 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef BITCOINEXCHANGE_HPP
 # define BITCOINEXCHANGE_HPP
 
-# include <iostream>
-# include <cstdlib>
-# include <fstream>
-# include <sstream>
-# include <map>
-
-# define RED "\033[31m"
-# define GREEN "\033[32m"
-# define CLEAR "\033[0m"
+# include "BitcoinExchange.h"
 
 class BitcoinExchange{
 private:

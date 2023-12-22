@@ -3,13 +3,13 @@
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98 -g3# -fsanitize=address
 SRCS_DIR = ./srcs/
-SRCS = BitcoinExchange.cpp main.cpp
+SRCS = PmergeMe.cpp main.cpp
 OBJ_DIR = objs/
 OBJ = ${SRCS:%.cpp=${OBJ_DIR}%.o}
-NAME = btc
+NAME = PmergeMe
 RM = rm -f
 HEADERS_DIR = ./incs/
-HEADERS_FILES = BitcoinExchange.hpp
+HEADERS_FILES = PmergeMe.hpp
 HEADERS = $(addprefix ${HEADERS_DIR}/, ${HEADERS_FILES})
 
 # --- COLORS --- #
