@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   RPN.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/20 16:15:04 by tgellon           #+#    #+#             */
-/*   Updated: 2023/12/22 10:33:59 by tgellon          ###   ########lyon.fr   */
+/*   Created: 2023/12/20 15:08:48 by tgellon           #+#    #+#             */
+/*   Updated: 2023/12/22 10:40:43 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "RPN.hpp"
+#ifndef RPN_H
+# define RPN_H
 
-int	main(int argc, char **argv){
-	std::string	input;
-	if (argc != 2){
-		std::cout << "Error, wrong argument entered" << std::endl;
-		return (1);
-	}
-	input = std::string(argv[1]);
-	try{
-		RPN	calculator = RPN(input);
-	}
-	catch (std::exception &e){
-		std::cout << RED << e.what() << CLEAR << std::endl;
-	}
-}
+# include <iostream>
+# include <sstream>
+# include <stack>
+# include <limits>
+
+# define RED "\033[31m"
+# define GREEN "\033[32m"
+# define CLEAR "\033[0m"
+
+# define TOKEN "Error, you must have at least two numbers before having this operation token"
+# define OVERFLOW "Error, would be using values superior to integer max/min. Overflow risk"
+
+#endif

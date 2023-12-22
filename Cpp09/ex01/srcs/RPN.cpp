@@ -6,19 +6,19 @@
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 15:54:51 by tgellon           #+#    #+#             */
-/*   Updated: 2023/12/22 09:29:51 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2023/12/22 14:57:47 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../incs/RPN.hpp"
+# include "RPN.hpp"
 
 RPN::RPN(){
 }
 
 RPN::RPN(std::string input){
-	long long			value1;
-	long long			value2;
-	long long			result;
+	long			value1;
+	long			value2;
+	long			result;
 
 	for (size_t	i = 0; i < input.length(); i++){
 		if ((input[i] >= '0' && input[i] <= '9') && i > 0){

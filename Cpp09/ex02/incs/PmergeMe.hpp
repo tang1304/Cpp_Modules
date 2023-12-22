@@ -1,28 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   PmergeMe.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/20 16:15:04 by tgellon           #+#    #+#             */
-/*   Updated: 2023/12/22 10:33:59 by tgellon          ###   ########lyon.fr   */
+/*   Created: 2023/12/22 09:35:10 by tgellon           #+#    #+#             */
+/*   Updated: 2023/12/22 14:50:48 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "RPN.hpp"
+#ifndef PMERGEME_HPP
+# define PMERGEME_HPP
 
-int	main(int argc, char **argv){
-	std::string	input;
-	if (argc != 2){
-		std::cout << "Error, wrong argument entered" << std::endl;
-		return (1);
-	}
-	input = std::string(argv[1]);
-	try{
-		RPN	calculator = RPN(input);
-	}
-	catch (std::exception &e){
-		std::cout << RED << e.what() << CLEAR << std::endl;
-	}
-}
+# include "PmergeMe.h"
+
+class PmergeMe{
+private:
+
+	std::vector<int>	_vecResolution;
+	std::list<int>		_lstResolution;
+	PmergeMe();
+
+public:
+
+	PmergeMe(char **args);
+	~PmergeMe();
+	PmergeMe(const PmergeMe &other);
+	PmergeMe &operator=(const PmergeMe &other);
+
+};
+
+#endif
