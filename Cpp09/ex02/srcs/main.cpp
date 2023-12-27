@@ -6,7 +6,7 @@
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 09:41:12 by tgellon           #+#    #+#             */
-/*   Updated: 2023/12/22 15:00:03 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2023/12/27 14:51:14 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,5 +18,14 @@ int main(int argc, char **argv){
 		std::cout << "Error, wrong argument entered" << std::endl;
 		return (1);
 	}
-	PmergeMe	obj(argv);
+	try{
+		PmergeMe obj(argc, argv);
+		std::cout << "Before: ";
+		obj.displaySequence();
+		obj.FJsortVec();
+	}
+	catch(std::exception &e){
+		std::cout << RED << "Error: " << e.what() << CLEAR << std::endl;
+		return (1);
+	}
 }

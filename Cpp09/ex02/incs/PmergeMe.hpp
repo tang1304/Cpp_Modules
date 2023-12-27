@@ -6,7 +6,7 @@
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 09:35:10 by tgellon           #+#    #+#             */
-/*   Updated: 2023/12/22 14:50:48 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2023/12/27 15:14:20 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,15 +20,22 @@ private:
 
 	std::vector<int>	_vecResolution;
 	std::list<int>		_lstResolution;
+	std::vector<int>	_jacobsthalNb;
 	PmergeMe();
 
 public:
 
-	PmergeMe(char **args);
+	PmergeMe(int argc, char **args);
 	~PmergeMe();
 	PmergeMe(const PmergeMe &other);
 	PmergeMe &operator=(const PmergeMe &other);
 
+	bool	isSorted(std::vector<int>::iterator begin, std::vector<int>::iterator end);
+	void	displaySequence();
+	void	FJsortVec();
+	std::vector<std::pair<int, int> >	makePairsVec();
+	std::vector<std::pair<int, int> >	FJsortPairsVec(std::vector<std::pair<int, int> >);
+	
 };
 
 #endif
