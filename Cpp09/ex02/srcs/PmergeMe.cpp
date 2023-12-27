@@ -6,7 +6,7 @@
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 09:41:42 by tgellon           #+#    #+#             */
-/*   Updated: 2023/12/27 16:01:49 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2023/12/27 17:32:38 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,12 +33,25 @@ PmergeMe::PmergeMe(int argc, char **args){
 	int prev1 = 0, prev2 = 1;
 	int jacobNb = prev1 + 2 * prev2;
 	for (int j = 1; j < argc; j++){
+// 		jacobNb = prev2 + 2 * prev1;
+// 		if (j == jacobNb){
+// 			prev1 = prev2;
+// 			prev2 = jacobNb;
+// 			_jacobsthalNb.push_back(j);
+// std::cout << j << std::endl;
+		// }
 		jacobNb = prev2 + 2 * prev1;
 		if (j == jacobNb){
+			_jacobsthalNb.push_back(j);
+			std::cout << "jacob " << j << std::endl;
 			prev1 = prev2;
 			prev2 = jacobNb;
-			_jacobsthalNb.push_back(j);
-			std::cout << j << std::endl;
+		}
+		else{
+			for (int k = jacobNb - 1; k > prev1; k--) {
+				_jacobsthalNb.push_back(k);
+				std::cout << k << std::endl;
+			}
 		}
 	}
 }
@@ -106,13 +119,18 @@ std::vector<std::pair<int, int> >	PmergeMe::makePairsVec(){
 	std::vector<std::pair<int, int> >	_vecPairs;
 	for (std::vector<int>::iterator it = _vecResolution.begin(); it != _vecResolution.end(); it += 2){
 		if (it + 1 != _vecResolution.end()){
-			if (*it < *(it + 1))
+			if (*it < *(it + 1)){
 				_vecPairs.push_back(std::make_pair(*it, *(it + 1)));
-			else
+std::cout << "pair: " << *it << " " << *(it + 1) << std::endl;
+			}
+			else{
 				_vecPairs.push_back(std::make_pair(*(it + 1), *it));
+std::cout << "pair: " << *(it + 1) << " " << *it << std::endl;
+			}
 		}
 		else{
 			_vecPairs.push_back(std::make_pair(*it, -1));
+std::cout << "pair: " << *it << " -1" << std::endl;
 			break ;
 		}
 	}
