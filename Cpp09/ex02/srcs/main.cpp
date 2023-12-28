@@ -6,7 +6,7 @@
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 09:41:12 by tgellon           #+#    #+#             */
-/*   Updated: 2023/12/28 15:16:42 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2023/12/28 15:27:13 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ int main(int argc, char **argv){
 		obj.FJsortVec();
 		std::cout << "After: ";
 		obj.displaySequence();
+		obj.FJsortDeq();
 	}
 	catch(std::exception &e){
 		std::cout << RED << "Error: " << e.what() << CLEAR << std::endl;
