@@ -6,7 +6,7 @@
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 09:41:42 by tgellon           #+#    #+#             */
-/*   Updated: 2023/12/28 15:19:11 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2023/12/28 16:42:20 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,28 +26,25 @@ PmergeMe::PmergeMe(int argc, char **args){
 		if (value < 0)
 			throw (std::invalid_argument("Error, negative number found" ));
 		_vecResolution.push_back(value);
-		_lstResolution.push_back(value);
+		_deqResolution.push_back(value);
 	}
 	if (isSorted(_vecResolution.begin(), _vecResolution.end()))
 		throw (std::invalid_argument("Error, the sequence is already sorted"));
 	int prev1 = 0, prev2 = 1;
 	int jacobNb = 0;
-	while (jacobNb < argc - 1){
+	while (jacobNb < ((argc - 1) / 2) + 1){
 		if (jacobNb != 0){
 			_jacobsthalNb.push_back(jacobNb);
-// std::cout << "jacobNb: " << jacobNb << std::endl;
 			for (int j = jacobNb - 1; j > prev1; j--) {
 				_jacobsthalNb.push_back(j);
-// std::cout << "not: " << j << std::endl;
 			}
 		}
 		jacobNb = prev2 + 2 * prev1;
 		prev1 = prev2;
 		prev2 = jacobNb;
 	}
-	for (int k = *(std::max_element(_jacobsthalNb.begin(), _jacobsthalNb.end())) + 1 ; k < jacobNb; k++){
+	for (int k = *(std::max_element(_jacobsthalNb.begin(), _jacobsthalNb.end())) + 1 ; k < (argc / 2) + 1; k++){
 		_jacobsthalNb.push_back(k);
-// std::cout << "not : " << k << std::endl;
 	}
 }
 
@@ -61,7 +58,7 @@ PmergeMe::PmergeMe(const PmergeMe &other){
 PmergeMe	&PmergeMe::operator=(const PmergeMe &other){
 	if (this != &other){
 		_vecResolution = other._vecResolution;
-		_lstResolution = other._lstResolution;
+		_deqResolution = other._deqResolution;
 		_jacobsthalNb = other._jacobsthalNb;
 	}
 	return (*this);
@@ -87,25 +84,34 @@ void	PmergeMe::displaySequence(){
 	std::cout << std::endl;
 }
 
+void	PmergeMe::displaySequenceDeq(){
+	for (std::deque<int>::iterator it = _deqResolution.begin(); it != _deqResolution.end(); ++it){
+		std::cout << *it << " ";
+	}
+	std::cout << std::endl;
+}
+
 void	PmergeMe::FJsortVec(){
 	std::vector<std::pair<int, int> >	vecPairs;
 
 	vecPairs = makePairsVec();
+// for (size_t i = 0; i < vecPairs.size(); i++){
+// 	std::cout << vecPairs[i].first << " " << vecPairs[i].second << std::endl;
+// }
 	vecPairs = FJsortPairsVec(vecPairs);
 // for (size_t i = 0; i < vecPairs.size(); i++){
 // 	std::cout << vecPairs[i].first << " " << vecPairs[i].second << std::endl;
 // }
 	_vecResolution.clear();
 	for (std::vector<std::pair<int, int> >::iterator it = vecPairs.begin(); it != vecPairs.end(); ++it){
-		_vecResolution.push_back(it->first);
+		if ((it->first) != -1){
+			_vecResolution.push_back(it->first);
+		}
 	}
 	std::vector<int>::iterator itJacob = _jacobsthalNb.begin();
 	for (size_t j = 0; j < vecPairs.size(); j++){
-		if (vecPairs[j].second == -1){
-			itJacob++;
-			continue ;
-		}
-		insertSortVec(vecPairs[j].second, this->_vecResolution.size());
+		insertSortVec(vecPairs[*(itJacob) - 1].second, this->_vecResolution.size());
+		itJacob++;
 	}
 	return ;
 }
@@ -131,18 +137,13 @@ std::vector<std::pair<int, int> >	PmergeMe::makePairsVec(){
 
 	for (std::vector<int>::iterator it = _vecResolution.begin(); it != _vecResolution.end(); it += 2){
 		if (it + 1 != _vecResolution.end()){
-			if (*it > *(it + 1)){
+			if (*it > *(it + 1))
 				_vecPairs.push_back(std::make_pair(*it, *(it + 1)));
-// std::cout << "pair: " << *it << " " << *(it + 1) << std::endl;
-			}
-			else{
+			else
 				_vecPairs.push_back(std::make_pair(*(it + 1), *it));
-// std::cout << "pair: " << *(it + 1) << " " << *it << std::endl;
-			}
 		}
 		else{
-			_vecPairs.push_back(std::make_pair(*it, -1));
-// std::cout << "pair: " << *it << " -1" << std::endl;
+			_vecPairs.push_back(std::make_pair(-1, *it));
 			break ;
 		}
 	}
@@ -170,5 +171,90 @@ void	PmergeMe::insertSortVec(int n, size_t size){
 		}
 	}
 	this->_vecResolution.insert(left, n);
+	return ;
+}
+
+
+
+void	PmergeMe::FJsortDeq(){
+	std::deque<std::pair<int, int> >	deqPairs;
+
+	deqPairs = makePairsDeq();
+// for (size_t i = 0; i < deqPairs.size(); i++){
+// 	std::cout << deqPairs[i].first << " " << deqPairs[i].second << std::endl;
+// }
+	deqPairs = FJsortPairsDeq(deqPairs);
+// for (size_t i = 0; i < deqPairs.size(); i++){
+// 	std::cout << deqPairs[i].first << " " << deqPairs[i].second << std::endl;
+// }
+	_deqResolution.clear();
+	for (std::deque<std::pair<int, int> >::iterator it = deqPairs.begin(); it != deqPairs.end(); ++it){
+		if ((it->first) != -1){
+			_deqResolution.push_back(it->first);
+		}
+	}
+	std::vector<int>::iterator itJacob = _jacobsthalNb.begin();
+	for (size_t j = 0; j < deqPairs.size(); j++){
+		insertSortDeq(deqPairs[*(itJacob) - 1].second, this->_deqResolution.size());
+		itJacob++;
+	}
+	return ;
+}
+
+std::deque<std::pair<int, int> >	PmergeMe::FJsortPairsDeq(std::deque<std::pair<int, int> > deqPairs){
+	if (deqPairs.size() <= 1)
+		return (deqPairs);
+
+	std::deque<std::pair<int, int> >::iterator	mid = deqPairs.begin() + deqPairs.size() / 2;
+	std::deque<std::pair<int, int> >			leftDeq(deqPairs.begin(), mid);
+	std::deque<std::pair<int, int> >			rightDeq(mid, deqPairs.end());
+	
+	std::deque<std::pair<int, int> >	leftSorted = FJsortPairsDeq(leftDeq);
+	std::deque<std::pair<int, int> >	rightSorted = FJsortPairsDeq(rightDeq);
+
+	std::deque<std::pair<int, int> >	mergedDeq;
+	std::merge(leftSorted.begin(), leftSorted.end(), rightSorted.begin(), rightSorted.end(), std::back_inserter(mergedDeq));
+	return (mergedDeq);
+}
+
+std::deque<std::pair<int, int> >	PmergeMe::makePairsDeq(){
+	std::deque<std::pair<int, int> >	_deqPairs;
+
+	for (std::deque<int>::iterator it = _deqResolution.begin(); it != _deqResolution.end(); it += 2){
+		if (it + 1 != _deqResolution.end()){
+			if (*it > *(it + 1))
+				_deqPairs.push_back(std::make_pair(*it, *(it + 1)));
+			else
+				_deqPairs.push_back(std::make_pair(*(it + 1), *it));
+		}
+		else{
+			_deqPairs.push_back(std::make_pair(-1, *it));
+			break ;
+		}
+	}
+	return (_deqPairs);
+}
+
+void	PmergeMe::insertSortDeq(int n, size_t size){
+	std::deque<int>::iterator	mid = _deqResolution.begin() + size / 2;
+	std::deque<int>::iterator	left = _deqResolution.begin();
+	std::deque<int>::iterator	right = _deqResolution.end() - 1;
+
+	while (left <= right){
+		mid = left + (right - left) / 2;
+		if (n == *mid){
+			this->_deqResolution.insert(mid, n);
+			return ;
+		}
+		if (n < *mid){
+			right = mid - 1;
+			continue ;
+		}
+		else{
+			left = mid + 1;
+			continue ;
+		}
+	}
+	this->_deqResolution.insert(left, n);
 	return ;
 }

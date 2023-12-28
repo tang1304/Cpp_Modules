@@ -6,7 +6,7 @@
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 09:35:10 by tgellon           #+#    #+#             */
-/*   Updated: 2023/12/28 14:32:26 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2023/12/28 15:32:52 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ class PmergeMe{
 private:
 
 	std::vector<int>	_vecResolution;
-	std::list<int>		_lstResolution;
+	std::deque<int>		_deqResolution;
 	std::vector<int>	_jacobsthalNb;
 	PmergeMe();
 
@@ -32,10 +32,16 @@ public:
 
 	bool	isSorted(std::vector<int>::iterator begin, std::vector<int>::iterator end);
 	void	displaySequence();
+	void	displaySequenceDeq();
 	void	FJsortVec();
+	void	insertSortVec(int n, size_t size);
 	std::vector<std::pair<int, int> >	FJsortPairsVec(std::vector<std::pair<int, int> >);
 	std::vector<std::pair<int, int> >	makePairsVec();
-	void	insertSortVec(int n, size_t size);
+
+	void	FJsortDeq();
+	void	insertSortDeq(int n, size_t size);
+	std::deque<std::pair<int, int> >	FJsortPairsDeq(std::deque<std::pair<int, int> >);
+	std::deque<std::pair<int, int> >	makePairsDeq();
 	
 };
 
