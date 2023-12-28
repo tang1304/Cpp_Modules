@@ -6,7 +6,7 @@
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 09:41:42 by tgellon           #+#    #+#             */
-/*   Updated: 2023/12/27 17:32:38 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2023/12/28 15:19:11 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,28 +31,23 @@ PmergeMe::PmergeMe(int argc, char **args){
 	if (isSorted(_vecResolution.begin(), _vecResolution.end()))
 		throw (std::invalid_argument("Error, the sequence is already sorted"));
 	int prev1 = 0, prev2 = 1;
-	int jacobNb = prev1 + 2 * prev2;
-	for (int j = 1; j < argc; j++){
-// 		jacobNb = prev2 + 2 * prev1;
-// 		if (j == jacobNb){
-// 			prev1 = prev2;
-// 			prev2 = jacobNb;
-// 			_jacobsthalNb.push_back(j);
-// std::cout << j << std::endl;
-		// }
-		jacobNb = prev2 + 2 * prev1;
-		if (j == jacobNb){
-			_jacobsthalNb.push_back(j);
-			std::cout << "jacob " << j << std::endl;
-			prev1 = prev2;
-			prev2 = jacobNb;
-		}
-		else{
-			for (int k = jacobNb - 1; k > prev1; k--) {
-				_jacobsthalNb.push_back(k);
-				std::cout << k << std::endl;
+	int jacobNb = 0;
+	while (jacobNb < argc - 1){
+		if (jacobNb != 0){
+			_jacobsthalNb.push_back(jacobNb);
+// std::cout << "jacobNb: " << jacobNb << std::endl;
+			for (int j = jacobNb - 1; j > prev1; j--) {
+				_jacobsthalNb.push_back(j);
+// std::cout << "not: " << j << std::endl;
 			}
 		}
+		jacobNb = prev2 + 2 * prev1;
+		prev1 = prev2;
+		prev2 = jacobNb;
+	}
+	for (int k = *(std::max_element(_jacobsthalNb.begin(), _jacobsthalNb.end())) + 1 ; k < jacobNb; k++){
+		_jacobsthalNb.push_back(k);
+// std::cout << "not : " << k << std::endl;
 	}
 }
 
@@ -86,7 +81,6 @@ bool	PmergeMe::isSorted(std::vector<int>::iterator begin, std::vector<int>::iter
 }
 
 void	PmergeMe::displaySequence(){
-	std::cout << "Vector: ";
 	for (std::vector<int>::iterator it = _vecResolution.begin(); it != _vecResolution.end(); ++it){
 		std::cout << *it << " ";
 	}
@@ -95,44 +89,86 @@ void	PmergeMe::displaySequence(){
 
 void	PmergeMe::FJsortVec(){
 	std::vector<std::pair<int, int> >	vecPairs;
+
 	vecPairs = makePairsVec();
 	vecPairs = FJsortPairsVec(vecPairs);
+// for (size_t i = 0; i < vecPairs.size(); i++){
+// 	std::cout << vecPairs[i].first << " " << vecPairs[i].second << std::endl;
+// }
+	_vecResolution.clear();
+	for (std::vector<std::pair<int, int> >::iterator it = vecPairs.begin(); it != vecPairs.end(); ++it){
+		_vecResolution.push_back(it->first);
+	}
+	std::vector<int>::iterator itJacob = _jacobsthalNb.begin();
+	for (size_t j = 0; j < vecPairs.size(); j++){
+		if (vecPairs[j].second == -1){
+			itJacob++;
+			continue ;
+		}
+		insertSortVec(vecPairs[j].second, this->_vecResolution.size());
+	}
+	return ;
 }
 
 std::vector<std::pair<int, int> >	PmergeMe::FJsortPairsVec(std::vector<std::pair<int, int> > vecPairs){
-	if (vecPairs.size() == 1)
+	if (vecPairs.size() <= 1)
 		return (vecPairs);
 
 	std::vector<std::pair<int, int> >::iterator	mid = vecPairs.begin() + vecPairs.size() / 2;
-	std::vector<std::pair<int, int> >	leftVec(vecPairs.begin(), mid);
-	std::vector<std::pair<int, int> >	rightVec(mid, vecPairs.end());
+	std::vector<std::pair<int, int> >			leftVec(vecPairs.begin(), mid);
+	std::vector<std::pair<int, int> >			rightVec(mid, vecPairs.end());
 	
 	std::vector<std::pair<int, int> >	leftSorted = FJsortPairsVec(leftVec);
 	std::vector<std::pair<int, int> >	rightSorted = FJsortPairsVec(rightVec);
 
 	std::vector<std::pair<int, int> >	mergedVec;
-	std::merge(leftSorted.begin(), leftSorted.end(), rightSorted.begin(), rightSorted.end(), mergedVec.begin());
+	std::merge(leftSorted.begin(), leftSorted.end(), rightSorted.begin(), rightSorted.end(), std::back_inserter(mergedVec));
 	return (mergedVec);
 }
 
 std::vector<std::pair<int, int> >	PmergeMe::makePairsVec(){
 	std::vector<std::pair<int, int> >	_vecPairs;
+
 	for (std::vector<int>::iterator it = _vecResolution.begin(); it != _vecResolution.end(); it += 2){
 		if (it + 1 != _vecResolution.end()){
-			if (*it < *(it + 1)){
+			if (*it > *(it + 1)){
 				_vecPairs.push_back(std::make_pair(*it, *(it + 1)));
-std::cout << "pair: " << *it << " " << *(it + 1) << std::endl;
+// std::cout << "pair: " << *it << " " << *(it + 1) << std::endl;
 			}
 			else{
 				_vecPairs.push_back(std::make_pair(*(it + 1), *it));
-std::cout << "pair: " << *(it + 1) << " " << *it << std::endl;
+// std::cout << "pair: " << *(it + 1) << " " << *it << std::endl;
 			}
 		}
 		else{
 			_vecPairs.push_back(std::make_pair(*it, -1));
-std::cout << "pair: " << *it << " -1" << std::endl;
+// std::cout << "pair: " << *it << " -1" << std::endl;
 			break ;
 		}
 	}
 	return (_vecPairs);
+}
+
+void	PmergeMe::insertSortVec(int n, size_t size){
+	std::vector<int>::iterator	mid = _vecResolution.begin() + size / 2;
+	std::vector<int>::iterator	left = _vecResolution.begin();
+	std::vector<int>::iterator	right = _vecResolution.end() - 1;
+
+	while (left <= right){
+		mid = left + (right - left) / 2;
+		if (n == *mid){
+			this->_vecResolution.insert(mid, n);
+			return ;
+		}
+		if (n < *mid){
+			right = mid - 1;
+			continue ;
+		}
+		else{
+			left = mid + 1;
+			continue ;
+		}
+	}
+	this->_vecResolution.insert(left, n);
+	return ;
 }
