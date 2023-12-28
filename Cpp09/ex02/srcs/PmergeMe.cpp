@@ -6,7 +6,7 @@
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 09:41:42 by tgellon           #+#    #+#             */
-/*   Updated: 2023/12/28 16:42:20 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2023/12/28 16:58:42 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,22 +30,7 @@ PmergeMe::PmergeMe(int argc, char **args){
 	}
 	if (isSorted(_vecResolution.begin(), _vecResolution.end()))
 		throw (std::invalid_argument("Error, the sequence is already sorted"));
-	int prev1 = 0, prev2 = 1;
-	int jacobNb = 0;
-	while (jacobNb < ((argc - 1) / 2) + 1){
-		if (jacobNb != 0){
-			_jacobsthalNb.push_back(jacobNb);
-			for (int j = jacobNb - 1; j > prev1; j--) {
-				_jacobsthalNb.push_back(j);
-			}
-		}
-		jacobNb = prev2 + 2 * prev1;
-		prev1 = prev2;
-		prev2 = jacobNb;
-	}
-	for (int k = *(std::max_element(_jacobsthalNb.begin(), _jacobsthalNb.end())) + 1 ; k < (argc / 2) + 1; k++){
-		_jacobsthalNb.push_back(k);
-	}
+	JacobsthalInit(argc);
 }
 
 PmergeMe::~PmergeMe(){
@@ -62,6 +47,25 @@ PmergeMe	&PmergeMe::operator=(const PmergeMe &other){
 		_jacobsthalNb = other._jacobsthalNb;
 	}
 	return (*this);
+}
+
+void	PmergeMe::JacobsthalInit(int argc){
+	int prev1 = 0, prev2 = 1;
+	int jacobNb = 0;
+	while (jacobNb < ((argc - 1) / 2) + 1){
+		if (jacobNb != 0){
+			_jacobsthalNb.push_back(jacobNb);
+			for (int j = jacobNb - 1; j > prev1; j--) {
+				_jacobsthalNb.push_back(j);
+			}
+		}
+		jacobNb = prev2 + 2 * prev1;
+		prev1 = prev2;
+		prev2 = jacobNb;
+	}
+	for (int k = *(std::max_element(_jacobsthalNb.begin(), _jacobsthalNb.end())) + 1 ; k < (argc / 2) + 1; k++){
+		_jacobsthalNb.push_back(k);
+	}
 }
 
 bool	PmergeMe::isSorted(std::vector<int>::iterator begin, std::vector<int>::iterator end){
