@@ -6,7 +6,7 @@
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 09:35:10 by tgellon           #+#    #+#             */
-/*   Updated: 2023/12/28 15:25:16 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2023/12/28 17:33:07 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 # include <deque>
 # include <iterator>
 # include <utility>
+# include <sys/time.h>
 
 # define RED "\033[31m"
 # define GREEN "\033[32m"

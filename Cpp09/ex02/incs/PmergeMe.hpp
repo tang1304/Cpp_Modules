@@ -6,7 +6,7 @@
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 09:35:10 by tgellon           #+#    #+#             */
-/*   Updated: 2023/12/28 15:32:52 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2023/12/28 16:58:17 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ public:
 	PmergeMe(const PmergeMe &other);
 	PmergeMe &operator=(const PmergeMe &other);
 
+	void	JacobsthalInit(int argc);
 	bool	isSorted(std::vector<int>::iterator begin, std::vector<int>::iterator end);
 	void	displaySequence();
 	void	displaySequenceDeq();
