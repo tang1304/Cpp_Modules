@@ -6,7 +6,7 @@
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 09:41:42 by tgellon           #+#    #+#             */
-/*   Updated: 2023/12/28 16:58:42 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2024/01/03 10:55:42 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,11 +99,11 @@ void	PmergeMe::FJsortVec(){
 	std::vector<std::pair<int, int> >	vecPairs;
 
 	vecPairs = makePairsVec();
-// for (size_t i = 0; i < vecPairs.size(); i++){
+// for (size_t i = 0; i < vecPairs.size(); i++){ // to show the pairs
 // 	std::cout << vecPairs[i].first << " " << vecPairs[i].second << std::endl;
 // }
 	vecPairs = FJsortPairsVec(vecPairs);
-// for (size_t i = 0; i < vecPairs.size(); i++){
+// for (size_t i = 0; i < vecPairs.size(); i++){ // to show the pairs sorted by their highest number
 // 	std::cout << vecPairs[i].first << " " << vecPairs[i].second << std::endl;
 // }
 	_vecResolution.clear();
@@ -184,13 +184,7 @@ void	PmergeMe::FJsortDeq(){
 	std::deque<std::pair<int, int> >	deqPairs;
 
 	deqPairs = makePairsDeq();
-// for (size_t i = 0; i < deqPairs.size(); i++){
-// 	std::cout << deqPairs[i].first << " " << deqPairs[i].second << std::endl;
-// }
 	deqPairs = FJsortPairsDeq(deqPairs);
-// for (size_t i = 0; i < deqPairs.size(); i++){
-// 	std::cout << deqPairs[i].first << " " << deqPairs[i].second << std::endl;
-// }
 	_deqResolution.clear();
 	for (std::deque<std::pair<int, int> >::iterator it = deqPairs.begin(); it != deqPairs.end(); ++it){
 		if ((it->first) != -1){

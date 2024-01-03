@@ -6,7 +6,7 @@
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 09:41:12 by tgellon           #+#    #+#             */
-/*   Updated: 2023/12/28 17:32:44 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2024/01/03 10:51:59 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int main(int argc, char **argv){
 			throw (std::runtime_error("Error, gettimeofday failed"));
 		obj.FJsortDeq();
 		timeSortDeq = getTime(start);
-		// std::cout << "Deque: ";
+		// std::cout << "Deque: "; // to test the deque order
 		// obj.displaySequenceDeq();
 		std::cout << "Time to sort with vector : " << timeSortVec << " us" << std::endl;
 		std::cout << "Time to sort with deque : " << timeSortDeq << " us" << std::endl;

@@ -6,7 +6,7 @@
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 10:28:13 by tgellon           #+#    #+#             */
-/*   Updated: 2023/12/22 10:35:10 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2024/01/03 10:11:21 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,22 +126,21 @@ std::string	BitcoinExchange::checkDate(std::string &content){
 	std::string pipe;
 
 	i = content.find('|');
+	if (i == content.npos)
+		throw (std::invalid_argument("Wrong date and value separator"));
 	pipe = content.substr(i - 1, 3);
 	if (pipe != " | ")
 		throw (std::invalid_argument("Wrong date and value separator"));
 	i = content.find_first_of('-');
-	if (i < 4)
+	if (i < 4 || i == content.npos)
 		throw (std::invalid_argument("Wrong date format, must be YYYY-MM-DD"));
 	start = i - 4;
 	year = content.substr(i - 4, 4);
-// std::cout << "year:" << year; //del
 	int	yearNb = yearCheck(year);
 	i = content.find('-', i + 1);
 	month = content.substr(i - 2, 2);
-// std::cout << " month:" << month; //del
 	int	monthNb = monthCheck(month);
 	day = content.substr(i + 1, 2);
-// std::cout << " day:" << day << std::endl; //del
 	int	dayNb = dayCheck(day, monthNb, yearNb);
 	(void)dayNb;
 	i = content.find('|');

@@ -6,7 +6,7 @@
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 15:54:51 by tgellon           #+#    #+#             */
-/*   Updated: 2023/12/22 14:57:47 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2024/01/03 10:21:14 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ RPN::RPN(std::string input){
 		else if (input[i] < '0' || input[i] > '9')
 			throw (std::invalid_argument("Error, must be a digit or an operation token"));
 		else {
-			long long	digit = (input[i] - 48);
+			long	digit = (input[i] - 48);
 			_calculator.push(digit);
 		}
 	}
@@ -62,7 +62,7 @@ RPN::RPN(std::string input){
 		throw (std::invalid_argument("Error, empty argument"));
 	if (_calculator.size() > 1)
 		throw (std::invalid_argument("Too much numbers compared to operation token"));
-	std::cout << "Result is : " << _calculator.top() << std::endl;
+	std::cout << GREEN << "Result is : " << _calculator.top() << CLEAR << std::endl;
 }
 
 RPN::~RPN(){
