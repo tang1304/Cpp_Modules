@@ -6,14 +6,14 @@
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 09:35:10 by tgellon           #+#    #+#             */
-/*   Updated: 2023/12/28 16:58:17 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2024/01/03 11:07:24 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PMERGEME_HPP
 # define PMERGEME_HPP
 
-# include "PmergeMe.h"
+# include "pmergeMe.h"
 
 class PmergeMe{
 private:

@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   BitcoinExchange.h                                  :+:      :+:    :+:   */
+/*   btc.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 10:36:15 by tgellon           #+#    #+#             */
-/*   Updated: 2023/12/22 10:37:57 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2024/01/03 11:06:56 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BITCOINEXCHANGE_H
-# define BITCOINEXCHANGE_H
+#ifndef BTC_H
+# define BTC_H
 
 # include <iostream>
 # include <cstdlib>

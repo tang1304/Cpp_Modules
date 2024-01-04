@@ -6,7 +6,7 @@
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 09:41:42 by tgellon           #+#    #+#             */
-/*   Updated: 2024/01/03 10:55:42 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2024/01/04 10:54:20 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,14 @@ PmergeMe::PmergeMe(int argc, char **args){
 		std::istringstream	ssArg(args[i]);
 		ssArg >> value;
 		if (ssArg.fail())
-			throw (std::invalid_argument("Error in arguments, not an int"));
+			throw (std::invalid_argument("in arguments, not an int"));
 		if (value < 0)
-			throw (std::invalid_argument("Error, negative number found" ));
+			throw (std::invalid_argument("negative number found" ));
 		_vecResolution.push_back(value);
 		_deqResolution.push_back(value);
 	}
 	if (isSorted(_vecResolution.begin(), _vecResolution.end()))
-		throw (std::invalid_argument("Error, the sequence is already sorted"));
+		throw (std::invalid_argument("the sequence is already sorted"));
 	JacobsthalInit(argc);
 }
 

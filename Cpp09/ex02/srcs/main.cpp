@@ -6,7 +6,7 @@
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 09:41:12 by tgellon           #+#    #+#             */
-/*   Updated: 2024/01/03 10:51:59 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2024/01/04 10:53:52 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int main(int argc, char **argv){
 	long			timeSortDeq;
 
 	if (argc < 3){
-		std::cout << "Error, wrong argument entered" << std::endl;
+		std::cout << "wrong argument entered" << std::endl;
 		return (1);
 	}
 	try{
@@ -38,13 +38,13 @@ int main(int argc, char **argv){
 		std::cout << "Before: ";
 		obj.displaySequence();
 		if (gettimeofday(&start, NULL) != 0)
-			throw (std::runtime_error("Error, gettimeofday failed"));
+			throw (std::runtime_error("gettimeofday failed"));
 		obj.FJsortVec();
 		timeSortVec = getTime(start);
 		std::cout << "After: ";
 		obj.displaySequence();
 		if (gettimeofday(&start, NULL) != 0)
-			throw (std::runtime_error("Error, gettimeofday failed"));
+			throw (std::runtime_error("gettimeofday failed"));
 		obj.FJsortDeq();
 		timeSortDeq = getTime(start);
 		// std::cout << "Deque: "; // to test the deque order
