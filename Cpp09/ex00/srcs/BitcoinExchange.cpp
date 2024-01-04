@@ -6,7 +6,7 @@
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 10:28:13 by tgellon           #+#    #+#             */
-/*   Updated: 2024/01/03 10:11:21 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2024/01/04 15:18:04 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,7 @@ BitcoinExchange::BitcoinExchange(){
 
 	file.open("data.csv", std::fstream::in);
 	if (!file.is_open()){
-		std::cout << "Error while trying to open data.csv" << std::endl;
-		return ;
+		throw (std::invalid_argument("Error while trying to open data.csv"));
 	}
 	while (!file.eof()){
 		std::getline(file, content);
@@ -96,21 +95,33 @@ float	BitcoinExchange::checkMultiplier(const std::string &content){
 	std::string	multiplier;
 	float		multiplierNb;
 	bool		dott = 0;
+	bool		space = 0;
 
 	i = content.find('|');
 	multiplier = content.substr(i + 2, content.size() - (i + 1));
-	for (size_t j = 0; j < multiplier.size(); j++){
-		if (multiplier.c_str()[j] < '0' || multiplier.c_str()[j] > '9'){
-			if (multiplier.c_str()[j] == '.' && dott == 0)
-				dott = 1;
-			else
-				throw (std::invalid_argument("Error in multiplier, not a float"));
-		}
-	}
+
 	std::istringstream	ssMultiplier(multiplier);
 	ssMultiplier >> multiplierNb;
 	if (ssMultiplier.fail())
-		throw (std::invalid_argument("Error in multiplier, not a float"));
+		throw (std::invalid_argument("Error in multiplier"));
+	for (size_t j = 0; j < multiplier.size(); j++){
+		if ((multiplier.c_str()[j] < '0' || multiplier.c_str()[j] > '9') && multiplier.c_str()[j] != ' '){
+			if (multiplier.c_str()[j] == '.' && dott == 0)
+				dott = 1;
+			else if (multiplier.c_str()[0] == '+')
+				continue ;
+			else if (multiplier.c_str()[0] == '-')
+				throw (std::invalid_argument("Error in multiplier, negative number"));
+			else if (space == 1)
+				throw (std::invalid_argument("Error in multiplier, too many arguments"));
+			else
+				throw (std::invalid_argument("Error in multiplier, not a float"));
+		}
+		else if (multiplier.c_str()[j] == ' ')
+			space = 1;
+		else if (space == 1)
+			throw (std::invalid_argument("Error in multiplier, too many arguments"));
+	}
 	if (multiplierNb < 0 || multiplierNb > 1000)
 		throw (std::invalid_argument("Error, multiplier must be between 0 and 1000"));
 	return (multiplierNb);
@@ -123,8 +134,11 @@ std::string	BitcoinExchange::checkDate(std::string &content){
 	std::string	year;
 	std::string	month;
 	std::string	day;
-	std::string pipe;
+	std::string	pipe;
+	struct tm	time;
 
+	if (!strptime(content.c_str(), "%Y-%m-%d", &time))
+		throw (std::invalid_argument("Wrong date format, must be YYYY-MM-DD"));
 	i = content.find('|');
 	if (i == content.npos)
 		throw (std::invalid_argument("Wrong date and value separator"));
@@ -138,11 +152,12 @@ std::string	BitcoinExchange::checkDate(std::string &content){
 	year = content.substr(i - 4, 4);
 	int	yearNb = yearCheck(year);
 	i = content.find('-', i + 1);
+	if (i == content.npos)
+		throw (std::invalid_argument("Wrong date format, must be YYYY-MM-DD"));
 	month = content.substr(i - 2, 2);
 	int	monthNb = monthCheck(month);
 	day = content.substr(i + 1, 2);
-	int	dayNb = dayCheck(day, monthNb, yearNb);
-	(void)dayNb;
+	dayCheck(day, monthNb, yearNb);
 	i = content.find('|');
 	return (content.substr(start, i - 1));
 }
@@ -160,6 +175,8 @@ int	BitcoinExchange::yearCheck(std::string year){
 		throw (std::invalid_argument("Error in year, not an int"));
 	if (yearNb < 2009)
 		throw (std::invalid_argument("Error, the values start from 2009-01-02"));
+	if (yearNb > 2022)
+		throw (std::invalid_argument("Error, the database stops in 2022"));
 	return (yearNb);
 }
 
@@ -169,27 +186,27 @@ int	BitcoinExchange::monthCheck(std::string month){
 
 	for (int i = 0; i < 2; i++){
 		if (month.c_str()[i] < '0' || month.c_str()[i] > '9')
-			throw (std::invalid_argument("Error in month, not an int"));
+			throw (std::invalid_argument("Error in month, not a double digit int"));
 	}
 	ssMonth >> monthNb;
 	if (ssMonth.fail())
-		throw (std::invalid_argument("Error in month, not an int"));
+		throw (std::invalid_argument("Error in month, not a double digit int"));
 	if (monthNb < 1 || monthNb > 12)
 		throw (std::invalid_argument("Error, not a valid month"));
 	return (monthNb);
 }
 
-int	BitcoinExchange::dayCheck(std::string day, int month, int year){
+void	BitcoinExchange::dayCheck(std::string day, int month, int year){
 	std::istringstream	ssDay(day);
 	int					dayNb;
 
 	for (int i = 0; i < 2; i++){
 		if (day.c_str()[i] < '0' || day.c_str()[i] > '9')
-			throw (std::invalid_argument("Error in day, not an int"));
+			throw (std::invalid_argument("Error in day, not a double digit int"));
 	}
 	ssDay >> dayNb;
 	if (ssDay.fail())
-		throw (std::invalid_argument("Error in day, not an int"));
+		throw (std::invalid_argument("Error in day, not a double digit int"));
 	if (dayNb < 1 || dayNb > 31)
 		throw (std::invalid_argument("Error, not a valid day"));
 	if (dayNb == 31 && (month == 2 || month == 4 || month == 6 || month == 9 || month == 11))
@@ -200,5 +217,4 @@ int	BitcoinExchange::dayCheck(std::string day, int month, int year){
 		throw (std::invalid_argument("Error, there are not 29 days in February this year"));
 	if (year == 2009 && month == 01 && dayNb == 01)
 		throw (std::invalid_argument("Error, the values start from 2009-01-02"));
-	return (dayNb);
 }
