@@ -6,7 +6,7 @@
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 09:41:12 by tgellon           #+#    #+#             */
-/*   Updated: 2024/01/04 10:53:52 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2024/01/05 15:27:31 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int main(int argc, char **argv){
 	long			timeSortDeq;
 
 	if (argc < 3){
-		std::cout << "wrong argument entered" << std::endl;
+		std::cout << RED << "wrong argument entered" << CLEAR << std::endl;
 		return (1);
 	}
 	try{

@@ -6,7 +6,7 @@
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 10:28:13 by tgellon           #+#    #+#             */
-/*   Updated: 2024/01/04 15:18:04 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2024/01/05 14:24:37 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -137,14 +137,14 @@ std::string	BitcoinExchange::checkDate(std::string &content){
 	std::string	pipe;
 	struct tm	time;
 
-	if (!strptime(content.c_str(), "%Y-%m-%d", &time))
-		throw (std::invalid_argument("Wrong date format, must be YYYY-MM-DD"));
 	i = content.find('|');
 	if (i == content.npos)
 		throw (std::invalid_argument("Wrong date and value separator"));
 	pipe = content.substr(i - 1, 3);
 	if (pipe != " | ")
 		throw (std::invalid_argument("Wrong date and value separator"));
+	if (!strptime(content.c_str(), "%Y-%m-%d |", &time))
+		throw (std::invalid_argument("Wrong date format, must be YYYY-MM-DD"));
 	i = content.find_first_of('-');
 	if (i < 4 || i == content.npos)
 		throw (std::invalid_argument("Wrong date format, must be YYYY-MM-DD"));
