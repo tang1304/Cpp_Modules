@@ -6,7 +6,7 @@
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 09:41:42 by tgellon           #+#    #+#             */
-/*   Updated: 2024/01/04 10:54:20 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2024/01/05 15:25:14 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ PmergeMe::PmergeMe(int argc, char **args){
 	for (int i = 1; args[i] != NULL; i++){
 		std::istringstream	ssArg(args[i]);
 		ssArg >> value;
-		if (ssArg.fail())
+		if (ssArg.fail() || !ssArg.eof())
 			throw (std::invalid_argument("in arguments, not an int"));
 		if (value < 0)
 			throw (std::invalid_argument("negative number found" ));
