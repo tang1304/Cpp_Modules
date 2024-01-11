@@ -6,7 +6,7 @@
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 11:55:34 by tgellon           #+#    #+#             */
-/*   Updated: 2023/12/14 11:22:21 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2024/01/11 11:36:03 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,5 @@ public:
 		const char *what() const throw();
 	};
 };
-
-# include "Array.tpp"
 
 #endif
