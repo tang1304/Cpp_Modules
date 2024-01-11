@@ -6,7 +6,7 @@
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 11:52:46 by tgellon           #+#    #+#             */
-/*   Updated: 2023/12/13 12:32:44 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2024/01/11 11:36:45 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,15 +25,15 @@ int	main(){
 		std::cout << "intArr size: " << intArr.size() << std::endl;
 		std::cout << "charArr size: " << charArr.size() << std::endl;
 
-		// Array<int>	cpyArr(intArr); // test cpy constructor
-		Array<int>	cpyArr; // test operator =
-		cpyArr = intArr;
+		Array<int>	cpyArr(intArr); // test cpy constructor
+		// Array<int>	cpyArr; // test operator =
+		// cpyArr = intArr;
 		std::cout << "cpyArr[1] = " << cpyArr[1] << std::endl;
 		cpyArr[1] = 42;
 		std::cout << "cpyArr[1] = " << cpyArr[1] << std::endl;
 		std::cout << "intArr[1] = " << intArr[1] << std::endl;
 
-		std::cout << intArr[5] << std::endl; // test operator [] and exception;
+		// std::cout << intArr[5] << std::endl; // test operator [] and exception;
 	}
 	catch (std::exception &e){
 		std::cout << YELLOW << e.what() << WHITE << std::endl;
