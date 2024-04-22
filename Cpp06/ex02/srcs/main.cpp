@@ -6,7 +6,7 @@
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 09:26:58 by tgellon           #+#    #+#             */
-/*   Updated: 2023/12/08 14:10:50 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2024/02/16 11:03:58 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ Base	*generate(){
 			return (base);
 		}
 		case (2):{
-			Base *base = new C();
+			Base* base = new C();
 			return (base);
 		}
 	}

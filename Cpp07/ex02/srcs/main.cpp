@@ -6,7 +6,7 @@
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 11:52:46 by tgellon           #+#    #+#             */
-/*   Updated: 2024/01/11 11:36:45 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2024/01/11 13:09:12 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@ int	main(){
 		}
 		std::cout << "intArr size: " << intArr.size() << std::endl;
 		std::cout << "charArr size: " << charArr.size() << std::endl;
-
+Array<int>	test(5);
+intArr = test;
 		Array<int>	cpyArr(intArr); // test cpy constructor
 		// Array<int>	cpyArr; // test operator =
 		// cpyArr = intArr;

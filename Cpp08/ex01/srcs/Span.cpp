@@ -15,8 +15,15 @@
 Span::Span(): _N(0){
 }
 
-Span::Span(unsigned int N): _N(N){
-	_vContainer.reserve(N);
+Span::Span(unsigned int N): _N(N){ */
+/*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/12/06 09:46:52 by tgellon           #+#    #+#             */
+/*   Updated: 2023/12/15 10:49:37 by tgellon          ###   ########lyon.fr   */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "../incs/Span.hpp"
 }
 
 Span::Span(const Span &old): _N(old._N), _vContainer(old._vContainer){

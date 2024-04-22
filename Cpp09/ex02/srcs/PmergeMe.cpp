@@ -6,7 +6,7 @@
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 09:41:42 by tgellon           #+#    #+#             */
-/*   Updated: 2024/01/05 15:25:14 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2024/03/07 14:06:43 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,9 @@ void	PmergeMe::JacobsthalInit(int argc){
 	for (int k = *(std::max_element(_jacobsthalNb.begin(), _jacobsthalNb.end())) + 1 ; k < (argc / 2) + 1; k++){
 		_jacobsthalNb.push_back(k);
 	}
+// for (std::vector<int>::iterator it = _jacobsthalNb.begin(); it != _jacobsthalNb.end(); it++){
+// 	std::cout << *it << std::endl;
+// }
 }
 
 bool	PmergeMe::isSorted(std::vector<int>::iterator begin, std::vector<int>::iterator end){

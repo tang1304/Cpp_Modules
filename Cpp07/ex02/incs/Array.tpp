@@ -6,7 +6,7 @@
 /*   By: tgellon <tgellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 13:38:37 by tgellon           #+#    #+#             */
-/*   Updated: 2023/12/05 13:51:31 by tgellon          ###   ########lyon.fr   */
+/*   Updated: 2024/01/11 12:58:28 by tgellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,9 @@ Array<T>::Array(){
 template<typename T>
 Array<T>::Array(unsigned int n){
 	this->_list = new T[n];
+	for (unsigned int i = 0; i < n; i++){
+		_list[i] = 0;
+	}
 	this->_size = n;
 }
 
